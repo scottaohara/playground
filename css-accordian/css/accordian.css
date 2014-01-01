@@ -1,0 +1,53 @@
+body, html {
+  font-family: arial;
+  margin: 0; }
+
+body {
+  padding: 20px; }
+
+.nav {
+  list-style: none;
+  margin: 0;
+  max-width: 30%;
+  padding: 0; }
+  .nav .accordian {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 8px; }
+
+.accordian {
+  height: auto;
+  max-height: 0px;
+  overflow: hidden;
+  transition: all .25s; }
+
+.accordian-label {
+  color: #888;
+  cursor: pointer;
+  display: block;
+  padding-left: 18px;
+  position: relative; }
+  .accordian-label::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    top: 0; }
+  .accordian-label:hover {
+    color: #222; }
+
+.accordian-input {
+  position: absolute;
+  top: -99999px; }
+  .accordian-input:checked ~ .accordian {
+    max-height: 400px; }
+  .accordian-input:checked + .accordian-label {
+    color: #111;
+    font-weight: bold; }
+    .accordian-input:checked + .accordian-label:before {
+      content: "▼"; }
+
+.accordian-menu li {
+  padding: 4px 8px; }
+
+.accordian-info {
+  box-shadow: 0 0 1px #999 inset; }
