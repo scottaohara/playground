@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Heart (Break)</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="intro-message">
+      Click the heart to break it. :(
+    </div>
+
+    <div class="heart-circle">
+      <div class="heart-container">
+
+        <div class="left-side sides">
+
+          <div class="half">
+            <div class="heart"></div>
+          </div> <!-- end .half -->
+
+          <div class="points">
+            <div class="point pt1"></div>
+            <div class="point pt4"></div>
+            <div class="point pt2"></div>
+            <div class="point pt3"></div>
+          </div> <!-- end .points -->
+
+        </div> <!-- end .left-side -->
+
+        <div class="right-side sides">
+
+          <div class="half">
+            <div class="heart"></div>
+          </div> <!-- end .half -->
+
+          <div class="points">
+            <div class="point pt1"></div>
+            <div class="point pt2"></div>
+            <div class="point pt3"></div>
+          </div> <!-- end .points -->
+
+        </div> <!-- end .right-side -->
+
+      </div> <!-- end .heart-container -->
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.heart-circle').click(function(){
+          $('.heart-container').toggleClass('broken');
+        });
+      });
+    </script>
+
+  </body>
+</html>

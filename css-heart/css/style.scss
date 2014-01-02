@@ -1,0 +1,236 @@
+// ----------------------------------------------------------------------------
+//  Mixins
+// ----------------------------------------------------------------------------
+
+// Just webkit & moz Prefixes
+@mixin base-vendor($property, $value...) {
+     -moz-#{$property}:$value;
+  -webkit-#{$property}:$value;
+          #{$property}:$value;
+}
+
+// All Vendor Prefixes
+@mixin vendor($property, $value...) {
+       -moz-#{$property}:$value;
+        -ms-#{$property}:$value;
+         -o-#{$property}:$value;
+    -webkit-#{$property}:$value;
+            #{$property}:$value;
+}
+
+
+// ----------------------------------------------------------------------------
+//  Placeholders
+// ----------------------------------------------------------------------------
+
+%transition {
+  @include base-vendor(transition, all 0.35s);
+}
+
+
+// ----------------------------------------------------------------------------
+//  Basic Resets & Normalizing
+// ----------------------------------------------------------------------------
+
+*,
+*:after,
+*:before {
+  @include base-vendor(box-sizing, border-box);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: #ddd;
+  padding: 10%;
+  font-family: arial;
+}
+
+
+// ----------------------------------------------------------------------------
+//  Messaging
+// ----------------------------------------------------------------------------
+
+.intro-message {
+  padding: 10px;
+  text-align: center;
+}
+
+
+// ----------------------------------------------------------------------------
+//  Heart Container
+// ----------------------------------------------------------------------------
+
+.heart-circle{
+  border: 7px solid #fc2e5a;
+  border-radius: 2000px;
+  height: 140px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 140px;
+}
+
+.heart-container{
+  @extend %transition;
+  left: 11%;
+  position: absolute;
+  top: 20%;
+
+  &.broken {
+    left: 6%;
+    top: 23%;
+  }
+}
+
+.heart {
+  height: 90px;
+  position: relative;
+  width: 50px;
+
+  &:after, &:before {
+    background: #fc2e5a;
+    border-radius: 50px 50px 0 0;
+    content: "";
+    height: 80px;
+    left: 50px;
+    position: absolute;
+    top: 4px;
+    width: 50px;
+  }
+
+  &:after {
+    @include vendor(transform, rotate(45deg));
+    @include vendor(transform-origin, 100% 100%);
+    left: 0;
+  }
+
+  &:before {
+    @include vendor(transform, rotate(-45deg));
+    @include vendor(transform-origin, 0 100%);
+  }
+}
+
+
+// Heart Sides
+.sides {
+  @extend %transition;
+  float: left;
+  position: relative;
+}
+
+.half {
+  overflow: hidden;
+  position: relative;
+  width: 50px;
+}
+
+.right-side .heart:after,
+.right-side .heart:before {
+  left: -50px;
+}
+
+
+// Points for when split
+.points {
+  position: absolute;
+  top: 20px
+}
+
+.point {
+  border-bottom: 8px solid transparent;
+  border-left:   16px solid #fc2e5a;
+  border-top:    8px solid transparent;
+  height: 0;
+  width: 0;
+}
+
+
+// Left Side
+.left-side {
+
+  .points {
+    left: 100%;
+  }
+
+  .point {
+    @include vendor(transform, rotate(-2deg));
+    left: -3px;
+    position: relative;
+    top: 3px;
+  }
+
+  .pt1 {
+    @include vendor(transform, rotate(29deg));
+    left: -5px;
+    top: -4px;
+  }
+
+  .pt2 {
+    top: 1px;
+  }
+
+  .pt3 {
+    @include vendor(transform, rotate(29deg));
+    left: -5px;
+    top: 4px;
+  }
+
+  .pt4 {
+    @include vendor(transform, rotate(-9deg));
+    left: -7px;
+    position: absolute;
+    top: 5px;
+  }
+}
+
+
+// Right Side
+.right-side {
+
+  .points {
+    right: 100%;
+  }
+
+  .point {
+    @include vendor(transform, rotate(-15deg));
+    border-bottom:  8px solid transparent;
+    border-left:    none;
+    border-right:   16px solid #fc2e5a;
+    border-top:     8px solid transparent;
+    position: relative;
+    right: -3px;
+    top: -5px;
+  }
+
+  .pt2 {
+    top: -7px;
+  }
+
+  .pt3 {
+    @include vendor(transform, rotate(-26deg));
+    right: -5px;
+    top: -6px;
+  }
+}
+
+
+// Broken Apart
+.broken {
+
+  .left-side {
+    @include vendor(transform, rotate(-10deg));
+    margin-right: 6px;
+  }
+
+  .right-side {
+    @include vendor(transform, rotate(10deg));
+    margin-left: 6px;
+  }
+}
+

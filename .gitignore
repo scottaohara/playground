@@ -1,3 +1,5 @@
 .DS_Store
 
 /css-tape-player/.sass-cache/
+
+.sass-cache
