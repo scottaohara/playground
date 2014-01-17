@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Vanilla CSS Variables</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <header class="header-base" role="banner">
+      <div class="content">
+        <h1>Testing out Vanilla CSS Variables</h1>
+        <p>
+          This only works in
+          <a href="http://nightly.mozilla.org/">Firefox Nightly</a>
+          at the time of this demo <small>-- Jan. 17, 2014</small>.
+        </p>
+      </div>
+    </header>
+
+    <section class="content">
+      <main role="main">
+        <article>
+          <h2>So what's the hubub, bub?</h2>
+          <p>
+            If the background of this page is simply white, then that means your
+            browser doesn't support CSS variables, yet.
+          </p>
+
+          <h3>How do CSS variables work?</h3>
+          <p>
+            Declaring variables in CSS isn't difficult, but it is slightly
+            different than declaring variables in other programming languages.
+          </p>
+
+          <p>
+            Firstly, all variables must start with <strong>"var-"</strong>
+            and can either be declared globally, or attached to a specific
+            element.
+          </p>
+
+          <p><strong>Global Variable</strong></p>
+          <code>
+            :root {<br />
+            <span class="selector">var-name</span>: <span class="value">value</span><br />
+            }
+          </code>
+
+          <p><strong>Scoped Variable</strong></p>
+          <code>
+            .element {<br />
+            <span class="selector">var-name</span>: <span class="value">value</span><br />
+            }
+          </code>
+
+          <p>
+            Obviously, global variables can be used in any rule set throughout your
+            stylesheet. However variables defined within a specific element can
+            only be applied in the scope of that element.
+          </p>
+
+          <p><strong>Using a Global Variable</strong></p>
+          <code>
+            :root {<br />
+            <span class="selector">var-background-color</span>:
+            <span class="value">#f00</span><br />
+            }
+            <br />
+            <br />
+            .class-name {<br />
+              <span class="selector">background:</span>
+              <span class="value">var(background-color)</span>;<br />
+            }
+          </code>
+
+          <p><strong>Scoped Variable</strong></p>
+          <code>
+            .element {<br />
+            <span class="selector">var-margin-bottom</span>:
+            <span class="value">0 0 16px</span><br />
+            }
+            <br />
+            <br />
+            .element .child-element{<br />
+            <span class="selector">margin:</span>:
+            <span class="value">var(margin-bottom)</span><br />
+            }
+            <br />
+            <br />
+            .element .other-child-element{<br />
+            <span class="selector">margin:</span>:
+            <span class="value">var(margin-bottom)</span><br />
+            }
+          </code>
+
+          <p>
+            The variable declared in <strong>.element</strong> will not
+            work if referenced anywhere other than within that initial
+            class name, or  within a child element of that initial class name.
+          </p>
+
+
+        </article>
+      </main>
+    </section>
+
+    <footer class="footer-base" role="contentinfo">
+      <div class="content">
+        <p>
+          If I had content for a footer, it would most definitely go here.
+        </p>
+        <p>
+          And if I had a link to reference, it would
+          <a href="#!">look like this</a>.
+        </p>
+      </div>
+    </footer>
+
+  </body>
+</html>

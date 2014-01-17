@@ -1,0 +1,87 @@
+/* Vars */
+
+:root {
+  var-c-bg: #e4e3e3;
+  var-c-bg-header: #d6d3d3;
+  var-c-bg-footer: #a49e9e;
+
+  var-c-txt-dark: #80888d;
+  var-c-txt-light: #f3f3f3;
+  var-c-link-dark: #177389;
+  var-c-link-light: #bfe7f0;
+
+  var-txt-margin: 0 0 1em;
+}
+
+
+/* Normalize */
+
+html, body {
+  background: var(c-bg);
+  color: var(c-txt-dark);
+  font-family: arial;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  text-shadow: 0 1px 0 #fff;
+}
+
+a {
+  color: var(c-link-dark);
+}
+
+h1, h2, h3, h4, h5, h6, p, li {
+  margin: var(txt-margin);
+}
+
+:last-child {
+  margin-bottom: 0;
+}
+
+/* Base Containers */
+
+.content {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+
+/* Section Specific Styles */
+
+.header-base {
+  background: var(c-bg-header);
+}
+
+.footer-base {
+  background: var(c-bg-footer);
+  color: var(c-txt-light);
+  text-shadow: none;
+  width: 100%;
+}
+
+.footer-base a {
+  color: var(c-link-light);
+}
+
+
+/* code coloring */
+
+code {
+  background: #272822;
+  border: 1px solid #aaa;
+  color: #eee;
+  display: block;
+  padding: 8px;
+  text-shadow: none;
+}
+
+.selector {
+  color: #f92772;
+  padding-left: 8px;
+}
+
+.value {
+  color: #56bcdf;
+}
+
