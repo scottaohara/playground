@@ -1,0 +1,139 @@
+body {
+  background: #fafafa;
+  margin: 0;
+  padding: 0;
+}
+
+.shot {
+  background: #d2c026;
+  border: 1px solid rgba(0,0,0,.3);
+  height: 300px;
+  margin: 10% auto 0;
+  overflow: hidden;
+  position: relative;
+  width: 400px;
+}
+
+.people {
+  height: 58px;
+  left: 60px;
+  position: absolute;
+  top: 160px;
+  width: 16px;
+  z-index: 1;
+}
+
+.p-head {
+  background: #2a2a2a;
+  border-radius: 100px;
+  height: 16px;
+  margin-bottom: 2px;
+}
+
+.p-body {
+  background: #2a2a2a;
+  border-radius: 16px 16px 0 0;
+  height: 40px;
+}
+
+.person-1 {
+  animation-duration: 7s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-name: p1;
+  left: -5px;
+  z-index: 1;
+}
+
+.person-2 {
+  animation-delay: .99s;
+  animation-duration: 7s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-name: p2;
+  left:-20px;
+  transform-style: flat;
+}
+
+@keyframes p1 {
+  0% {
+    transform: translate(0,0);
+  }
+
+  25% {
+    transform: translate(130px,0);
+  }
+
+  70% {
+    transform: translate(246px,-100px)
+  }
+
+  100% {
+    transform: translate(420px,-100px)
+  }
+}
+
+
+@keyframes p2 {
+  0% {
+    transform: translate(0,0);
+  }
+
+   30% {
+    transform: translate(150px,0);
+   }
+
+  70% {
+    transform: translate(266px,-100px);
+   }
+
+   100% {
+      transform: translate(420px,-100px);
+   }
+}
+
+/*
+  escalator elements
+*/
+
+.esc-contain {
+  height: 120px;
+  left: 7px;
+  margin: 100px;
+  position: absolute;
+  width: 180px;
+  z-index: 9;
+}
+
+.esc-ends {
+  background: #c8b61f;
+  border-radius: 20px;
+  border: 3px solid #333;
+  height: 24px;
+  position: absolute;
+  width: 51px;
+  z-index: 6;
+}
+
+.esc-1 {
+  bottom: 0;
+  left: 0;
+}
+
+.esc-2 {
+  background: #c8b61f;
+  border-bottom: 3px solid #333;
+  border-top: 3px solid #333;
+  height: 30px;
+  left: 20px;
+  position: absolute;
+  top: 42px;
+  transform: rotate(-40deg);
+  width: 140px;
+  z-index: 7;
+}
+
+.esc-3 {
+  right: 0;
+  top: 0;
+}
