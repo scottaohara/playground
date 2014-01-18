@@ -1,0 +1,45 @@
+/*  shadow-scroll source
+    http://lea.verou.me/2012/04/background-attachment-local/
+*/
+
+html, body {
+  font: 100% arial;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  font-size: 1.6em;
+  margin: auto;
+  max-width: 900px;
+  padding: 10%;
+}
+
+.shadow-scroll {
+  background:
+    /* Shadow covers */
+    linear-gradient(white 30%, rgba(255,255,255,0)),
+    linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
+
+    /* Shadows */
+    radial-gradient(50% 0, farthest-side, rgba(0,0,0,.2), rgba(0,0,0,0)),
+    radial-gradient(50% 100%,farthest-side, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+
+  background:
+    /* Shadow covers */
+    linear-gradient(white 30%, rgba(255,255,255,0)),
+    linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
+
+    /* Shadows */
+    radial-gradient(farthest-side at 50% 0, rgba(0,0,0,.2), rgba(0,0,0,0)),
+    radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+
+  background-attachment: local, local, scroll, scroll;
+  background-repeat: no-repeat;
+  background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+
+  margin: 0 auto;
+  max-height: 330px;
+  overflow: auto;
+  width: 400px;
+}
