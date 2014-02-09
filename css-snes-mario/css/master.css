@@ -1,0 +1,858 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: 0; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+body {
+  background: #f8f4e9;
+  font-family: arial;
+  overflow: hidden;
+  text-align: center; }
+
+.container {
+  margin: 0 auto;
+  position: relative;
+  width: 370px; }
+
+.wire {
+  background: #1a1a1a;
+  height: 50px;
+  margin: 0 auto;
+  width: 16px; }
+
+.main {
+  position: relative;
+  z-index: 2; }
+
+.btn-top {
+  background: #d9d9d9;
+  height: 28px;
+  position: absolute;
+  top: 46px;
+  width: 102px; }
+
+.top-Left {
+  border-radius: 100px 40px 0 0;
+  left: 20px; }
+
+.top-Right {
+  border-radius: 40px 100px 0 0;
+  right: 20px; }
+
+.mask {
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  width: 100px;
+  z-index: 6; }
+
+.tl {
+  left: 20px; }
+
+.tr {
+  right: 20px; }
+
+.middle {
+  background: #e7e7e5;
+  border-radius: 1000px;
+  height: 126px; }
+
+.mid-Btns {
+  background: #e7e7e5;
+  border-bottom: 1px solid #cccccc;
+  font-style: italic;
+  font-size: 12px;
+  height: 101%;
+  margin: 0 auto;
+  position: relative;
+  width: 74px;
+  z-index: 6; }
+
+.btn-Mid {
+  background: #656a63;
+  border-radius: 20px;
+  height: 10px;
+  position: absolute;
+  top: 90px;
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 26px; }
+  .btn-Mid:hover {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
+
+.select {
+  left: 5px;
+  z-index: 4; }
+
+.start {
+  right: 10px; }
+
+.left, .right {
+  background: #e7e7e5;
+  border-bottom: 2px solid #cccccc;
+  border-radius: 1000px;
+  height: 170px;
+  position: absolute;
+  top: 0;
+  width: 170px;
+  z-index: 3; }
+
+.left {
+  left: -10px; }
+  .left .int {
+    border: 1px solid #f3f3f3;
+    border-radius: 1000px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    height: 96px;
+    margin: 36px auto 0;
+    position: relative;
+    width: 96px; }
+
+.up-Down {
+  background: #595e5c;
+  border-radius: 2px;
+  height: 72px;
+  margin: 11px auto 0;
+  position: relative;
+  width: 26px; }
+  .up-Down:before, .up-Down:after {
+    border: solid transparent;
+    border-color: rgba(89, 94, 98, 0);
+    content: "";
+    left: 50%;
+    margin-left: -.5em;
+    position: absolute;
+    top: 6px;
+    z-index: 10; }
+  .up-Down:before {
+    border-bottom-color: #4b4d4e;
+    border-width: 0 8px 14px;
+    top: 6px; }
+  .up-Down:after {
+    border-top-color: #4b4d4e;
+    border-width: 14px 8px 0;
+    top: 54px; }
+
+.left-Right {
+  background: #595e5c;
+  border-radius: 2px;
+  height: 26px;
+  left: 11px;
+  position: absolute;
+  top: 35px;
+  width: 72px; }
+  .left-Right:before, .left-Right:after {
+    border: solid transparent;
+    border-color: rgba(89, 94, 98, 0);
+    content: "";
+    margin-top: -.5em;
+    position: absolute;
+    top: 50%;
+    z-index: 3; }
+  .left-Right:before {
+    border-right-color: #4b4d4e;
+    border-width: 8px 14px 8px 0;
+    left: 4px; }
+  .left-Right:after {
+    border-left-color: #4b4d4e;
+    border-width: 8px 0 8px 14px;
+    left: 54px; }
+
+.center {
+  border-radius: 80px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  height: 20px;
+  left: 37px;
+  position: absolute;
+  top: 39px;
+  width: 20px;
+  z-index: 4; }
+
+.btn-Dpad {
+  position: absolute;
+  z-index: 12; }
+
+.btn-Up {
+  height: 30%;
+  left: 0;
+  top: 0;
+  width: 100%; }
+  .btn-Up:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    background: linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)); }
+
+.btn-Down {
+  bottom: 0;
+  height: 30%;
+  left: 0;
+  width: 100%; }
+  .btn-Down:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    background: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)); }
+
+.btn-Left {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 30%; }
+  .btn-Left:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    background: -webkit-linear-gradient(right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    background: -moz-linear-gradient(right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    background: -o-linear-gradient(right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    background: linear-gradient(right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)); }
+
+.btn-Right {
+  height: 100%;
+  right: 0;
+  top: 0;
+  width: 30%; }
+  .btn-Right:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    background: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    background: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    background: linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)); }
+
+.right {
+  right: -10px; }
+  .right .int {
+    background: #b0b0b0;
+    border: 1px solid #979797;
+    border-radius: 1000px;
+    height: 136px;
+    margin: 16px auto 0;
+    width: 136px; }
+
+.group {
+  background: #e8e8e8;
+  border: 1px solid #979797;
+  border-radius: 1000px;
+  font-weight: bold;
+  height: 36px;
+  margin: 0 auto;
+  position: relative;
+  -moz-transform: rotate(-24deg);
+  -webkit-transform: rotate(-24deg);
+  transform: rotate(-24deg);
+  width: 82px; }
+
+.group1 {
+  left: -8px;
+  top: 28px; }
+
+.group2 {
+  left: 8px;
+  top: 38px; }
+
+.btn {
+  border: 1px solid #979797;
+  border-radius: 1000px;
+  height: 28px;
+  position: absolute;
+  top: 3px;
+  width: 28px; }
+  .btn:hover {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
+
+.btn-Y {
+  background: #03a77e;
+  left: 4px; }
+
+.btn-X {
+  background: #005dc1;
+  right: 4px; }
+
+.btn-B {
+  background: #fdb94e;
+  left: 4px; }
+
+.btn-A {
+  background: #e92233;
+  right: 4px; }
+
+.holder {
+  bottom: 32px;
+  left: 185px;
+  height: 16px;
+  position: absolute; }
+
+.background {
+  background: -webkit-linear-gradient(top, #444444, black);
+  background: -moz-linear-gradient(top, #444444, black);
+  background: -o-linear-gradient(top, #444444, black);
+  background: linear-gradient(top, #444444, black);
+  border: 1px solid #000;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+  height: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 400px; }
+
+#bg {
+  background: url(../media/background.jpg);
+  padding: 20px; }
+  #bg.reset {
+    -moz-animation: reset 2s forwards;
+    -webkit-animation: reset 2s forwards;
+    animation: reset 2s forwards; }
+
+@keyframes reset {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+.border {
+  height: 257px;
+  overflow: hidden;
+  position: relative; }
+
+.m-container {
+  background: #212121;
+  border: 1px solid #111;
+  position: relative;
+  padding: 15px 15px 40px; }
+
+.nob {
+  background: -webkit-linear-gradient(top, #cccccc, #999999);
+  background: -moz-linear-gradient(top, #cccccc, #999999);
+  background: -o-linear-gradient(top, #cccccc, #999999);
+  background: linear-gradient(top, #cccccc, #999999);
+  border-bottom: 1px solid #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 100px;
+  bottom: 10px;
+  color: #fff;
+  font-family: arial;
+  height: 20px;
+  position: absolute;
+  right: 50px;
+  text-decoration: none;
+  text-shadow: 0 1px 1px #000;
+  width: 20px; }
+  .nob:hover {
+    background: #999; }
+  .nob:before {
+    content: "Reset";
+    position: relative;
+    right: 56px; }
+
+.shine {
+  background: rgba(255, 255, 255, 0.4);
+  height: 200%;
+  position: absolute;
+  width: 30px;
+  -moz-transform: rotate(40deg);
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
+  top: -120px;
+  z-index: 9; }
+
+.shine1 {
+  left: -130px;
+  width: 120px; }
+
+.shine2 {
+  left: 60px;
+  width: 60px; }
+
+#mario, #shell, #bullet {
+  background-image: url(../media/sprite.png);
+  background-repeat: no-repeat; }
+
+#mario-Holder {
+  position: absolute; }
+  #mario-Holder.move-Right {
+    -moz-animation: move-Right 1.5s forwards;
+    -webkit-animation: move-Right 1.5s forwards;
+    animation: move-Right 1.5s forwards; }
+  #mario-Holder.move-Left {
+    -moz-animation: move-Left 1.5s forwards;
+    -webkit-animation: move-Left 1.5s forwards;
+    animation: move-Left 1.5s forwards; }
+  #mario-Holder.die {
+    position: absolute;
+    -moz-animation: drop 3s forwards .5s;
+    -webkit-animation: drop 3s forwards .5s;
+    animation: drop 3s forwards .5s; }
+  #mario-Holder.fly-Move {
+    -moz-animation: fly-Move 3s forwards;
+    -webkit-animation: fly-Move 3s forwards;
+    animation: fly-Move 3s forwards;
+    bottom: -13px;
+    left: 0; }
+
+@-moz-keyframes drop {
+  0% {
+    bottom: 0; }
+
+  10% {
+    bottom: 30px; }
+
+  100% {
+    bottom: -1000px; } }
+
+@-webkit-keyframes drop {
+  0% {
+    bottom: 0; }
+
+  10% {
+    bottom: 30px; }
+
+  100% {
+    bottom: -1000px; } }
+
+@keyframes drop {
+  0% {
+    bottom: 0; }
+
+  10% {
+    bottom: 30px; }
+
+  100% {
+    bottom: -1000px; } }
+
+@-moz-keyframes fly-Move {
+  0%, 90% {
+    bottom: -13px;
+    left: 0; }
+
+  100% {
+    bottom: 250px;
+    left: 150px; } }
+
+@-webkit-keyframes fly-Move {
+  0%, 90% {
+    bottom: -13px;
+    left: 0; }
+
+  100% {
+    bottom: 250px;
+    left: 150px; } }
+
+@keyframes fly-Move {
+  0%, 90% {
+    bottom: -13px;
+    left: 0; }
+
+  100% {
+    bottom: 250px;
+    left: 150px; } }
+
+@-moz-keyframes move-Right {
+  0% {
+    left: 0; }
+
+  100% {
+    left: 300px; } }
+
+@-webkit-keyframes move-Right {
+  0% {
+    left: 0; }
+
+  100% {
+    left: 300px; } }
+
+@keyframes move-Right {
+  0% {
+    left: 0; }
+
+  100% {
+    left: 300px; } }
+
+@-moz-keyframes move-Left {
+  0% {
+    left: 0; }
+
+  100% {
+    left: -300px; } }
+
+@-webkit-keyframes move-Left {
+  0% {
+    left: 0; }
+
+  100% {
+    left: -300px; } }
+
+@keyframes move-Left {
+  0% {
+    left: 0; }
+
+  100% {
+    left: -300px; } }
+
+#mario {
+  height: 28px;
+  position: relative;
+  width: 16px;
+  z-index: 5; }
+  #mario.crouch {
+    background-position: -80px 0; }
+  #mario.look-Up {
+    background-position: -112px 0; }
+  #mario.run-Left {
+    background-position: 0 -37px;
+    -moz-animation: run-Right 0.2s steps(5) infinite alternate;
+    -webkit-animation: run-Right 0.2s steps(5) infinite alternate;
+    animation: run-Right 0.2s steps(5) infinite alternate;
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg); }
+  #mario.run-Right {
+    background-position: 0 -37px;
+    -moz-animation: run-Right 0.2s steps(5) infinite alternate;
+    -webkit-animation: run-Right 0.2s steps(5) infinite alternate;
+    animation: run-Right 0.2s steps(5) infinite alternate; }
+  #mario.die {
+    background-position: 0 0;
+    -moz-animation: die 0.5s steps(2) 0.5s infinite;
+    -webkit-animation: die 0.5s steps(2) 0.5s infinite;
+    animation: die 0.5s steps(2) 0.5s infinite; }
+  #mario.peace {
+    background-position: -176px -37px; }
+  #mario.fly {
+    -moz-animation: fly 3s steps(14) forwards;
+    -webkit-animation: fly 3s steps(14) forwards;
+    animation: fly 3s steps(14) forwards;
+    margin-left: -12px;
+    width: 36px; }
+  #mario.dance {
+    -moz-animation: dance 1s steps(9) infinite alternate;
+    -webkit-animation: dance 1s steps(9) infinite alternate;
+    animation: dance 1s steps(9) infinite alternate;
+    background-position: 0 -216px;
+    height: 31px;
+    width: 21px; }
+  #mario.spin-Jump {
+    -moz-animation: spin-Jump 0.4s steps(2);
+    -webkit-animation: spin-Jump 0.4s steps(2);
+    animation: spin-Jump 0.4s steps(2); }
+  #mario.twirl {
+    -moz-animation: twirl 0.3s steps(2) infinite;
+    -webkit-animation: twirl 0.3s steps(2) infinite;
+    animation: twirl 0.3s steps(2) infinite;
+    margin-left: -10px;
+    width: 36px; }
+  #mario.jump {
+    background-position: -96px -37px;
+    -moz-animation: jump 0.5s steps(2);
+    -webkit-animation: jump 0.5s steps(2);
+    animation: jump 0.5s steps(2);
+    height: 32px; }
+  #mario.kick {
+    background-position: 0 -76px;
+    -moz-animation: kick 2s steps(10) 0.4s;
+    -webkit-animation: kick 2s steps(10) 0.4s;
+    animation: kick 2s steps(10) 0.4s;
+    width: 18px; }
+
+@-moz-keyframes die {
+  0% {
+    background-position: -135px 0;
+    bottom: 0; }
+
+  100% {
+    background-position: -167px 0; } }
+
+@-webkit-keyframes die {
+  0% {
+    background-position: -135px 0;
+    bottom: 0; }
+
+  100% {
+    background-position: -167px 0; } }
+
+@keyframes die {
+  0% {
+    background-position: -135px 0;
+    bottom: 0; }
+
+  100% {
+    background-position: -167px 0; } }
+
+@-moz-keyframes kick {
+  0% {
+    background-position: 0 -76px; }
+
+  100% {
+    background-position: -180px -76px; } }
+
+@-webkit-keyframes kick {
+  0% {
+    background-position: 0 -76px; }
+
+  100% {
+    background-position: -180px -76px; } }
+
+@keyframes kick {
+  0% {
+    background-position: 0 -76px; }
+
+  100% {
+    background-position: -180px -76px; } }
+
+@-moz-keyframes twirl {
+  0% {
+    background-position: 0 -256px; }
+
+  100% {
+    background-position: -72px -256px; } }
+
+@-webkit-keyframes twirl {
+  0% {
+    background-position: 0 -256px; }
+
+  100% {
+    background-position: -72px -256px; } }
+
+@keyframes twirl {
+  0% {
+    background-position: 0 -256px; }
+
+  100% {
+    background-position: -72px -256px; } }
+
+@-moz-keyframes spin-Jump {
+  0% {
+    background-position: 0 0;
+    margin-top: 0; }
+
+  50% {
+    margin-top: -23px; }
+
+  100% {
+    background-position: -64px 0;
+    margin-top: 0; } }
+
+@-webkit-keyframes spin-Jump {
+  0% {
+    background-position: 0 0;
+    margin-top: 0; }
+
+  50% {
+    margin-top: -23px; }
+
+  100% {
+    background-position: -64px 0;
+    margin-top: 0; } }
+
+@keyframes spin-Jump {
+  0% {
+    background-position: 0 0;
+    margin-top: 0; }
+
+  50% {
+    margin-top: -23px; }
+
+  100% {
+    background-position: -64px 0;
+    margin-top: 0; } }
+
+@-moz-keyframes jump {
+  0% {
+    background-position: -96px -37px;
+    margin-top: 0; }
+
+  40% {
+    background-position: -128px -37px;
+    margin-top: -40px; } }
+
+@-webkit-keyframes jump {
+  0% {
+    background-position: -96px -37px;
+    margin-top: 0; }
+
+  40% {
+    background-position: -128px -37px;
+    margin-top: -40px; } }
+
+@keyframes jump {
+  0% {
+    background-position: -96px -37px;
+    margin-top: 0; }
+
+  40% {
+    background-position: -128px -37px;
+    margin-top: -40px; } }
+
+@-moz-keyframes dance {
+  0% {
+    background-position: 0 -214px; }
+
+  100% {
+    background-position: -189px -214px; } }
+
+@-webkit-keyframes dance {
+  0% {
+    background-position: 0 -214px; }
+
+  100% {
+    background-position: -189px -214px; } }
+
+@keyframes dance {
+  0% {
+    background-position: 0 -214px; }
+
+  100% {
+    background-position: -189px -214px; } }
+
+@-moz-keyframes fly {
+  0% {
+    background-position: 0 -298px; }
+
+  100% {
+    background-position: -508px -298px; } }
+
+@-webkit-keyframes fly {
+  0% {
+    background-position: 0 -298px; }
+
+  100% {
+    background-position: -508px -298px; } }
+
+@keyframes fly {
+  0% {
+    background-position: 0 -298px; }
+
+  100% {
+    background-position: -508px -298px; } }
+
+@-moz-keyframes run-Right {
+  0% {
+    background-position: 0 -37px; }
+
+  100% {
+    background-position: -80px -37px; } }
+
+@-webkit-keyframes run-Right {
+  0% {
+    background-position: 0 -37px; }
+
+  100% {
+    background-position: -80px -37px; } }
+
+@keyframes run-Right {
+  0% {
+    background-position: 0 -37px; }
+
+  100% {
+    background-position: -80px -37px; } }
+
+#shell-Holder {
+  bottom: 3px;
+  left: 16px;
+  display: none;
+  position: absolute; }
+  #shell-Holder.dropDown {
+    display: block; }
+
+#shell-Holder2 {
+  position: absolute; }
+  #shell-Holder2.shoot {
+    -moz-animation: shoot 1s forwards 2s;
+    -webkit-animation: shoot 1s forwards 2s;
+    animation: shoot 1s forwards 2s; }
+
+#shell {
+  background-position: 0 -119px;
+  height: 16px;
+  position: relative;
+  width: 16px; }
+  #shell.gogo {
+    -moz-animation: gogo 0.3s steps(3) infinite 2s;
+    -webkit-animation: gogo 0.3s steps(3) infinite 2s;
+    animation: gogo 0.3s steps(3) infinite 2s;
+    position: absolute; }
+
+@-moz-keyframes gogo {
+  0% {
+    background-position: 0 -119px; }
+
+  100% {
+    background-position: -50px -119px; } }
+
+@-webkit-keyframes gogo {
+  0% {
+    background-position: 0 -119px; }
+
+  100% {
+    background-position: -50px -119px; } }
+
+@keyframes gogo {
+  0% {
+    background-position: 0 -119px; }
+
+  100% {
+    background-position: -50px -119px; } }
+
+@-moz-keyframes shoot {
+  0% {
+    left: 0; }
+
+  100% {
+    left: 900px; } }
+
+@-webkit-keyframes shoot {
+  0% {
+    left: 0; }
+
+  100% {
+    left: 900px; } }
+
+@keyframes shoot {
+  0% {
+    left: 0; }
+
+  100% {
+    left: 900px; } }
+
+#bullet {
+  background-position: 0 -144px;
+  height: 64px;
+  left: -300px;
+  position: absolute;
+  top: -34px;
+  width: 64px;
+  z-index: 3; }
+  #bullet.bang {
+    -moz-animation: bang 3s forwards;
+    -webkit-animation: bang 3s forwards;
+    animation: bang 3s forwards; }
+
+@-moz-keyframes bang {
+  0% {
+    left: -300px; }
+
+  100% {
+    left: 699px; } }
+
+@-webkit-keyframes bang {
+  0% {
+    left: -300px; }
+
+  100% {
+    left: 699px; } }
+
+@keyframes bang {
+  0% {
+    left: -300px; }
+
+  100% {
+    left: 699px; } }

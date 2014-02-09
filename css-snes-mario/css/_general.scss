@@ -1,0 +1,48 @@
+// Vars
+$c-Main:      #e7e7e5;
+$c-Outline:   #ccc;
+$circle:      1000px;
+
+// Mixins
+@mixin linear-gradient($grad-Line, $grad-Colors...) {
+  background: -webkit-linear-gradient($grad-Line, $grad-Colors);
+  background:    -moz-linear-gradient($grad-Line, $grad-Colors);
+  background:      -o-linear-gradient($grad-Line, $grad-Colors);
+  background:         linear-gradient($grad-Line, $grad-Colors);
+}
+
+// All Vendor Prefixes
+@mixin vendor($property, $value...){
+       -moz-#{$property}:$value;
+        -ms-#{$property}:$value;
+         -o-#{$property}:$value;
+    -webkit-#{$property}:$value;
+            #{$property}:$value;
+}
+
+// Just webkit & moz Prefixes
+@mixin base-vendor($property, $value...){
+      -moz-#{$property}:$value;
+   -webkit-#{$property}:$value;
+           #{$property}:$value;
+}
+
+
+// Basic standardization / clean up
+*{
+  @include base-vendor(box-sizing, border-box);
+  outline:0;
+}
+
+html, body{
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
+body{
+  background:#f8f4e9;
+  font-family:arial;
+  overflow:hidden;
+  text-align:center;
+}

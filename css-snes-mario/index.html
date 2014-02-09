@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>SNES Controller</title>
+  <link rel="stylesheet" type="text/css" href="css/master.css" />
+
+</head>
+
+<body>
+<div class="m-container">
+  <div class="background">
+  <div class="shine shine1"></div>
+  <div class="shine shine2"></div>
+
+  <div id="bg">
+    <div class="border">
+
+      <div class="holder">
+        <div id="mario-Holder">
+          <div id="mario"></div>
+        </div>
+        <div id="shell-Holder">
+          <div id="shell-Holder2">
+            <div id="shell"></div>
+          </div>
+        </div>
+        <div id="bullet"></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <a href="#!" class="js-btn nob"></a>
+</div>
+
+  <div class="container">
+
+    <div class="wire"></div>
+      <div class="btn-top top-Left"></div>
+      <div class="btn-top top-Right"></div>
+    <div class="main">
+      <a href="#!" id="btn-TL" class="js-btn mask tl"></a>
+      <a href="#!" id="btn-TR" class="js-btn mask tr"></a>
+      <div class="middle">
+
+        <div class="mid-Btns">
+          <a href="#!" id="btn-Sel" class="js-btn btn-Mid select"></a>
+          <a href="#!" id="btn-Str" class="js-btn btn-Mid start"></a>
+        </div>
+
+      </div>
+
+      <div class="left">
+        <div class="int">
+          <div class="up-Down">
+            <a href="#!" id="btn-U" title="up up up!" class="js-btn btn-Dpad btn-Up"></a>
+            <a href="#!" id="btn-D" title="downward!" class="js-btn btn-Dpad btn-Down"></a>
+          </div>
+          <div class="left-Right">
+            <a href="#!" id="btn-L" title="to the left!" class="js-btn btn-Dpad btn-Left"></a>
+            <a href="#!" id="btn-R" title="to the right!" class="js-btn btn-Dpad btn-Right"></a>
+          </div>
+          <div class="center"></div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="int">
+          <div class="group group1">
+            <a href="#!" id="btn-Y" class="js-btn btn btn-Y"></a>
+            <a href="#!" id="btn-X" class="js-btn btn btn-X"></a>
+          </div>
+
+          <div class="group group2">
+            <a href="#!" id="btn-B" class="js-btn btn btn-B"></a>
+            <a href="#!" id="btn-A" class="js-btn btn btn-A"></a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+<p style="position:fixed; bottom:0; left:0; padding:10px; background:#4a4a4a; color:#fff; width:100%; margin:0">
+  View on <a href="http://cdpn.io/tqGHg" style="color:#fff">Codepen.io</a>
+</p>
+
+<audio autoplay>
+  <source src="media/title.mp3" type="audio/mpeg">
+  <source src="media/title.ogg" type="audio/ogg">
+</audio>
+
+<!-- JavaScript -->
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="js/click.js"></script>
+
+</body>
+
+</html>
