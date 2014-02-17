@@ -13,7 +13,7 @@
         <p>
           This only works in
           <a href="http://nightly.mozilla.org/">Firefox Nightly</a>
-          at the time of this demo <small>-- Jan. 17, 2014</small>.
+          at the time of this demo <small>-- Feb. 17, 2014</small>.
         </p>
       </div>
     </header>
@@ -42,14 +42,14 @@
           <p><strong>Global Variable</strong></p>
           <code>
             :root {<br />
-            <span class="selector">var-name</span>: <span class="value">value</span><br />
+            <span class="selector">var-name</span>: <span class="value">value;</span><br />
             }
           </code>
 
           <p><strong>Scoped Variable</strong></p>
           <code>
             .element {<br />
-            <span class="selector">var-name</span>: <span class="value">value</span><br />
+            <span class="selector">var-name</span>: <span class="value">value;</span><br />
             }
           </code>
 
@@ -63,13 +63,13 @@
           <code>
             :root {<br />
             <span class="selector">var-background-color</span>:
-            <span class="value">#f00</span><br />
+            <span class="value">#f00;</span><br />
             }
             <br />
             <br />
             .class-name {<br />
               <span class="selector">background:</span>
-              <span class="value">var(background-color)</span>;<br />
+              <span class="value">var(background-color);</span><br />
             }
           </code>
 
@@ -77,19 +77,19 @@
           <code>
             .element {<br />
             <span class="selector">var-margin-bottom</span>:
-            <span class="value">0 0 16px</span><br />
+            <span class="value">0 0 16px;</span><br />
             }
             <br />
             <br />
-            .element .child-element{<br />
+            .element .child-element {<br />
             <span class="selector">margin:</span>:
-            <span class="value">var(margin-bottom)</span><br />
+            <span class="value">var(margin-bottom);</span><br />
             }
             <br />
             <br />
-            .element .other-child-element{<br />
+            .element .other-child-element {<br />
             <span class="selector">margin:</span>:
-            <span class="value">var(margin-bottom)</span><br />
+            <span class="value">var(margin-bottom);</span><br />
             }
           </code>
 
