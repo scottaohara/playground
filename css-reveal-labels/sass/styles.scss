@@ -1,0 +1,119 @@
+*, *:after, *:before {
+  -moz-box-sizing: border-box;
+}
+
+// ----------------------------------------------------------------------------
+//  Form Element Vars
+// ----------------------------------------------------------------------------
+
+$form-row--padding:         4px 0 !default;
+
+$c-form-placeholder:        #999 !default;
+$c-form-required:           #f00 !default;
+$c-form-disable-bg:         #e0e0e0 !default;
+
+$form-font-weight:          400 !default;
+$form-disable-overlay:      rgba(40,40,40,.1) !default;
+
+
+// Fieldset
+$form-block--border:        1px solid #ccc !default;
+$form-block--padding:       8px 12px !default;
+
+
+// Text Inputs
+$c-input--bg:               #fff !default;
+$c-input--bg-focus:         #fafafa !default;
+
+$input-border-style:        1px solid #ccc !default;
+$f-input--family:           Arial;
+$bs-input--focus:           0 0 6px rgba(0,200,222,.25) !default;
+
+$input--padding:            8px 4px  !default;
+$input--margin:             8px !default;
+
+
+
+// ----------------------------------------------------------------------------
+//  Input Placeholder Text
+// ----------------------------------------------------------------------------
+
+@mixin placeholder-text($c-text: $c-form-placeholder, $f-style: italic) {
+  color: $c-text;
+  font-style: $f-style;
+}
+
+// ----------------------------------------------------------------------------
+//  General Form Classes
+// ----------------------------------------------------------------------------
+// Containers
+  .form- {
+
+    // add top/bottom padding
+    &row {
+      padding: $form-row--padding;
+      position: relative;
+    }
+
+    // add emphasis styling to a row or entire form
+    &block {
+      border: $form-block--border;
+      margin-bottom: $input--margin;
+      padding: $form-block--padding;
+    }
+  }
+
+
+  // General text input helper class
+  .input-text {
+    background-color:   $c-input--bg;
+    -webkit-appearance: none;
+    border:             $input-border-style;
+    font-family:        $f-input--family;
+    margin-bottom:      $input--margin;
+    padding:            $input--padding;
+    position: relative;
+    width:              100%;
+    z-index: 3;
+
+    &:focus {
+      box-shadow: $bs-input--focus;
+      background-color: $c-input--bg-focus;
+    }
+  }
+
+
+// ----------------------------------------------------------------------------
+//  Placeholder Specific
+// ----------------------------------------------------------------------------
+
+.label-helper {
+  position: absolute;
+  opacity: 0;
+  transition: .2s all;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.input-text {
+  &:focus + .label-helper,
+  &:invalid + .label-helper {
+  bottom: 95%;
+  font-family: arial;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 1;
+  padding: 4px;
+  }
+
+  &:invalid {
+    & + .label-helper {
+      background: #f00;
+      border-radius: 4px 4px 0 0;
+      color: #fff;
+      left: -1px;
+      padding: 4px 8px;
+    }
+  }
+}
