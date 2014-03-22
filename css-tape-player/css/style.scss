@@ -10,6 +10,29 @@
 }
 
 
+
+// Setup for keyframes
+@mixin keyframe($animation-name) {
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+
+
+
 // ----------------------------------------------------------------------------
 //  Vars
 // ----------------------------------------------------------------------------
@@ -24,8 +47,8 @@ $radius: 2000px;
 // ----------------------------------------------------------------------------
 
 *,
-*:after,
-*:before {
+*::after,
+*::before {
   @include base-vendor(box-sizing, border-box);
 }
 
@@ -319,7 +342,7 @@ body {
 // ----------------------------------------------------------------------------
 
 // rotate Animation
-@-moz-keyframes rotate {
+@include keyframe(rotate) {
   from {
     @include base-vendor(transform, rotate(0deg));
   }
@@ -329,28 +352,9 @@ body {
   }
 }
 
-@-webkit-keyframes rotate{
-  from {
-    @include base-vendor(transform, rotate(0deg));
-  }
-
-  to {
-    @include base-vendor(transform, rotate(360deg));
-  }
-}
-
-@keyframes rotate {
-  from {
-    @include base-vendor(transform, rotate(0deg));
-  }
-
-  to {
-    @include base-vendor(transform, rotate(360deg));
-  }
-}
 
 // bf Animation
-@-moz-keyframes bf {
+@include keyframe(bf) {
   from {
     @include base-vendor(transform, rotate(-60deg));
     left: 25%;
@@ -362,56 +366,9 @@ body {
   }
 }
 
-@-webkit-keyframes bf {
-  from {
-    @include base-vendor(transform, rotate(-60deg));
-    left: 25%;
-  }
-
-  to {
-    @include base-vendor(transform, rotate(60deg));
-    left: 65%;
-  }
-}
-
-@keyframes bf {
-  from {
-    @include base-vendor(transform, rotate(-60deg));
-    left: 25%;
-  }
-
-  to {
-    @include base-vendor(transform, rotate(60deg));
-    left: 65%;
-  }
-}
 
 // fb Animation
-@-moz-keyframes fb {
-  from {
-    @include base-vendor(transform, rotate(60deg));
-    left: 65%;
-  }
-
-  to {
-    @include base-vendor(transform, rotate(-60deg));
-    left: 25%;
-  }
-}
-
-@-webkit-keyframes fb {
-  from {
-    @include base-vendor(transform, rotate(60deg));
-    left: 65%;
-  }
-
-  to {
-    @include base-vendor(transform, rotate(-60deg));
-    left: 25%;
-  }
-}
-
-@keyframes fb {
+@include keyframe(fb) {
   from {
     @include base-vendor(transform, rotate(60deg));
     left: 65%;

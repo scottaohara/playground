@@ -1,6 +1,6 @@
 *,
-*:after,
-*:before {
+*::after,
+*::before {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
@@ -255,7 +255,16 @@ body {
     -moz-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
+@-ms-keyframes rotate {
+  from {
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
 
+  to {
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
 @-webkit-keyframes rotate {
   from {
     -moz-transform: rotate(0deg);
@@ -266,7 +275,6 @@ body {
     -moz-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
-
 @keyframes rotate {
   from {
     -moz-transform: rotate(0deg);
@@ -277,7 +285,6 @@ body {
     -moz-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
-
 @-moz-keyframes bf {
   from {
     -moz-transform: rotate(-60deg);
@@ -290,7 +297,18 @@ body {
     -webkit-transform: rotate(60deg);
     transform: rotate(60deg);
     left: 65%; } }
+@-ms-keyframes bf {
+  from {
+    -moz-transform: rotate(-60deg);
+    -webkit-transform: rotate(-60deg);
+    transform: rotate(-60deg);
+    left: 25%; }
 
+  to {
+    -moz-transform: rotate(60deg);
+    -webkit-transform: rotate(60deg);
+    transform: rotate(60deg);
+    left: 65%; } }
 @-webkit-keyframes bf {
   from {
     -moz-transform: rotate(-60deg);
@@ -303,7 +321,6 @@ body {
     -webkit-transform: rotate(60deg);
     transform: rotate(60deg);
     left: 65%; } }
-
 @keyframes bf {
   from {
     -moz-transform: rotate(-60deg);
@@ -316,7 +333,6 @@ body {
     -webkit-transform: rotate(60deg);
     transform: rotate(60deg);
     left: 65%; } }
-
 @-moz-keyframes fb {
   from {
     -moz-transform: rotate(60deg);
@@ -329,7 +345,18 @@ body {
     -webkit-transform: rotate(-60deg);
     transform: rotate(-60deg);
     left: 25%; } }
+@-ms-keyframes fb {
+  from {
+    -moz-transform: rotate(60deg);
+    -webkit-transform: rotate(60deg);
+    transform: rotate(60deg);
+    left: 65%; }
 
+  to {
+    -moz-transform: rotate(-60deg);
+    -webkit-transform: rotate(-60deg);
+    transform: rotate(-60deg);
+    left: 25%; } }
 @-webkit-keyframes fb {
   from {
     -moz-transform: rotate(60deg);
@@ -342,7 +369,6 @@ body {
     -webkit-transform: rotate(-60deg);
     transform: rotate(-60deg);
     left: 25%; } }
-
 @keyframes fb {
   from {
     -moz-transform: rotate(60deg);
