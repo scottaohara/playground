@@ -1,92 +1,93 @@
-.holder{
-  bottom:32px;
-  left:185px;
-  height:16px;
-  position:absolute;
+.holder {
+  bottom: 32px;
+  left: 185px;
+  height: 16px;
+  position: absolute;
 }
 
-.background{
+.background {
   @include linear-gradient(top, #444, #000);
-  border:1px solid #000;
-  box-shadow:inset 0 0 10px rgba(0,0,0,.3);
-  height:300px;
-  margin:0 auto;
-  overflow:hidden;
-  position:relative;
-  width:400px;
+  border: 1px solid #000;
+  box-shadow: inset 0 0 10px rgba(0,0,0,.3);
+  height: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 400px;
 }
 
-#bg{
-  background:url(../media/background.jpg);
-  padding:20px;
+#bg {
+  background: url(../media/background.jpg);
+  padding: 20px;
 
   &.reset{
-    -moz-animation:reset 2s forwards;
-    -webkit-animation:reset 2s forwards;
-    animation:reset 2s forwards;
+    -moz-animation: reset 2s forwards;
+    -webkit-animation: reset 2s forwards;
+    animation: reset 2s forwards;
   }
 }
+
 @keyframes reset {
-  0%{opacity:0}
-  100%{opacity:1}
+  0% {opacity: 0; }
+  100% {opacity: 1; }
 }
 
-.border{
-  height:257px;
-  overflow:hidden;
-  position:relative;
+.border {
+  height: 257px;
+  overflow: hidden;
+  position: relative;
 }
 
-.m-container{
-  background:#212121;
-  border:1px solid #111;
-  position:relative;
-  padding:15px 15px 40px;
+.m-container {
+  background: #212121;
+  border: 1px solid #111;
+  position: relative;
+  padding: 15px 15px 40px;
 }
 
 // TV Nob - press for reset
-.nob{
+.nob {
   @include linear-gradient(top, #ccc, #999);
-  border-bottom:1px solid #000;
-  border-top:1px solid rgba(255,255,255,.8);
-  border-radius:100px;
-  bottom:10px;
-  color:#fff;
-  font-family:arial;
-  height:20px;
-  position:absolute;
-  right:50px;
-  text-decoration:none;
-  text-shadow:0 1px 1px #000;
-  width:20px;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid rgba(255,255,255,.8);
+  border-radius: 100px;
+  bottom: 10px;
+  color: #fff;
+  font-family: arial;
+  height: 20px;
+  position: absolute;
+  right: 50px;
+  text-decoration: none;
+  text-shadow: 0 1px 1px #000;
+  width: 20px;
 
-  &:hover{background:#999;}
-  &:before{
-    content:"Reset";
-    position:relative;
-    right:56px;
+  &:hover { background: #999; }
+  &:before {
+    content: "Reset";
+    position: relative;
+    right: 56px;
   }
 }
 
 // Light Shine
-.shine{
-  background:rgba(255,255,255,.4);
-  height:200%;
-  position:absolute;
-  width:30px;
+.shine {
+  background: rgba(255,255,255,.4);
+  height: 200%;
+  position: absolute;
+  top: -120px;
+  width: 30px;
   -moz-transform: rotate(40deg);
   -webkit-transform: rotate(40deg);
   transform: rotate(40deg);
-  top:-120px;
-  z-index:9;
-}
+  z-index: 9;
 
-.shine1{
-  left:-130px;
-  width:120px;
-}
+  &1 {
+    left:-130px;
+    width:120px;
+  }
 
-.shine2{
-  left:60px;
-  width:60px;
+  &2 {
+    left:60px;
+    width:60px;
+  }
 }
