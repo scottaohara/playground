@@ -1,31 +1,31 @@
-%sprite{
+%sprite {
   background-image:url(../media/sprite.png);
   background-repeat:no-repeat;
 }
 
-#mario-Holder{
+#mario-Holder {
   position:absolute;
 
-  &.move-Right{
+  &.move-Right {
     -moz-animation:move-Right 1.5s forwards;
     -webkit-animation:move-Right 1.5s forwards;
     animation:move-Right 1.5s forwards;
   }
 
-  &.move-Left{
+  &.move-Left {
     -moz-animation:move-Left 1.5s forwards;
     -webkit-animation:move-Left 1.5s forwards;
     animation:move-Left 1.5s forwards;
   }
 
-  &.die{
+  &.die {
     position:absolute;
     -moz-animation:drop 3s forwards .5s;
     -webkit-animation:drop 3s forwards .5s;
     animation:drop 3s forwards .5s;
   }
 
-  &.fly-Move{
+  &.fly-Move {
     -moz-animation:fly-Move 3s forwards;
     -webkit-animation:fly-Move 3s forwards;
     animation:fly-Move 3s forwards;
@@ -92,48 +92,48 @@
   100%{left:-300px;}
 }
 
-#mario{
+#mario {
   // --------------------------------------
   // Standing Still
   // --------------------------------------
   @extend %sprite;
-  height:28px;
-  position:relative;
-  width:16px;
-  z-index:5;
+  height: 28px;
+  position: relative;
+  width: 16px;
+  z-index: 5;
 
   // --------------------------------------
   // D-Pad Buttons
   // --------------------------------------
 
   // Down
-  &.crouch{
-    background-position:-80px 0;
+  &.crouch {
+    background-position: -80px 0;
   }
 
   // Up
-  &.look-Up{
-    background-position:-112px 0;
+  &.look-Up {
+    background-position: -112px 0;
   }
 
   // Left
-  &.run-Left{
-    background-position:0 -37px;
-    -moz-animation:run-Right .2s steps(5) infinite alternate;
-    -webkit-animation:run-Right .2s steps(5) infinite alternate;
-    animation:run-Right .2s steps(5) infinite alternate;
-    -moz-transform:rotateY(-180deg);
-    -ms-transform:rotateY(-180deg);
-    -webkit-transform:rotateY(-180deg);
-    transform:rotateY(-180deg);
+  &.run-Left {
+    background-position: 0 -37px;
+    -moz-animation: run-Right .2s steps(5) infinite alternate;
+    -webkit-animation: run-Right .2s steps(5) infinite alternate;
+    animation: run-Right .2s steps(5) infinite alternate;
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
   }
 
   // Right
-  &.run-Right{
-    background-position:0 -37px;
-    -moz-animation:run-Right .2s steps(5) infinite alternate;
-    -webkit-animation:run-Right .2s steps(5) infinite alternate;
-    animation:run-Right .2s steps(5) infinite alternate;
+  &.run-Right {
+    background-position: 0 -37px;
+    -moz-animation: run-Right .2s steps(5) infinite alternate;
+    -webkit-animation: run-Right .2s steps(5) infinite alternate;
+    animation: run-Right .2s steps(5) infinite alternate;
   }
 
   // --------------------------------------
@@ -141,16 +141,16 @@
   // --------------------------------------
 
   // Select
-  &.die{
-    background-position:0 0;
-    -moz-animation:die .5s steps(2) .5s infinite;
-    -webkit-animation:die .5s steps(2) .5s infinite;
-    animation:die .5s steps(2) .5s infinite;
+  &.die {
+    background-position: 0 0;
+    -moz-animation: die .5s steps(2) .5s infinite;
+    -webkit-animation: die .5s steps(2) .5s infinite;
+    animation: die .5s steps(2) .5s infinite;
   }
 
   // Start
-  &.peace{
-    background-position:-176px -37px;
+  &.peace {
+    background-position: -176px -37px;
   }
 
   // --------------------------------------
@@ -158,22 +158,22 @@
   // --------------------------------------
 
   // TL
-  &.fly{
-    -moz-animation:fly 3s steps(14) forwards;
-    -webkit-animation:fly 3s steps(14) forwards;
-    animation:fly 3s steps(14) forwards;
-    margin-left:-12px;
-    width:36px;
+  &.fly {
+    -moz-animation: fly 3s steps(14) forwards;
+    -webkit-animation: fly 3s steps(14) forwards;
+    animation: fly 3s steps(14) forwards;
+    margin-left: -12px;
+    width: 36px;
   }
 
   // TR
-  &.dance{
-    -moz-animation:dance 1s steps(9) infinite alternate;
-    -webkit-animation:dance 1s steps(9) infinite alternate;
-    animation:dance 1s steps(9) infinite alternate;
-    background-position:0 -216px;
-    height:31px;
-    width:21px;
+  &.dance {
+    -moz-animation: dance 1s steps(9) infinite alternate;
+    -webkit-animation: dance 1s steps(9) infinite alternate;
+    animation: dance 1s steps(9) infinite alternate;
+    background-position: 0 -216px;
+    height: 31px;
+    width: 21px;
   }
 
   // --------------------------------------
@@ -181,37 +181,37 @@
   // --------------------------------------
 
   // A
-  &.spin-Jump{
-    -moz-animation:spin-Jump .4s steps(2);
-    -webkit-animation:spin-Jump .4s steps(2);
-    animation:spin-Jump .4s steps(2);
+  &.spin-Jump {
+    -moz-animation: spin-Jump .4s steps(2);
+    -webkit-animation: spin-Jump .4s steps(2);
+    animation: spin-Jump .4s steps(2);
   }
 
   //
-  &.twirl{
-    -moz-animation:twirl .3s steps(2) infinite;
-    -webkit-animation:twirl .3s steps(2) infinite;
-    animation:twirl .3s steps(2) infinite;
-    margin-left:-10px;
-    width:36px;
+  &.twirl {
+    -moz-animation: twirl .3s steps(2) infinite;
+    -webkit-animation: twirl .3s steps(2) infinite;
+    animation: twirl .3s steps(2) infinite;
+    margin-left: -10px;
+    width: 36px;
   }
 
   // B
-  &.jump{
-    background-position:-96px -37px;
-    -moz-animation:jump .5s steps(2);
-    -webkit-animation:jump .5s steps(2);
-    animation:jump .5s steps(2);
-    height:32px;
+  &.jump {
+    background-position: -96px -37px;
+    -moz-animation: jump .5s steps(2);
+    -webkit-animation: jump .5s steps(2);
+    animation: jump .5s steps(2);
+    height: 32px;
   }
 
   //
-  &.kick{
-    background-position:0 -76px;
-    -moz-animation:kick 2s steps(10) .4s;
-    -webkit-animation:kick 2s steps(10) .4s;
-    animation:kick 2s steps(10) .4s;
-    width:18px
+  &.kick {
+    background-position: 0 -76px;
+    -moz-animation: kick 2s steps(10) .4s;
+    -webkit-animation: kick 2s steps(10) .4s;
+    animation: kick 2s steps(10) .4s;
+    width: 18px
   }
 }
 
@@ -221,116 +221,116 @@
 
 // Select Animations
 @-moz-keyframes die{
-  0%{background-position:-135px 0; bottom:0;}
-  100%{background-position:-167px 0;}
+  0%{background-position: -135px 0; bottom: 0;}
+  100%{background-position: -167px 0;}
 }
 @-webkit-keyframes die{
-  0%{background-position:-135px 0; bottom:0;}
-  100%{background-position:-167px 0;}
+  0%{background-position: -135px 0; bottom: 0;}
+  100%{background-position: -167px 0;}
 }
 @keyframes die{
-  0%{background-position:-135px 0; bottom:0;}
-  100%{background-position:-167px 0;}
+  0%{background-position: -135px 0; bottom: 0;}
+  100%{background-position: -167px 0;}
 }
 
 
 // ABXY Animations
 @-moz-keyframes kick{
-  0%{background-position:0 -76px;}
-  100%{background-position:-180px -76px;}
+  0%{background-position: 0 -76px;}
+  100%{background-position: -180px -76px;}
 }
 @-webkit-keyframes kick{
-  0%{background-position:0 -76px;}
-  100%{background-position:-180px -76px;}
+  0%{background-position: 0 -76px;}
+  100%{background-position: -180px -76px;}
 }
 @keyframes kick{
-  0%{background-position:0 -76px;}
-  100%{background-position:-180px -76px;}
+  0%{background-position: 0 -76px;}
+  100%{background-position: -180px -76px;}
 }
 
 @-moz-keyframes twirl{
-  0%{background-position:0 -256px;}
-  100%{background-position:-72px -256px;}
+  0%{background-position: 0 -256px;}
+  100%{background-position: -72px -256px;}
 }
 @-webkit-keyframes twirl{
-  0%{background-position:0 -256px;}
-  100%{background-position:-72px -256px;}
+  0%{background-position: 0 -256px;}
+  100%{background-position: -72px -256px;}
 }
 @keyframes twirl{
-  0%{background-position:0 -256px;}
-  100%{background-position:-72px -256px;}
+  0%{background-position: 0 -256px;}
+  100%{background-position: -72px -256px;}
 }
 
 @-moz-keyframes spin-Jump{
-  0%{background-position:0 0; margin-top:0;}
-  50%{margin-top:-23px;}
-  100%{background-position:-64px 0; margin-top:0;}
+  0%{background-position: 0 0; margin-top: 0;}
+  50%{margin-top: -23px;}
+  100%{background-position: -64px 0; margin-top: 0;}
 }
 @-webkit-keyframes spin-Jump{
-  0%{background-position:0 0; margin-top:0;}
-  50%{margin-top:-23px;}
-  100%{background-position:-64px 0; margin-top:0;}
+  0%{background-position: 0 0; margin-top: 0;}
+  50%{margin-top: -23px;}
+  100%{background-position: -64px 0; margin-top: 0;}
 }
 @keyframes spin-Jump{
-  0%{background-position:0 0; margin-top:0;}
-  50%{margin-top:-23px;}
-  100%{background-position:-64px 0; margin-top:0;}
+  0%{background-position: 0 0; margin-top: 0;}
+  50%{margin-top: -23px;}
+  100%{background-position: -64px 0; margin-top: 0;}
 }
 
 @-moz-keyframes jump{
-  0%{background-position:-96px -37px; margin-top:0;}
-  40%{background-position:-128px -37px; margin-top:-40px;}
+  0%{background-position: -96px -37px; margin-top: 0;}
+  40%{background-position: -128px -37px; margin-top: -40px;}
 }
 @-webkit-keyframes jump{
-  0%{background-position:-96px -37px; margin-top:0;}
-  40%{background-position:-128px -37px; margin-top:-40px;}
+  0%{background-position: -96px -37px; margin-top: 0;}
+  40%{background-position: -128px -37px; margin-top: -40px;}
 }
 @keyframes jump{
-  0%{background-position:-96px -37px; margin-top:0;}
-  40%{background-position:-128px -37px; margin-top:-40px;}
+  0%{background-position: -96px -37px; margin-top: 0;}
+  40%{background-position: -128px -37px; margin-top: -40px;}
 }
 
 
 // TR
 @-moz-keyframes dance{
-  0%{background-position:0 -214px;}
-  100%{background-position:-189px -214px;}
+  0%{background-position: 0 -214px;}
+  100%{background-position: -189px -214px;}
 }
 @-webkit-keyframes dance{
-  0%{background-position:0 -214px;}
-  100%{background-position:-189px -214px;}
+  0%{background-position: 0 -214px;}
+  100%{background-position: -189px -214px;}
 }
 @keyframes dance{
-  0%{background-position:0 -214px;}
-  100%{background-position:-189px -214px;}
+  0%{background-position: 0 -214px;}
+  100%{background-position: -189px -214px;}
 }
 
 // TL
 @-moz-keyframes fly{
-  0%{background-position:0 -298px;}
-  100%{background-position:-508px -298px;}
+  0%{background-position: 0 -298px;}
+  100%{background-position: -508px -298px;}
 }
 @-webkit-keyframes fly{
-  0%{background-position:0 -298px;}
-  100%{background-position:-508px -298px;}
+  0%{background-position: 0 -298px;}
+  100%{background-position: -508px -298px;}
 }
 @keyframes fly{
-  0%{background-position:0 -298px;}
-  100%{background-position:-508px -298px;}
+  0%{background-position: 0 -298px;}
+  100%{background-position: -508px -298px;}
 }
 
 // D Pad
 @-moz-keyframes run-Right{
-  0%{background-position:0 -37px;}
-  100%{ background-position:-80px -37px;}
+  0%{background-position: 0 -37px;}
+  100%{ background-position: -80px -37px;}
 }
 @-webkit-keyframes run-Right{
-  0%{background-position:0 -37px;}
-  100%{ background-position:-80px -37px;}
+  0%{background-position: 0 -37px;}
+  100%{ background-position: -80px -37px;}
 }
 @keyframes run-Right{
-  0%{background-position:0 -37px;}
-  100%{ background-position:-80px -37px;}
+  0%{background-position: 0 -37px;}
+  100%{ background-position: -80px -37px;}
 }
 
 
@@ -338,67 +338,67 @@
 // Koopa Troopa Shell
 // --------------------------------------
 #shell-Holder{
-  bottom:3px;
-  left:16px;
-  display:none;
-  position:absolute;
+  bottom: 3px;
+  left: 16px;
+  display: none;
+  position: absolute;
 
   &.dropDown{
-   display:block
+   display: block
   }
 }
 
 #shell-Holder2{
-  position:absolute;
+  position: absolute;
 
   &.shoot{
-    -moz-animation:shoot 1s forwards 2s;
-    -webkit-animation:shoot 1s forwards 2s;
-    animation:shoot 1s forwards 2s;
+    -moz-animation: shoot 1s forwards 2s;
+    -webkit-animation: shoot 1s forwards 2s;
+    animation: shoot 1s forwards 2s;
   }
 }
 
 #shell{
   @extend %sprite;
-  background-position:0 -119px;
-  height:16px;
-  position:relative;
-  width:16px;
+  background-position: 0 -119px;
+  height: 16px;
+  position: relative;
+  width: 16px;
 
   &.gogo{
-    -moz-animation:gogo .3s steps(3) infinite 2s;
-    -webkit-animation:gogo .3s steps(3) infinite 2s;
-    animation:gogo .3s steps(3) infinite 2s;
-    position:absolute;
+    -moz-animation: gogo .3s steps(3) infinite 2s;
+    -webkit-animation: gogo .3s steps(3) infinite 2s;
+    animation: gogo .3s steps(3) infinite 2s;
+    position: absolute;
   }
 }
 
 // KT Animations
 
 @-moz-keyframes gogo{
-  0%{background-position:0 -119px;}
-  100%{background-position:-50px -119px;}
+  0%{background-position: 0 -119px;}
+  100%{background-position: -50px -119px;}
 }
 @-webkit-keyframes gogo{
-  0%{background-position:0 -119px;}
-  100%{background-position:-50px -119px;}
+  0%{background-position: 0 -119px;}
+  100%{background-position: -50px -119px;}
 }
 @keyframes gogo{
-  0%{background-position:0 -119px;}
-  100%{background-position:-50px -119px}
+  0%{background-position: 0 -119px;}
+  100%{background-position: -50px -119px}
 }
 
 @-moz-keyframes shoot{
-  0%{left:0;}
-  100%{left:900px}
+  0%{left: 0;}
+  100%{left: 900px}
 }
 @-webkit-keyframes shoot{
-  0%{left:0;}
-  100%{left:900px;}
+  0%{left: 0;}
+  100%{left: 900px;}
 }
 @keyframes shoot{
-  0%{left:0;}
-  100%{left:900px;}
+  0%{left: 0;}
+  100%{left: 900px;}
 }
 
 // --------------------------------------
@@ -406,31 +406,31 @@
 // --------------------------------------
 #bullet{
   @extend %sprite;
-  background-position:0 -144px;
-  height:64px;
-  left:-300px;
-  position:absolute;
-  top:-34px;
-  width:64px;
-  z-index:3;
+  background-position: 0 -144px;
+  height: 64px;
+  left: -300px;
+  position: absolute;
+  top: -34px;
+  width: 64px;
+  z-index: 3;
 
   &.bang{
-    -moz-animation:bang 3s forwards;
-    -webkit-animation:bang 3s forwards;
-    animation:bang 3s forwards;
+    -moz-animation: bang 3s forwards;
+    -webkit-animation: bang 3s forwards;
+    animation: bang 3s forwards;
   }
 }
 
 // Bullet Animations
 @-moz-keyframes bang {
-  0%{left:-300px;}
-  100%{left:699px;}
+  0%{left: -300px;}
+  100%{left: 699px;}
 }
 @-webkit-keyframes bang {
-  0%{left:-300px;}
-  100%{left:699px;}
+  0%{left: -300px;}
+  100%{left: 699px;}
 }
 @keyframes bang {
-  0%{left:-300px;}
-  100%{left:699px;}
+  0%{left: -300px;}
+  100%{left: 699px;}
 }
