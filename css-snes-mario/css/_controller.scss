@@ -49,35 +49,35 @@
 .tr { right: 20px; }
 
 // Middle Area
-.middle{
-  background:$c-Main;
-  border-radius:$circle;
-  height:126px;
+.middle {
+  background: $c-Main;
+  border-radius: $circle;
+  height: 126px;
 }
-  .mid-Btns{
-    background:$c-Main;
-    border-bottom:1px solid $c-Outline;
-    font-style:italic;
-    font-size:12px;
-    height:101%;
-    margin:0 auto;
-    position:relative;
-    width:74px;
-    z-index:6;
+  .mid-Btns {
+    background: $c-Main;
+    border-bottom: 1px solid $c-Outline;
+    font-style: italic;
+    font-size: 12px;
+    height: 101%;
+    margin: 0 auto;
+    position: relative;
+    width: 74px;
+    z-index: 6;
   }
-    .btn-Mid{
-      background:#656a63;
-      border-radius:20px;
-      height:10px;
-      position:absolute;
-      top:90px;
-      -moz-transform:rotate(-45deg);
-      -webkit-transform:rotate(-45deg);
-      transform:rotate(-45deg);
-      width:26px;
+    .btn-Mid {
+      background: #656a63;
+      border-radius: 20px;
+      height: 10px;
+      position: absolute;
+      top: 90px;
+      -moz-transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      width: 26px;
 
-      &:hover{
-        box-shadow:inset 0 0 6px rgba(0,0,0,.3);
+      &:hover {
+        box-shadow: inset 0 0 6px rgba(0,0,0,.3);
       }
     }
     .select{
