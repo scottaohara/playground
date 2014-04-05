@@ -54,6 +54,7 @@
   border-radius: $circle;
   height: 126px;
 }
+
   .mid-Btns {
     background: $c-Main;
     border-bottom: 1px solid $c-Outline;
@@ -65,44 +66,48 @@
     width: 74px;
     z-index: 6;
   }
-    .btn-Mid {
-      background: #656a63;
-      border-radius: 20px;
-      height: 10px;
-      position: absolute;
-      top: 90px;
-      -moz-transform: rotate(-45deg);
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      width: 26px;
 
-      &:hover {
-        box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-      }
+  .btn-Mid {
+    background: #656a63;
+    border-radius: 20px;
+    height: 10px;
+    position: absolute;
+    top: 90px;
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    width: 26px;
+
+    &:hover {
+      box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     }
-    .select{
-      left:5px;
-      z-index:4;
-    }
-    .start{
-      right:10px;
-    }
+  }
+
+  .select {
+    left: 5px;
+    z-index: 4;
+  }
+
+  .start {
+    right: 10px;
+  }
 
 // Left/Right
-.left, .right{
-  background:$c-Main;
-  border-bottom:2px solid $c-Outline;
-  border-radius:$circle;
-  height:170px;
-  position:absolute;
-  top:0;
-  width:170px;
-  z-index:3;
+.left, .right {
+  background: $c-Main;
+  border-bottom: 2px solid $c-Outline;
+  border-radius: $circle;
+  height: 170px;
+  position: absolute;
+  top: 0;
+  width: 170px;
+  z-index: 3;
 }
 
 // Left Area
 .left{
   left:-10px;
+
   .int{
     border:1px solid #f3f3f3;
     border-radius:$circle;
@@ -113,7 +118,8 @@
     width:96px;
   }
 }
-  .up-Down{
+
+  .up-Down {
     background:#595e5c;
     border-radius:2px;
     height:72px;
@@ -298,19 +304,19 @@
     }
   }
 
-  .btn-Y{
-    background:#03a77e;
-    left:4px;
-  }
-  .btn-X{
-    background:#005dc1;
-    right:4px;
-  }
-  .btn-B{
-    background:#fdb94e;
-    left:4px;
-  }
-  .btn-A{
-    background:#e92233;
-    right:4px;
-  }
+.btn-Y{
+  background:#03a77e;
+  left:4px;
+}
+.btn-X{
+  background:#005dc1;
+  right:4px;
+}
+.btn-B{
+  background:#fdb94e;
+  left:4px;
+}
+.btn-A{
+  background:#e92233;
+  right:4px;
+}
