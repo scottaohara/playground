@@ -1,0 +1,54 @@
+<!doctype>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Update the content plz</title>
+
+</head>
+<body>
+
+<div id="container">
+
+  <p id="foo">
+    bla bla cook kook
+  </p>
+
+  <button id="edit">Edit</button>
+
+</div>
+
+<script>
+
+  var myContainer = document.getElementById('foo');
+  var myContent = document.getElementById('foo').innerHTML;
+
+  document.getElementById('edit').addEventListener('click', function() {
+    var myContentUpdated = prompt('Update the content of this page');
+
+    if (myContentUpdated === "") {
+      alert("you didn't type anything, jerk");
+    }
+
+    else {
+      myContainer.innerHTML=myContentUpdated;
+
+      var btn1 = document.createElement('button');
+      var txt1 = document.createTextNode('Revert content?');
+      btn1.appendChild(txt1);
+
+      document.getElementById('container').appendChild(btn1).id='nope';
+
+
+      document.getElementById('nope').addEventListener('click', function() {
+        myContainer.innerHTML=myContent;
+
+        document.getElementById('nope').remove();
+      });
+    }
+  });
+
+
+</script>
+
+</body>
+</html>
