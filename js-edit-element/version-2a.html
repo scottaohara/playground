@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Contend Editable</title>
+
+    <style>
+
+      #container {
+        position: relative;
+        width: 50%;
+        margin: auto;
+      }
+      [contenteditable] {
+        padding: 4px;
+      }
+
+      [contenteditable]:focus {
+        background: #ccc;
+      }
+
+      #undo, #redo {
+        visibility: collapse;
+        position: absolute;
+        right: 0;
+      }
+
+      #undo.show, #redo {
+        visibility: visible;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="container">
+      <p contenteditable="true" id="myContent" style="font-size: 26px; font-family: helvetica;">
+        This is the original content.
+      </p>
+      <button class="btn" id="undo">Undo</button>
+      <button class="btn" id="save">Save Content</button>
+    </div>
+
+
+    <script>
+      var originalContent = document.getElementById('myContent').innerHTML;
+      var undo = document.getElementById('undo');
+      var updatedContent = "";
+
+      var btn1 = document.createElement('button');
+      var txt1 = document.createTextNode('Redo');
+      btn1.appendChild(txt1);
+
+      // on button click, save the updated content
+      // to the updatedContent var
+      document.getElementById('save').addEventListener('click', function() {
+
+        // updates the myContent block to 'save'
+        // the new content to updatedContent var
+        updatedContent = document.getElementById('myContent').innerHTML;
+
+        if (updatedContent != originalContent) {
+          // Show the undo button in the case that you
+          // didn't like what you wrote and you want to
+          // go back to square one
+          undo.classList.add('show');
+        }
+
+
+      });
+
+      // If you click the undo button,
+      // revert the innerHTML of the contenteditable area to
+      // the original statement that was there.
+      //
+      // Then add in a 'redo' button, to bring back the edited content
+      document.getElementById('undo').addEventListener('click', function() {
+        document.getElementById('myContent').innerHTML=originalContent;
+        undo.classList.remove('show');
+
+        document.getElementById('container').appendChild(btn1).id='redo';
+
+        document.getElementById('redo').addEventListener('click', function() {
+          document.getElementById('myContent').innerHTML=updatedContent;
+          document.getElementById('container').removeChild(btn1).id='redo';
+          undo.classList.add('show');
+        });
+      });
+
+
+
+    </script>
+  </body>
+</html>
