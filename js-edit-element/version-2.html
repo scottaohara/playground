@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Contend Editable</title>
+
+    <style>
+
+      #container {
+        position: relative;
+        width: 50%;
+        margin: auto;
+      }
+      [contenteditable] {
+        padding: 4px;
+      }
+
+      [contenteditable]:focus {
+        background: #ccc;
+      }
+
+      #undo, #redo {
+        visibility: collapse;
+        position: absolute;
+        right: 0;
+      }
+
+      #undo.show, #redo {
+        visibility: visible;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="container">
+      <p contenteditable="true" id="myContent" style="font-size: 26px; font-family: helvetica;">
+        This is the original content.
+      </p>
+      <button class="btn" id="undo">Undo</button>
+      <button class="btn" id="save">Save Content</button>
+    </div>
+
+
+    <script>
+
+    // Wrap this in a closure to contain scope
+    (function(){
+
+    // Use only one var statement
+      var originalContent = getById('myContent').innerHTML,
+          undo = getById('undo'),
+          updatedContent = "",
+          btn1 = document.createElement('button'),
+          txt1 = document.createTextNode('Redo');
+
+      // Use a more terse method for getting by id
+      function getById ( id_string ) {
+          return document.getElementById(id_string);
+      }
+
+      btn1.appendChild(txt1);
+
+      // on button click, save the updated content
+      // to the updatedContent var
+      getById('save').addEventListener('click', function() {
+
+        // updates the myContent block to 'save'
+        // the new content to updatedContent var
+        updatedContent = getById('myContent').innerHTML;
+
+        if (updatedContent != originalContent) {
+          // Show the undo button in the case that you
+          // didn't like what you wrote and you want to
+          // go back to square one
+          undo.classList.add('show');
+        }
+
+
+      });
+
+      // If you click the undo button,
+      // revert the innerHTML of the contenteditable area to
+      // the original statement that was there.
+      //
+      // Then add in a 'redo' button, to bring back the edited content
+      getById('undo').addEventListener('click', function() {
+        getById('myContent').innerHTML=originalContent;
+        undo.classList.remove('show');
+
+        getById('container').appendChild(btn1).id='redo';
+
+        getById('redo').addEventListener('click', function() {
+          getById('myContent').innerHTML=updatedContent;
+          getById('container').removeChild(btn1).id='redo';
+          undo.classList.add('show');
+        });
+      });
+
+    })();
+
+    </script>
+  </body>
+</html>
