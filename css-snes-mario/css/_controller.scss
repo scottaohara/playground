@@ -267,7 +267,7 @@
   }
 }
 
-.group{
+.group {
   background:#e8e8e8;
   border:1px solid #979797;
   border-radius:$circle;
@@ -281,42 +281,47 @@
   width:82px;
 }
 
-  .group1{
+  .group1 {
     left:-8px;
     top:28px;
   }
 
-  .group2{
+  .group2 {
     left:8px;
     top:38px;
   }
 
-  .btn{
-    border:1px solid #979797;
-    border-radius:$circle;
-    height:28px;
-    position:absolute;
-    top:3px;
-    width:28px;
+.btn {
+  border: 1px solid #979797;
+  border-radius: $circle;
+  height: 28px;
+  position: absolute;
+  top: 3px;
+  width: 28px;
 
-    &:hover{
-      box-shadow:inset 0 0 6px rgba(0,0,0,.3);
-    }
+  &:hover {
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   }
 
-.btn-Y{
-  background:#03a77e;
-  left:4px;
-}
-.btn-X{
-  background:#005dc1;
-  right:4px;
-}
-.btn-B{
-  background:#fdb94e;
-  left:4px;
-}
-.btn-A{
-  background:#e92233;
-  right:4px;
+  // Action buttons main
+  &-Y {
+    background: #03a77e;
+    left: 4px;
+  }
+
+  &-Y {
+    background: #005dc1;
+    right: 4px;
+  }
+
+  &-Y {
+    background: #fdb94e;
+    left: 4px;
+  }
+
+  &-Y {
+    background: #e92233;
+    right: 4px;
+  }
+
 }
