@@ -1,0 +1,31 @@
+html, body {
+  font-family: helvetia, arial;
+  font-size: 110%;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  width: 50%;
+}
+
+[contenteditable] {
+  padding: 4px;
+}
+
+[contenteditable]:focus {
+  background: #ccc;
+}
+
+#undo, #redo {
+  position: absolute;
+  right: 0;
+  visibility: collapse;
+}
+
+#undo.show, #redo {
+  visibility: visible;
+}
