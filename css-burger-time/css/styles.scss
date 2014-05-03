@@ -1,0 +1,83 @@
+// Reset all elements to border-box
+*, *::before, *::after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+// The actual button element is the wrapper for
+// the icon, so the hit areas is larger.
+.btn-wrapper {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  padding: 0;
+  position: relative;
+  width: 30px;
+
+  &:hover {
+    background: #eee;
+  }
+}
+
+
+.btn-burger {
+  background: rgba(0,0,0,1);
+  border: 1px solid rgba(0,0,0,0);
+  border-radius: 4px;
+  bottom: 0;
+  font-size: 1px;
+  height: 4px;
+  left: 0;
+  margin: auto 4px;
+  position: absolute;
+  right: 0;
+  text-indent: -9999999px;
+  top: 0;
+  transition: .2s all;
+
+  &::before, &::after {
+    background: #000;
+    border-radius: 4px;
+    content: '';
+    height: 4px;
+    left: -1px;
+    margin: auto;
+    position: absolute;
+    transition: all .2s 0s;
+    width: calc(100% + 2px);
+  }
+
+  &::before {
+    top: -8px;
+  }
+
+  &::after {
+    bottom: -8px;
+  }
+
+
+  &[data-state="on"] {
+    background: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,1);
+    height: 100%;
+    margin: auto;
+
+    &::before, &::after {
+      transition: all .2s .4s;
+    }
+
+    &::after {
+      bottom: 0;
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      bottom: 0;
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}
