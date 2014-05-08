@@ -5,7 +5,7 @@ html, body {
   padding: 0;
 }
 
-#container {
+.container {
   margin: auto;
   padding: 20px;
   position: relative;
@@ -13,11 +13,19 @@ html, body {
 }
 
 [contenteditable] {
+  font-size: 26px;
   padding: 4px;
 }
 
 [contenteditable]:focus {
   background: #ccc;
+}
+
+.btn {
+  background: #fff;
+  border: 1px solid #aaa;
+  font-size: 18px;
+  padding: 6px;
 }
 
 #undo, #redo {

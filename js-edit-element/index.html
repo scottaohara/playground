@@ -19,10 +19,33 @@
 
 <script>
 
-  var myContainer = document.getElementById('foo');
-  var myContent = document.getElementById('foo').innerHTML;
+// Wrap in closure to contain scope
+(function() {
 
-  document.getElementById('edit').addEventListener('click', function() {
+  // A more flexible get function
+  // Get by ID, Class or HTML elements
+  var
+  $ = function(elm, selector) {
+    if (elm === 'byClass') {
+      return document.getElementsByClassName(selector);
+    }
+
+    else if (elm === 'byId') {
+      return document.getElementById(selector);
+    }
+
+    else if (elm === 'byTag') {
+      return document.getElementsByTagName(selector);
+    }
+  },
+
+  // Declare variables to store content
+  myContainer = $('byId', 'foo'),
+  myContent = $('byId', 'foo').innerHTML;
+
+
+
+  $('byId', 'edit').addEventListener('click', function() {
     var myContentUpdated = prompt('Update the content of this page');
 
     if (myContentUpdated === "") {
@@ -32,21 +55,22 @@
     else {
       myContainer.innerHTML=myContentUpdated;
 
-      var btn1 = document.createElement('button');
-      var txt1 = document.createTextNode('Revert content?');
+      var btn1 = document.createElement('button'),
+          txt1 = document.createTextNode('Revert content?');
       btn1.appendChild(txt1);
 
-      document.getElementById('container').appendChild(btn1).id='nope';
+      $('byId', 'container').appendChild(btn1).id='nope';
 
 
-      document.getElementById('nope').addEventListener('click', function() {
+      $('byId', 'nope').addEventListener('click', function() {
         myContainer.innerHTML=myContent;
 
-        document.getElementById('nope').remove();
+        $('byId', 'nope').remove();
       });
     }
   });
 
+})(); // end closure
 
 </script>
 
