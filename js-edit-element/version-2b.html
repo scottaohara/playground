@@ -2,13 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Content Editable</title>
+    <title>Contend Editable</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
 
-    <div id="container">
-      <p contenteditable="true" id="myContent" style="font-size: 26px; font-family: arial;">
+    <div id="container" class='container'>
+      <p contenteditable="true" id="myContent">
         This is the original content.
       </p>
       <button class="btn" id="undo">Undo</button>
@@ -23,7 +23,6 @@
 
     // Use only one var statement
       var originalContent = getById('myContent').innerHTML,
-          undo = getById('undo'),
           updatedContent = "",
           btn1 = document.createElement('button'),
           txt1 = document.createTextNode('Redo');
@@ -33,7 +32,9 @@
         return document.getElementById(id_string);
       }
 
+
       btn1.appendChild(txt1);
+
 
       // on button click, save the updated content
       // to the updatedContent var
@@ -50,25 +51,28 @@
           undo.classList.add('show');
         }
 
-
       });
+
 
       // If you click the undo button,
       // revert the innerHTML of the contenteditable area to
       // the original statement that was there.
       //
       // Then add in a 'redo' button, to bring back the edited content
+
+      btn1.id='redo';
+      btn1.className='btn';
+
       getById('undo').addEventListener('click', function() {
         getById('myContent').innerHTML=originalContent;
         undo.classList.remove('show');
+        getById('container').appendChild(btn1);
+      });
 
-        getById('container').appendChild(btn1).id='redo';
-
-        getById('redo').addEventListener('click', function() {
-          getById('myContent').innerHTML=updatedContent;
-          getById('container').removeChild(btn1).id='redo';
-          undo.classList.add('show');
-        });
+      btn1.addEventListener('click', function() {
+        getById('myContent').innerHTML=updatedContent;
+        this.remove();
+        undo.classList.add('show');
       });
 
     })();
