@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Choose Your Adventure</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header-base">
+      <div class="content">
+        <h1>JS &amp; CSS for the Win</h1>
+
+        <label class="input-label" for="choose">
+          Choose an Option
+        </label>
+
+        <div class="select-area">
+          <select name="choose" id="choose" class="input-select">
+            <option value="nul">Make a Selection</option>
+            <option value="opt1">Option 1</option>
+            <option value="opt2">Option 2</option>
+            <option value="opt3">Option 3</option>
+          </select>
+        </div>
+
+      </div>
+    </header>
+
+    <main>
+
+      <section class="options-js options opt1">
+        <div class="content">
+          <h1>Option 1</h1>
+          <p>
+            You chose Option 1. That's super great.
+          </p>
+          <p>
+            I hope this works out well for you.
+          </p>
+        </div>
+      </section>
+
+      <section class="options-js options opt2">
+        <div class="content">
+          <h1>Option 2</h1>
+          <p>
+            You chose Option 2.
+          </p>
+          <p>
+            Second best is alright I suppose.
+          </p>
+        </div>
+      </section>
+
+      <section class="options-js options opt3">
+        <div class="content">
+          <h1>Option 3</h1>
+          <p>
+            You chose Option 3.
+          </p>
+          <p>
+            This is probably the least desirable option.
+            It's number 3 for a reason y'all.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer-base">
+      <div class="content">
+        <p>
+          Back to the article
+          | Check this out on codepen
+          | <a href="http://twitter.com/scottohara">By Scott O'Hara</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      (function(){ //IIFE
+
+        // v is the select element w/ id of 'choose'
+        var v = document.getElementById('choose');
+        // here we are compiling a list of all the elements w/ a class of 'options'
+        var els = document.querySelectorAll('.options');
+
+
+        // Setting the current value of the select element 'choose'
+        vNow = v.value;
+
+
+        // Update the value of vNow when v changes option focus
+        v.addEventListener('change', vUpdate);
+
+
+        // Function to go through all nodes with 'options' as a class
+        // and remove the class of 'show' from them.
+        function clearShow() {
+          for (var i = 0; i < els.length; i++) {
+            els[i].classList.remove('show');
+          }
+        }
+
+
+        // Function to add the class of show to the node that has
+        // the class that matches the current value of the select drop down (#choose)
+        function addShow(showThis) {
+          var el = document.getElementsByClassName(showThis);
+          for (var i = 0; i < el.length; i++) {
+             el[i].classList.add('show');
+           }
+
+        }
+
+
+        function vUpdate () {
+          vNow = v.value;
+
+          clearShow();
+          addShow(vNow);
+        }
+
+      })(); // close IIFE
+    </script>
+
+  </body>
+</html>
