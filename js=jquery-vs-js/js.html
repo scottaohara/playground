@@ -8,7 +8,7 @@
   <body>
     <header class="header-base">
       <div class="content">
-        <h1>JS &amp; CSS for the Win</h1>
+        <h1>JS &amp; CSS for the Min</h1>
 
         <label class="input-label" for="choose">
           Choose an Option
@@ -78,20 +78,15 @@
     </footer>
 
     <script>
-      (function(){ //IIFE
+      (function() {
+
+        "use strict";
 
         // v is the select element w/ id of 'choose'
-        var v = document.getElementById('choose');
-        // here we are compiling a list of all the elements w/ a class of 'options'
-        var els = document.querySelectorAll('.options');
+        var v = document.getElementById('choose'),
 
-
-        // Setting the current value of the select element 'choose'
-        vNow = v.value;
-
-
-        // Update the value of vNow when v changes option focus
-        v.addEventListener('change', vUpdate);
+        // Create a list of all elements w/ class of 'options'
+            els = document.querySelectorAll('.options');
 
 
         // Function to go through all nodes with 'options' as a class
@@ -106,22 +101,24 @@
         // Function to add the class of show to the node that has
         // the class that matches the current value of the select drop down (#choose)
         function addShow(showThis) {
-          var el = document.getElementsByClassName(showThis);
-          for (var i = 0; i < el.length; i++) {
-             el[i].classList.add('show');
+          var view = document.getElementsByClassName(showThis);
+          for (var i = 0; i < view.length; i++) {
+             view[i].classList.add('show');
            }
-
         }
 
 
+        // Listen for when the value of v changes from user input
+        v.addEventListener('change', vUpdate);
+
+        // Run the two previous functions whenever there is a change
+        // to the selected option.
         function vUpdate () {
-          vNow = v.value;
-
           clearShow();
-          addShow(vNow);
+          addShow(v.value);
         }
 
-      })(); // close IIFE
+      })();
     </script>
 
   </body>
