@@ -1,46 +1,46 @@
 
 // Holds everything
 .container{
-  margin:0 auto;
-  position:relative;
-  width:370px;
+  margin: 0 auto;
+  position: relative;
+  width: 370px;
 }
 
 .wire{
-  background:#1a1a1a;
-  height:50px;
-  margin:0 auto;
-  width:16px;
+  background: #1a1a1a;
+  height: 50px;
+  margin: 0 auto;
+  width: 16px;
 }
 
 // Main area
 .main{
-  position:relative;
-  z-index:2;
+  position: relative;
+  z-index: 2;
 }
 
 .btn-top{
-  background:#d9d9d9;
-  height:28px;
-  position:absolute;
-  top:46px;
-  width:102px;
+  background: #d9d9d9;
+  height: 28px;
+  position: absolute;
+  top: 46px;
+  width: 102px;
 }
   .top-Left{
-    border-radius:100px 40px 0 0;
-    left:20px;
+    border-radius: 100px 40px 0 0;
+    left: 20px;
   }
   .top-Right{
-    border-radius:40px 100px 0 0;
-    right:20px;
+    border-radius: 40px 100px 0 0;
+    right: 20px;
   }
 
 .mask{
-  height:20px;
-  position:absolute;
-  top:-10px;
-  width:100px;
-  z-index:6
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  width: 100px;
+  z-index: 6;
 }
 .tl{left:20px}
 .tr{right:20px}
