@@ -1,0 +1,668 @@
+// Declare reusable vars,
+// mixins and generic silent classes
+$c-main:  #e6daba;
+$c-dark:  #333;
+$c-light: #f6c9b2;
+$browsers: -moz-, -ms-, -webkit-, "";
+
+
+%circle {
+  border-radius: 200%;
+}
+
+%absolute-center {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+
+// Setup for animation w/out keyframes
+@mixin animation ($animation-values... ) {
+  @each $b in $browsers {
+    #{$b}animation: $animation-values;
+  }
+}
+
+// Setup for keyframes
+@mixin keyframe($animation-name) {
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+// easily make squares
+@mixin square($unit) {
+  height: $unit;
+  width: $unit;
+}
+
+// easily make wide rectangles
+@mixin rectangle($unit) {
+  height: $unit;
+  width: $unit *1.5;
+}
+
+
+// everything is going to need these
+*, *::after, *::before {
+  transition: all .3s;
+}
+
+::before, ::after {
+  content: '';
+}
+
+
+// word bubble
+.words {
+  @extend %circle;
+  @include rectangle(60px);
+  background: #29d2c8;
+  border: 1px solid #ddd;
+  color: #fff;
+  display: inline-block;
+  font-family: arial;
+  left: -29px;
+  line-height: 60px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+
+  &::after {
+    border-top: 18px solid #29d2c8;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    position: absolute;
+    top: 40px;
+    right: 1px;
+    transform: rotate(77deg);
+    z-index: 2;
+  }
+
+  &:hover {
+    background: darken(#29d2c8, 10%);
+
+    &::after {
+      border-top: 22px solid darken(#29d2c8, 10%);
+    }
+  }
+}
+
+
+
+// contain the cat
+.container {
+  width: 300px;
+  margin-left: 50px;
+}
+
+
+
+// Body parts Grown up
+%head-repeat {
+  @extend %circle;
+  @include rectangle(120px);
+}
+
+.head {
+  @extend %head-repeat;
+  background: $c-main;
+  position: relative;
+  margin: auto;
+  z-index: 2;
+
+  &::before,
+  &::after {
+    border-bottom: 35px solid $c-main;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    position: absolute;
+    top: -13px;
+  }
+
+  &::before {
+    left: 0;
+    transform: rotate(-32deg);
+  }
+
+  &::after {
+    right: 0;
+    transform: rotate(32deg);
+  }
+
+  &--inner {
+    @extend %head-repeat;
+    overflow: hidden;
+    position: absolute;
+  }
+}
+
+
+.head--inner-ears {
+  &::before,
+  &::after {
+    border-bottom: 20px solid $c-light;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+
+  &::before {
+    left: 13px;
+    transform: rotate(-32deg);
+  }
+
+  &::after {
+    right: 13px;
+    transform: rotate(32deg);
+  }
+}
+
+.head--nose-eyes {
+  @extend %circle;
+  @extend %absolute-center;
+  @include square(20px);
+  background: $c-dark;
+  z-index: 2;
+
+  &::before, &::after {
+    @extend %circle;
+    @include square(18px);
+    @include animation(6s eyes 3s infinite);
+    background: $c-dark;
+    border: 3px solid darken($c-main, 10%);
+    position: absolute;
+    top: -18px;
+
+    @at-root {
+    @include keyframe(eyes) {
+      0% {
+        height: 18px;
+        top: -18px;
+      }
+
+      10% {
+        height: 2px;
+        top: -4px;
+      }
+
+      14% {
+        height: 18px;
+        top: -18px;
+      }
+
+
+      100% {
+        height: 18px;
+        top: -18px;
+      }
+    }
+  }
+  }
+
+  &::before {
+    left: -40px
+  }
+
+  &::after {
+    right: -40px;
+  }
+
+}
+
+.head--whiskers {
+  @extend %absolute-center;
+  @include animation (4s whisk infinite 3s);
+  background: $c-dark;
+  height: 1px;
+  width: 100px;
+  z-index: 3;
+
+  &::before, &::after {
+    background: $c-dark;
+    height: 1px;
+    width: 100px;
+    position: absolute;
+  }
+
+  &::before {
+    top: -3px;
+  }
+
+  &::after {
+    bottom: -3px;
+  }
+
+  @at-root {
+    @include keyframe(whisk) {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      12% {
+        transform: rotate(10deg);
+      }
+
+      24% {
+        transform: rotate(-10deg);
+      }
+
+      36% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+  }
+}
+
+
+.head--mouth__outer {
+  @extend %circle;
+  @include rectangle(80px);
+  background: lighten($c-main, 10%);
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.head--mouth__inner {
+
+  &::before,
+  &::after {
+    @extend %circle;
+    @include square(40px);
+    background: lighten($c-main, 10%);
+    border: 1px solid darken($c-main, 10%);
+    position: absolute;
+    top: -4px;
+  }
+
+  &::before {
+    left: 20px;
+  }
+
+  &::after {
+    right: 20px;
+  }
+}
+
+
+
+%appendages {
+  background: $c-main;
+  border-radius: 10px;
+  position: absolute;
+  width: 18px;
+  z-index: 3;
+}
+
+%arms {
+  height: 70px;
+  top: 10px;
+}
+
+%lower-arm {
+  border-bottom: 8px solid $c-light;
+  height: 70px;
+  top: 85%;
+  transform-origin: 8px 8px;
+}
+
+%legs {
+  border-bottom: 8px solid $c-light;
+  height: 120px;
+  top: 90%;
+}
+
+
+
+.body {
+  background: $c-main;
+  border-radius: 10px;
+  height: 180px;
+  margin: auto;
+  position: relative;
+  top: -8px;
+  width: 80px;
+  z-index: 1;
+
+  &::after {
+    @extend %absolute-center;
+    @extend %circle;
+    @include square(60px);
+    background: lighten($c-main, 8%);
+  }
+
+
+  // appendages!!!!
+
+  &--arm__left {
+    @extend %appendages;
+    @extend %arms;
+    left: -20px;
+    transform: rotate(20deg);
+
+    &::before {
+      @extend %appendages;
+      @extend %lower-arm;
+      @include animation(2s army-l forwards);
+      transform-origin: top left;
+
+      @at-root {
+        @include keyframe(army-l) {
+          0% {
+            transform: rotate(0deg);
+            left: 0px;
+          }
+
+          100% {
+            transform: rotate(-33deg);
+            left: -3px;
+          }
+        }
+      }
+    }
+  }
+
+  &--arm__right {
+    @extend %appendages;
+    @extend %arms;
+    right: -20px;
+    transform: rotate(-20deg);
+
+    &::before {
+      @extend %appendages;
+      @extend %lower-arm;
+      @include animation(2s army forwards);
+      transform-origin: top right;
+
+      @at-root {
+        @include keyframe(army) {
+          0% {
+            transform: rotate(0deg);
+            right: 0px;
+          }
+
+          100% {
+            transform: rotate(33deg);
+            right: -3px;
+          }
+        }
+      }
+    }
+  }
+
+  &--leg__left {
+    @extend %appendages;
+    @extend %legs;
+    left: 0;
+  }
+
+  &--leg__right {
+    @extend %appendages;
+    @extend %legs;
+    right: 0;
+  }
+}
+
+.body--tail {
+  @extend %appendages;
+  @include animation (5s wag-main infinite);
+  height: 80px;
+  left: 10px;
+  top: 80%;
+  transform-origin: center top;
+
+  @at-root {
+    @include keyframe(wag-main) {
+      0% {
+        transform: rotate(30deg);
+      }
+
+      13% {
+        transform: rotate(60deg);
+      }
+
+      26% {
+        transform: rotate(50deg);
+      }
+
+      39% {
+        transform: rotate(30deg);
+      }
+
+      52% {
+        transform: rotate(30deg);
+      }
+
+      65% {
+        transform: rotate(60deg);
+      }
+
+      88% {
+        transform: rotate(50deg);
+      }
+
+      100% {
+        transform: rotate(30deg);
+      }
+    }
+  }
+
+  &::after {
+    @extend %appendages;
+    @include animation (2s wag infinite);
+    height: 70px;
+    top: 80%;
+    transform-origin: center top;
+
+    @at-root {
+      @include keyframe(wag) {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        30% {
+          transform: rotate(10deg);
+        }
+
+        60% {
+          transform: rotate(0deg);
+        }
+
+        90% {
+          transform: rotate(-10deg);
+        }
+
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    }
+
+  }
+}
+
+.big {
+  display: none;
+}
+
+
+
+// shrinky dink
+.container:target {
+  .words {
+    left: -2px;
+  }
+  .small {
+    display: none;
+  }
+  .big {
+    display: block;
+  }
+
+  %head-repeat {
+    @include square(100px);
+  }
+
+  .body {
+    height: 80px;
+    top: -12px;
+
+    &::after {
+      @include square(50px);
+      top: 20%;
+    }
+  }
+
+  %arms {
+    height: 40px;
+    top: 10px;
+  }
+
+  %lower-arm {
+    height: 30px;
+  }
+
+  %appendages {
+    border-radius: 8px;
+    width: 15px;
+  }
+
+  %legs {
+    top: 80%;
+    height: 60px;
+  }
+
+  .body--arm__right {
+    right: -16px;
+  }
+
+  .body--arm__left {
+    left: -16px;
+  }
+
+  .body--tail {
+    height: 60px;
+
+    &::after {
+      height: 30px;
+    }
+  }
+
+  .head {
+
+    &::before,
+    &::after {
+      border-bottom: 25px solid $c-main;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      top: -10px;
+    }
+
+    &::before {
+      left: -6px;
+      transform: rotate(-36deg);
+    }
+
+    &::after {
+      right: -6px;
+      transform: rotate(36deg);
+    }
+  }
+
+  .head--inner-ears {
+    &::before,
+    &::after {
+      border-bottom: 18px solid $c-light;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      position: absolute;
+      top: -3px;
+      z-index: 2;
+    }
+
+    &::before {
+      left: 4px;
+      transform: rotate(-36deg);
+    }
+
+    &::after {
+      right: 4px;
+      transform: rotate(36deg);
+    }
+  }
+
+  .head--mouth__outer {
+    @include rectangle(60px);
+    bottom: -5px;
+  }
+
+  .head--mouth__inner {
+
+    &::before,
+    &::after {
+      @include square(30px);
+      top: 0;
+    }
+
+    &::before {
+      left: 16px;
+    }
+
+    &::after {
+      right: 16px;
+    }
+  }
+
+  .head--whiskers {
+    width: 60px;
+
+    &::before, &::after {
+      width: 60px;
+    }
+  }
+
+  .head--nose-eyes {
+    @include square(18px);
+    background: $c-dark;
+    z-index: 2;
+
+    &::before, &::after {
+      @extend %circle;
+      @include square(16px);
+      top: -18px;
+    }
+
+    &::before {
+      left: -30px
+    }
+
+    &::after {
+      right: -30px;
+    }
+  }
+}
