@@ -1,0 +1,345 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,700italic,600,400italic,300italic,600italic);
+/*
+  *******************************************************************************************************
+  * Brass Tacks (custom build)
+  * by Scott O'Hara - @scottohara - scottohara.me  -  https://github.com/bleachedgraphics
+  * v 0.6.1.1 - July 7, 2013
+  *
+  * This framework is still and development.  If you have any suggestions/fixes/comments, please
+  * create an issue - https://github.com/bleachedgraphics/Brass-Tacks/issues 
+  * Thank you!
+  *
+  *******************************************************************************************************
+*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  overflow-y: scroll;
+  min-height: 100%; }
+
+html, body, blockquote, h1, h2, h3, h4, h5, h6, p, pre, hr {
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0; }
+
+article, aside, details, figure, figcaption,
+footer, header, main, nav, section, summary {
+  display: block; }
+
+body {
+  font-size: 100%;
+  line-height: 1.5; }
+
+.giga {
+  font-size: 4.375em;
+  font-weight: 700; }
+
+.ultra {
+  font-size: 3.75em;
+  font-weight: 600; }
+
+.mega {
+  font-size: 3.5em;
+  font-weight: 300; }
+
+h1, .alpha {
+  font-size: 3.125em;
+  font-weight: 400; }
+
+h2, .beta {
+  font-size: 2.5em;
+  font-weight: 400; }
+
+h3, .gamma {
+  font-size: 2em;
+  font-weight: 400; }
+
+h4, .delta {
+  font-size: 1.625em;
+  font-weight: 300; }
+
+h5, .eps {
+  font-size: 1.25em;
+  font-weight: 300; }
+
+h6, .zeta {
+  font-size: 1.125em;
+  font-weight: 300; }
+
+p, li, li p, li a, .base {
+  font-size: 1em;
+  font-weight: 300; }
+
+small, sub, sup, .tiny {
+  font-size: 0.75em;
+  font-weight: 300; }
+
+.mini {
+  font-size: 0.625em;
+  font-weight: 300; }
+
+b, strong {
+  font-weight: bold; }
+
+code, kbd, samp {
+  background: #F2F2F2;
+  border: 1px solid #E3E3E3;
+  border-left-width: 6px;
+  display: block;
+  font-family: monospace, serif;
+  font-size: 1em;
+  padding: 8px; }
+
+pre {
+  overflow: auto;
+  white-space: pre-wrap; }
+  pre mark {
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    color: #333; }
+
+p code, p kbd, p pre, p samp, li code, li kbd, li pre, li samp {
+  display: inline-block;
+  margin: 0;
+  padding: 4px; }
+
+.code-Line {
+  display: block; }
+
+.indent-1 {
+  text-indent: 1em; }
+
+.indent-2 {
+  text-indent: 2em; }
+
+.indent-3 {
+  text-indent: 3em; }
+
+.comment {
+  color: #99a; }
+
+.important {
+  color: #f00; }
+
+.selector {
+  color: #111; }
+
+.value {
+  color: #709c34; }
+
+.rule {
+  color: #2e9fe8; }
+
+.var {
+  color: #9952b2; }
+
+.at {
+  color: #c3793e; }
+
+ol, ul {
+  margin: 0 0 8px;
+  padding: 0 0 0 24px; }
+  ol > li:last-child, ul > li:last-child {
+    margin-bottom: 0; }
+  ol li ol, ol li ul, ul li ol, ul li ul {
+    margin-top: 8px; }
+  ol li li, ul li li {
+    font-size: 1em; }
+
+hr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  display: block;
+  height: 1px;
+  margin: 8px 0; }
+
+audio, embed, img, object, video {
+  max-width: 100%; }
+
+img {
+  color: red;
+  font-style: italic; }
+
+nav ul,
+nav ol {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+nav li {
+  margin: 0; }
+nav a {
+  display: inline-block;
+  padding: 4px 8px;
+  text-decoration: underline; }
+  nav a:hover {
+    text-decoration: none; }
+
+.nav ul, .footer-Nav ul,
+.nav ol,
+.footer-Nav ol {
+  border: 1px solid #ccc;
+  padding: 4px; }
+.nav li, .footer-Nav li {
+  margin: 0; }
+.nav a, .footer-Nav a {
+  display: block;
+  padding: 4px 8px;
+  text-decoration: underline; }
+  .nav a:hover, .footer-Nav a:hover {
+    text-decoration: none; }
+
+.h-Nav > li, .bread > li {
+  float: left; }
+
+.c-Nav {
+  font-size: 0;
+  text-align: center; }
+
+.c-Nav > li, .ah-Nav a {
+  display: inline-block;
+  font-size: 16px; }
+
+.v-Nav a {
+  display: block; }
+
+.ah-Nav {
+  font-size: 0; }
+
+.fixed-Nav-Left {
+  padding-left: 200px; }
+  .fixed-Nav-Left .side-Nav-Fixed {
+    left: 0; }
+  .fixed-Nav-Left .btn-Nav {
+    left: 8px;
+    top: 8px; }
+
+.fixed-Nav-Right {
+  padding-right: 200px; }
+  .fixed-Nav-Right .side-Nav-Fixed {
+    right: 0; }
+  .fixed-Nav-Right .btn-Nav {
+    right: 8px;
+    top: 8px; }
+
+.fixed-Nav-Top {
+  padding-top: 100px; }
+
+.top-Nav-Fixed, .side-Nav-Fixed {
+  background: #dc4732;
+  position: fixed;
+  top: 0;
+  z-index: 1000; }
+  .top-Nav-Fixed a, .side-Nav-Fixed a {
+    color: white; }
+    .top-Nav-Fixed a:hover, .side-Nav-Fixed a:hover, .top-Nav-Fixed a:visited, .side-Nav-Fixed a:visited {
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      text-decoration: none; }
+
+.top-Nav-Fixed {
+  height: 100px; }
+
+.side-Nav-Fixed {
+  height: 100%;
+  overflow-y: auto;
+  width: 200px; }
+
+.btn-Nav {
+  background: url(../img/nav-Icon.png) no-repeat center center;
+  -moz-background-size: 75%;
+  -ms-background-size: 75%;
+  -o-background-size: 75%;
+  -webkit-background-size: 75%;
+  background-size: 75%;
+  height: 24px;
+  position: fixed;
+  right: 4px;
+  top: 4px;
+  width: 28px; }
+
+/*
+  Code Example
+
+<a class="btn btn-Nav" id="btn-Nav-1" href="#show-Nav">
+    <span class="hidden">Show Navigation</span>
+</a>
+*/
+body {
+  background: #f8f8f8;
+  font-family: "Open Sans";
+  font-weight: 300; }
+
+::-moz-selection {
+  background: #54a4a3;
+  color: #eeeeee;
+  text-shadow: none; }
+
+::selection {
+  background: #54a4a3;
+  color: #eeeeee;
+  text-shadow: none; }
+
+.content, .header-Content, .footer-Content {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 20px; }
+  .content > :last-child, .header-Content > :last-child, .footer-Content > :last-child {
+    margin-bottom: 0; }
+
+.brand-Color, .brand {
+  color: #54a4a3; }
+
+.brand-Font, .brand {
+  font-family: "Open Sans";
+  font-weight: 300; }
+
+a {
+  color: #d48371; }
+  a:hover, a:active {
+    color: #bf523a; }
+  a:visited {
+    color: #843928; }
+
+:focus, a:focus, a:active, input[type="submit"]::-moz-focus-inner {
+  outline: none; }
+
+.header-Base {
+  background: #fafafa; }
+
+.header-Nav {
+  background: #f8f8f8;
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  margin: 16px auto; }
+  .header-Nav a, .header-Nav a:visited {
+    padding: 8px 12px;
+    text-decoration: none; }
+    .header-Nav a:hover, .header-Nav a:visited:hover {
+      background: #eee; }
+    .header-Nav a.selected, .header-Nav a:active, .header-Nav a:visited.selected, .header-Nav a:visited:active {
+      background: #ddd; }
+
+.content-Base {
+  min-height: 500px;
+  padding-bottom: 20px; }
+  .content-Base .content, .content-Base .header-Content, .content-Base .footer-Content {
+    background: #fff;
+    border: 1px solid #eeeeee;
+    -moz-box-shadow: 0 8px 8px -8px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 8px 8px -8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 8px -8px rgba(0, 0, 0, 0.5); }
+
+.footer-Base {
+  background: #2d2d2d;
+  color: #fff; }
+
+.footer-Nav a {
+  /* add in project styling for footer a tags here */ }
+  .footer-Nav a:hover {
+    /* add in project styling for a:hover here */ }
+  .footer-Nav a.selected {
+    /* add in project styling for a.selected here */ }

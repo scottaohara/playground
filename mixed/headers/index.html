@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="UTF-8" />
+
+  <title>Header Examples</title>
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized"  content="320" />
+  <meta name="description"      content="header examples built off from brass tacks framework" />
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1" />
+  <!-- Styles -->
+  <link href="custom.min.css" rel="stylesheet" />
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+
+<nav class="nav-container">
+  <a href="#!menu" title="show menu" class="btn-nav"></a>
+  <ul class="c-nav">
+    <li><a href="#!" class="show-base">Base Header</a></li>
+    <li><a href="#!" class="show-fixed">Fixed Header</a></li>
+    <li><a href="#!" class="show-fixed-shrink">Fixed Shrinking Header</a></li>
+    <li><a href="#!" class="show-fixed-hide">Fixed Flow In Front Header</a></li>
+  </ul>
+</nav>
+
+<!--
+
+  Base Header Example
+
+-->
+<header class="header-base js-header hb" style="display:block">
+  <div class="header-content">
+    <h1 class="mega">Basic Header</h1>
+    <p>It is of the normal variety</p>
+  </div>
+</header>
+
+
+<!--
+
+  Fixed Header that Hides Example
+
+-->
+<header class="header-hide js-header hh">
+  <div class="header-content">
+    <h1 class="mega">Fixed Hide Header</h1>
+    <p>On scroll, the header gets hidden</p>
+  </div>
+</header>
+
+
+<!--
+
+  Base Header Example
+
+-->
+<header class="header-fixed js-header hf">
+  <div class="header-content">
+    <h1 class="mega">Fixed Header</h1>
+    <p>It is fixed</p>
+  </div>
+</header>
+
+
+<!--
+
+  Fixed Header that Shrinks Example
+
+-->
+<header class="header-fixed-shrink js-header hfs">
+  <div class="header-content">
+    <h1 class="mega">Fixed Shrinking Header</h1>
+    <p>It is fixed header that shrinks after scroll</p>
+  </div>
+</header>
+
+
+<!--
+
+  Main Content Area
+
+-->
+<main class="main">
+  <section class="main-content">
+    <h2>Code</h2>
+
+    <p class="zeta">HTML</p>
+
+
+<pre><code class="js-header hb" style="display:block">
+&lt;header class="header-base">
+  &lt;div class="header-content">
+    ...
+  &lt;/div>
+&lt;/header></code></pre>
+
+
+
+<pre><code class="js-header hh">
+&lt;header class="header-hide">
+  &lt;div class="header-content">
+    ...
+  &lt;/div>
+&lt;/header></code></pre>
+
+
+<pre><code class="js-header hf">
+&lt;header class="header-fixed">
+  &lt;div class="header-content">
+    ...
+  &lt;/div>
+&lt;/header></code></pre>
+
+
+<pre><code class="js-header hfs">
+&lt;header class="header-fixed-shrink">
+  &lt;div class="header-content">
+    ...
+  &lt;/div>
+&lt;/header></code></pre>
+
+
+
+
+    <p class="zeta">CSS</p>
+
+      <!-- basic header -->
+<pre><code class="js-header hb" style="display:block">
+.header-base {
+
+}
+</code></pre>
+
+      <!-- fixed header -->
+<pre><code class="js-header hf">
+.header-fixed {
+
+}</code></pre>
+
+
+      <!-- fixed header shrink -->
+<pre><code class="js-header hfs">
+.header-fixed-shrink {
+
+}</code></pre>
+
+      <!-- fixed header hide -->
+<pre><code class="js-header hh">
+.header-hide {
+
+}</code></pre>
+
+
+
+    <div class="js-header hfs">
+    <p class="zeta">
+      jQuery
+    </p>
+
+<pre><code>asdf
+</code></pre>
+
+    </div>
+
+  </section>
+</main>
+
+
+<!-- Footer Content Area -->
+<footer class="footer-base">
+  <div class="footer-content">
+    <p class="tiny">
+      Made by <a href="http://scottohara.me" title="Made by Scott O'Hara">Scott O'Hara</a>
+    </p>
+  </div>
+</footer>
+
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script>
+ // show/hide the different headers for this example
+  $(document).ready(function(){
+    $('.show-base').click(function(){
+      $('.js-header').hide();
+      $('.hb').show();
+      $('body').removeClass('h-pad');
+    });
+
+    $('.show-fixed').click(function(){
+      $('.js-header').hide();
+      $('.hf').show();
+      $('body').removeClass('h-pad');
+      $('body').addClass('h-pad');
+    });
+
+    $('.show-fixed-hide').click(function(){
+      $('.js-header').hide();
+      $('.hh').show();
+      $('body').removeClass('h-pad');
+      $('body').addClass('h-pad');
+    });
+
+    $('.show-fixed-shrink').click(function(){
+      $('.js-header').hide();
+      $('.hfs').show();
+      $('body').removeClass('h-pad');
+      $('body').addClass('h-pad');
+    });
+
+  // shrinks the size of the header after scrolling x pixels
+  $(window).bind('scroll', function(){
+    if($(this).scrollTop() > 50) {
+      $(".header-fixed-shrink").addClass('shrinky');
+    }
+    if($(this).scrollTop() < 50) {
+      $(".header-fixed-shrink").removeClass('shrinky');
+    }
+  });
+
+  $('.nav-container a').click(function(){
+    $('.c-nav').toggleClass('slide-Up');
+    return false;
+  })
+});
+</script>
+
+</body>
+
+</html>
