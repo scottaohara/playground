@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Side Nav Demo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="brass-tacks-full.min.css" rel="stylesheet" />
+    <link href="sidebar.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <!--
+
+        Container for all slidebar components
+
+    -->
+    <div class="slidebar-container" id="slidebar" data-state="closed">
+
+      <!--
+
+        The whole tab is the button
+
+      -->
+      <button class="btn-nav-tab" id="nav-controler">
+        <!-- the icon is made of CSS -->
+        <span class="btn-nav-icon">
+          <!-- Accessible label hidden from the
+               browser but not screen readers -->
+          <span class="invis">Open Menu</span>
+        </span>
+      </button>
+
+      <!--
+
+        Main navigation for the app. Uses a combo
+        of <nav>, <ul> & <menu> elements to represent
+        top level navigation vs submenu navigations.
+
+      -->
+      <nav class="nav-slidebar" role="navigation">
+        <ul class="nav-v nav-slidebar-list">
+          <li class="nav-item">
+            <a href="/"
+               class="sidebar-top">
+               <img src="#" alt="Logo" />
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#!"
+               class="nav-link">
+               Nav item 1
+            </a>
+          </li>
+          <li class="nav-item nav-active">
+            <a href="#!"
+               class="nav-link">
+               Nav item 2
+            </a>
+            <menu class="nav-v nav-submenu">
+              <li>
+                <a href="#!"
+                   class="txt-small">
+                   Name
+                </a>
+              </li>
+              <li>
+                <a href="#!"
+                   class="txt-small">
+                   Name
+                </a>
+              </li>
+            </menu>
+          </li>
+          <li class="nav-item">
+            <a href="#!"
+               class="nav-link">
+               Nav Item 3
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#!"
+               class="nav-link">
+               Nav Item 4
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#!"
+               class="nav-link">
+               Nav Item 5
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#!"
+               class="nav-link">
+               Nav Item 6
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#!"
+               class="nav-link">
+               Nav Item 7
+            </a>
+          </li>
+          <li>
+            <ul class="txt-small">
+              <li>
+                Sign out
+              </li>
+              <li>
+                Terms of Use
+              </li>
+              <li>
+                Privacy Policy
+              </li>
+              <li>
+                Credits
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+
+    <script>
+      // classList.toggle only works in ie10+ :(
+
+      // var navOpen = document.getElementById('nav-controler');
+
+      // navOpen.onclick = function() {
+      //   document.getElementById('slidebar').classList.toggle('slidebar-open');
+      // }
+
+
+      // Alternative method for changing states which works in IE7+ / IE8+ for CSS
+      var nav = document.querySelector('.btn-nav-tab');
+
+      var toggleState = function(elm, one, two) {
+        var elm = document.querySelector(elm);
+        elm.setAttribute('data-state', elm.getAttribute('data-state') === one ? two : one);
+      };
+
+      // slide nav bar in and out
+      nav.onclick = function (e) {
+        toggleState('.slidebar-container', 'closed', 'open');
+        e.preventDefault();
+      }
+
+
+      // TODO
+      // on click of a ".nav-link", add a class of "nav-active" to the parent <li>
+      // on click of a new ".nav-link", remove the class of "nav-active" from
+      // any other <li>
+
+    </script>
+
+  </body>
+</html>
