@@ -82,18 +82,19 @@ body {
 }
 
 // Main Areas 2(top) & 3(bottom)
-.m2,
-.m3 {
+%m-shared {
   position: relative;
   width: 100%;
 }
 
 .m2 {
+  @extend %m-shared;
   border-bottom: 0;
   height: 53%
 }
 
 .m3 {
+  @extend %m-shared;
   height: 47%;
 }
 
@@ -117,16 +118,18 @@ body {
   }
 }
 
-.mc1, .mc2 {
+%mc-shared {
   position: absolute;
   top: 4%;
 }
 
 .mc1 {
+  @extend %mc-shared;
   left: -1em;
 }
 
 .mc2 {
+  @extend %mc-shared;
   right: -1em;
 }
 
@@ -222,19 +225,20 @@ body {
   width: 72%
 }
 
-.h-left,
-.h-right {
+%h-shared {
   height: 100%;
   top: 0;
   width: .123em;
 }
 
 .h-left {
+  @extend %h-shared;
   @include base-vendor(transform, rotate(-10deg));
   left: 0;
 }
 
 .h-right {
+  @extend %h-shared;
   @include base-vendor(transform, rotate(10deg));
   right: 0;
 }
@@ -267,19 +271,22 @@ body {
 //  Boxes
 // ----------------------------------------------------------------------------
 
-.rec {
+%rec-shared {
   bottom: .2em;
+  position: absolute;
+}
+
+.rec {
+  @extend %rec-shared;
   height: 1.875em;
   left: 32.5%;
-  position: absolute;
   width: 2.5em;
 }
 
 .srec {
-  bottom: .2em;
+  @extend %rec-shared;
   left: .3em;
   height: .55em;
-  position: absolute;
   width: 1em;
 }
 
