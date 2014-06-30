@@ -1,0 +1,138 @@
+// pull in some useful components to make writing this easier
+@import '__import/__import';
+
+
+// box size all the things
+*, *::after, *::before {
+  @include box-sizing(border-box);
+}
+
+body {
+  background: #fafafa;
+  font-family: arial narrow, arial;
+  font-size: 120%;
+  margin: 0;
+}
+
+body, html, .page {
+  height: 100%;
+  overflow: hidden;
+}
+
+
+// no margin bottoms on the last child within elements
+:last-child {
+  margin-bottom: 0;
+}
+
+// no margin-tops on standard text elements
+h1, h2, h3, h4, h5, h6, p, li {
+  margin-top: 0;
+}
+
+// Give HTML5 elements block display, which is not defined in IE 8/9
+article, aside, canvas, footer, header, main, section {
+  display: block;
+}
+
+
+
+
+// Demo layout styling
+.page {
+  position: fixed;
+  top: 50px;
+  width: 100%;
+}
+
+[type="radio"] {
+  display: none;
+  visibility: hidden;
+}
+
+[role="navigation"] {
+  background: rgba(255,255,255,.95);
+  box-shadow: rgba(255,255,255,.95);
+  left: 0;
+  padding: 8px;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+  .check-label {
+    border: 1px solid #333;
+    color: #444;
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 12px;
+    text-decoration: none;
+
+    &:hover, &:active {
+      background: #555;
+      color: #fff;
+    }
+
+    &:focus {
+      outline: thin dotted;
+    }
+  }
+
+.section {
+
+  // generally set these to hidden
+  &-container {
+    @include transition(.66s all);
+    @include transform(translate(0%,40%));
+    height: 100%;
+    opacity: 0;
+    overflow: auto;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &-content {
+    @include transition(.66s all);
+    margin: auto;
+    max-width: 800px;
+    padding: 20px;
+    visibility: hidden;
+  }
+}
+
+:checked + .section-container {
+  @include transform(translate(0%,0%));
+  opacity: 1;
+  z-index: 2;
+
+  .section-content {
+    visibility: visible;
+  }
+}
+
+
+
+.section-one {
+  @include transform(translate(0%,40%));
+  background: #f5bfb8;
+}
+
+
+.section-two {
+  @include transform(translate(-60%,0%));
+  background: #c8f4f2;
+}
+
+.section-three {
+  @include transform(translate(60%,0%));
+  background: #c8f4c8;
+}
+
+.section-four {
+  @include transform(translate(0%,-40%));
+  background: #eef4c8;
+}
+
+

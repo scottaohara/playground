@@ -1,0 +1,171 @@
+// pull in some useful components to make writing this easier
+@import '__import/__import';
+
+
+// box size all the things
+*, *::after, *::before {
+  @include box-sizing(border-box);
+}
+
+body {
+  background: #fafafa;
+  font-family: arial narrow, arial;
+  font-size: 120%;
+  margin: 0;
+}
+
+body, html, .page {
+  height: 100%;
+  overflow: hidden;
+}
+
+// no margin bottoms on the last child within elements
+:last-child {
+  margin-bottom: 0;
+}
+
+// no margin-tops on standard text elements
+h1, h2, h3, h4,
+h5, h6, p, li {
+  margin-top: 0;
+}
+
+// Give HTML5 elements block display, which is not defined in IE 8/9
+article, aside, canvas,
+footer, header, main, section {
+  display: block;
+}
+
+
+
+.page {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+[type="radio"],
+[for="exit"] {
+  display: none;
+  visibility: hidden;
+}
+
+[for="exit"] {
+  border: 1px solid #333;
+  color: #444;
+  display: inline-block;
+  padding: 4px 12px;
+  text-decoration: none;
+}
+
+[for*="page_"] {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+
+  span {
+    position: relative;
+    top: 50%;
+  }
+}
+
+
+.check-label {
+  cursor: pointer;
+
+  &:hover, &:active {
+    background: rgba(0,0,0,.3);
+    color: #fff;
+  }
+
+  &:focus {
+    outline: thin dotted;
+  }
+}
+
+.section {
+
+  &-container {
+    @include transition(.4s all);
+    @include vendor(transform-origin, center center);
+    border: 0px solid;
+    height: 50%;
+    overflow: hidden;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: 50%;
+    z-index: 1;
+  }
+
+  &-content {
+    @include transition(.66s all);
+    margin: auto;
+    max-width: 800px;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+:checked + .section-container {
+  @include transform(translate(0%,0%));
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  overflow: auto;
+
+  [for="exit"] {
+    display: inline-block;
+    visibility: visible;
+  }
+
+  [for*="page_"] {
+    display: none;
+  }
+
+  .section-content {
+    opacity: 1;
+
+    visibility: visible;
+  }
+}
+
+
+
+.section-one {
+  @include transform(translate(-20%,10%) rotateY(-30deg) perspective(300px));
+  background: #f5bfb8;
+}
+
+.section-two {
+  @include transform(translate(-15%,20%) rotateY(-30deg) perspective(300px));
+  background: #c8f4f2;
+  width: 45%;
+}
+
+.section-three {
+  @include transform(translate(-10%,30%) rotateY(-30deg) perspective(300px));
+  background: #c8f4c8;
+  width: 40%;
+}
+
+.section-four {
+  @include transform(translate(0%,40%) rotateY(-30deg) perspective(300px));
+  background: #eef4c8;
+  width: 35%;
+}
+
+
+#exit:checked + .page .section-container {
+  border: none;
+  opacity: 1;
+}
+
+.page :not(:checked) + .section-container {
+  border: 40px solid;
+}

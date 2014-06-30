@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>nerp</title>
+
+    <style>
+      body, input {
+        font-family: helvetica, arial;
+        font-size: 1.4em;
+      }
+
+      .invalid-message {
+        background: rgba(255,0,0,.2);
+        left: 0;
+        opacity: 0;
+        padding: 8px;
+        position: fixed;
+        top: 0;
+        transition: opacity .2s;
+        width: 100%;
+        z-index: -1;
+      }
+
+      .invalid-message p {
+        display: none;
+        margin: 0;
+      }
+
+      :invalid ~ .invalid-message {
+        opacity: 1;
+        z-index: 2;
+      }
+
+      :invalid ~ .invalid-message p {
+        display: block;
+      }
+
+      .form {
+        margin: 20% auto;
+        width: 50%;
+      }
+
+      [type="url"] {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 12px;
+        width: 100%;
+      }
+
+      label {
+        display: inline-block;
+        margin-bottom: 6px;
+      }
+
+      input:focus {
+        background: rgba(238,247,255,.7);
+        box-shadow: 0 0 4px rgba(0,20,210,.2);
+      }
+    </style>
+  </head>
+  <body>
+    <form class="form">
+
+      <div class="container">
+        <label for="url">Enter Your Website:</label>
+        <input type="url" id="url" pattern="https?://.+" placeholder="http://www.your-website.com" />
+        <div class="invalid-message">
+          <p>
+            Be sure to enter http:// or https://
+          </p>
+        </div>
+
+      </div>
+
+    </form>
+  </body>
+</html>
