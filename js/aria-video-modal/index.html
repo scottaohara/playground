@@ -13,9 +13,25 @@
 
   <body>
 
-    <button class="btn btn-start" data-src="https://www.youtube.com/embed/RsSBcx_1l-Q?list=UUcr83E3cZUOLOb0yxYy4beA?ps=play&amp;vq=large&amp;rel=0&amp;autohide=1&amp;showinfo=0&amp;authuser=0" type="button">Clicky</button>
+    <div id="page">
+      <button class="btn btn-start" data-src="https://www.youtube.com/embed/RsSBcx_1l-Q?list=UUcr83E3cZUOLOb0yxYy4beA?ps=play&amp;vq=large&amp;rel=0&amp;autohide=1&amp;showinfo=0&amp;authuser=0" type="button">Clicky</button>
 
-    <button class="btn btn-start" data-src="https://www.youtube.com/embed/tKXdQpwX9-c?list=UUcr83E3cZUOLOb0yxYy4beA?ps=play&amp;vq=large&amp;rel=0&amp;autohide=1&amp;showinfo=0&amp;authuser=0" type="button">Clickerson</button>
+      <button class="btn btn-start" data-src="https://www.youtube.com/embed/tKXdQpwX9-c?list=UUcr83E3cZUOLOb0yxYy4beA?ps=play&amp;vq=large&amp;rel=0&amp;autohide=1&amp;showinfo=0&amp;authuser=0" type="button">Clickerson</button>
+
+      <form>
+        <p>
+          This input is here as a test to make sure you
+          can't tab out of the modal window while it's open.
+        </p>
+        <input type="text" />
+      </form>
+    </div>
+
+    <!--
+
+      here we put the modal overlay/content
+
+    -->
 
     <div class="video-overlay"
         id="video-dialog"
@@ -35,7 +51,13 @@
         </h1>
 
         <div class="video-aspect">
+          <button id="asdf">x</button>
+          <button >x</button>
+          <button >x</button>
+          <button >x</button>
+
           <iframe src="#!"
+                  tabindex="0"
                   id="video-player"
                   webkitallowfullscreen="webkitallowfullscreen"
                   allowfullscreen="allowfullscreen"
@@ -51,15 +73,6 @@
       </div> <!-- end video-container -->
 
     </div> <!-- end video-overlay -->
-
-
-    <form>
-      <p>
-        This input is here as a test to make sure you
-        can't tab out of the modal window while it's open.
-      </p>
-      <input type="text" />
-    </form>
 
 
     <script src="js.js"></script>

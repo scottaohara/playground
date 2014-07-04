@@ -5,12 +5,12 @@
   // list out the vars
   var btns = document.querySelectorAll('.btn-start'),
       vd = getId('video-dialog'),
+      a = getId('asdf'),
       close = getId('video-close'),
       player = getId('video-player'),
       modalOpen = false,
       i,
       vdSource,
-      index,
       lastFocus;
 
 
@@ -20,11 +20,45 @@
   };
 
 
-  // function to set a tab index for when
-  // buttons should be focusable or not
-  function opens( index ) {
-    for (i = 0; i < btns.length; i++) {
-      btns[i].tabIndex = index;
+// find all elements within a parent that we wante to be focusable
+// store them in an array
+// find out which one is currently focused, and on tab
+// then focus on the next one.
+//
+// if
+
+
+  // only allow tabbing between nodes in an active modal window
+  function focusRestrict ( event ) {
+
+    if ( event.keyCode === 9 && modalOpen ) {
+      // queryselectorall returns our node list of elements that can be focusable
+      // but but the node list it produces is not actually an array
+      var list = vd.querySelectorAll("button, input, a, iframe"),
+          // grab the slice method from the Array prototype,
+          // .call is invoking the slice function to fire on 'list',
+          // even though list doesn't have that function by default
+          focusable = Array.prototype.slice.call( list ),
+          listLength = list.length,
+          focused = document.activeElement,
+          // tells us the position of the currently focused element in the
+          // list we have
+          focusIndex = focusable.indexOf( focused ),
+          nextIndex;
+
+        if ( focusIndex < listLength - 1 && !event.shiftKey ) {
+          nextIndex = focusIndex + 1;
+        } else if ( focusIndex > 0 && event.shiftKey ) {
+          nextIndex = focusIndex -1;
+        } else if ( focusIndex === listLength -1 && !event.shiftKey ) {
+          nextIndex = 0;
+        } else {
+          nextIndex = listLength -1;
+        }
+
+        console.log(focusable[nextIndex].nodeName);
+        focusable[nextIndex].focus();
+        event.preventDefault();
     }
   };
 
@@ -35,15 +69,16 @@
     lastFocus.blur(); // now unfocus that last element
     vd.setAttribute('aria-hidden', 'false'); // give assistive visibility
     modalOpen = true; // used for esc key functionality
-    opens(-1); // set
+    close.focus();
+    vd.setAttribute('tabindex', '0');
   };
 
 
   // set a modal to hide
   function modalNoShow () {
     vd.setAttribute('aria-hidden', 'true');
+    vd.setAttribute('tabindex', '-1');
     modalOpen = false;
-    opens(0);
     unsetVid();
   };
 
@@ -90,5 +125,8 @@
 
   // close modal by keypress, but only if modal is open
   document.addEventListener('keydown', modalClose);
+
+  //
+  window.addEventListener('keydown', focusRestrict);
 
 })();
