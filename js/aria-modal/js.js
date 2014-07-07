@@ -52,6 +52,7 @@
           focusIndex = focusable.indexOf( focused ),
           nextIndex;
 
+        // meet all the conditions!
         if ( focusIndex < listLength - 1 && !event.shiftKey ) {
           nextIndex = focusIndex + 1;
         } else if ( focusIndex > 0 && event.shiftKey ) {
@@ -117,13 +118,21 @@
   // create or delete a JS function if we decide to add or remove video buttons
   for (i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', function () {
+      // fire the modal show function
       modalShow();
+      // grab the data-modal-title attribute value and set it as the
+      // innerHTML of the mTItle (the heading in the modal window)
       mTitle.innerHTML = this.getAttribute('data-modal-title');
     });
   };
 
 
-  // "regular" content modal
+  // on click of a 'regular content'
+  // i.e. not video iframe
+  // grab the value of the 'data-for' attribute and match it up
+  // with the corresponding <template> id value.
+  // assign the innerHTML of the template to the innerHTML of mContent
+  // to view the template's content within the modal box.
   for (i = 0; i < rModal.length; i++) {
     rModal[i].addEventListener('click', function () {
       mContent.innerHTML = getId(this.getAttribute('data-for')).innerHTML;
@@ -134,10 +143,18 @@
   // "video" content modal
   for (i = 0; i < vModal.length; i++) {
     vModal[i].addEventListener('click', function () {
+      // first get the innerHTMl of the <template> with the id="mv"
       mContent.innerHTML = getId('mv').innerHTML;
+      // now that 'mv' is in the DOM, get the ID
+      // of the iframe and assign it to 'player'
       player = getId('modal-player');
+      // grab the video source that's in the data-src attribute of
+      // the button that was clicked (this)
       vSource = this.getAttribute('data-src');
+      // Call the setVid source function and pass in the vSource
+      // variable (which is the url of the movie)
       setVid(vSource);
+      // focus on the modal video content holder by default
       mHolder.focus();
     });
   };
