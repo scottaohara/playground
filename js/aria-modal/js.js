@@ -10,6 +10,7 @@
       close = getId('modal-close'),
       mTitle = getId('modal-title'),
       mContent = getId('modal-content'),
+      mHolder = getId('modal-holder'),
       modalOpen = false,
       unRestrict = true,
       player,
@@ -73,8 +74,8 @@
     lastFocus.blur(); // now unfocus that last element
     modal.setAttribute('aria-hidden', 'false'); // give assistive visibility
     modalOpen = true; // used for esc key functionality
-    close.focus();
-    modal.setAttribute('tabindex', '0');
+    mHolder.focus();
+    mHolder.setAttribute('tabindex', '0');
     document.body.style.overflow = "hidden";
   }
 
@@ -82,7 +83,7 @@
   // set a modal to hide
   function modalNoShow () {
     modal.setAttribute('aria-hidden', 'true');
-    modal.setAttribute('tabindex', '-1');
+    mHolder.setAttribute('tabindex', '-1');
     modalOpen = false;
     document.body.removeAttribute('style');
     mContent.innerHTML = '';
@@ -137,6 +138,7 @@
       player = getId('modal-player');
       vSource = this.getAttribute('data-src');
       setVid(vSource);
+      mHolder.focus();
     });
   };
 
