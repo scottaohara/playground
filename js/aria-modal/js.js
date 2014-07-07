@@ -3,38 +3,43 @@
   'use strict';
 
   // list out the vars
-  var btns = document.querySelectorAll('.btn-start'),
-      vd = getId('video-dialog'),
-      a = getId('asdf'),
-      close = getId('video-close'),
-      player = getId('video-player'),
+  var btns = qsa('.btn-start'),
+      rModal = qsa('.m-reg'),
+      vModal = qsa('.m-video'),
+      modal = getId('modal-dialog'),
+      close = getId('modal-close'),
+      mTitle = getId('modal-title'),
+      mContent = getId('modal-content'),
       modalOpen = false,
-      i,
-      vdSource,
-      lastFocus;
+      unRestrict = true,
+      player,
+      vSource,
+      lastFocus,
+      i;
 
 
-  // Let's cut down on what we need to type to get an ID
+  // Let's cut down on what we need to type to get:
+  // an ID
   function getId ( id ) {
     return document.getElementById(id);
-  };
+  }
+
+  // selectors (all)
+  function qsa ( string ) {
+    return document.querySelectorAll( string );
+  }
 
 
-// find all elements within a parent that we wante to be focusable
-// store them in an array
-// find out which one is currently focused, and on tab
-// then focus on the next one.
-//
-// if
-
-
-  // only allow tabbing between nodes in an active modal window
+  // find all elements within a parent that we want to
+  // be focusable & store them in an array
+  //
+  // find out which one is currently focused
+  // On tab / shift tab, focus on the next one / previous one
   function focusRestrict ( event ) {
-
-    if ( event.keyCode === 9 && modalOpen ) {
+    if ( event.keyCode === 9 && modalOpen && unRestrict === true ) {
       // queryselectorall returns our node list of elements that can be focusable
-      // but but the node list it produces is not actually an array
-      var list = vd.querySelectorAll("button, input, a, iframe"),
+      // but the node list it produces is not actually an array
+      var list = modal.querySelectorAll("button, input, a, video, audio, iframe, embed, object, [tabindex]"),
           // grab the slice method from the Array prototype,
           // .call is invoking the slice function to fire on 'list',
           // even though list doesn't have that function by default
@@ -56,47 +61,41 @@
           nextIndex = listLength -1;
         }
 
-        console.log(focusable[nextIndex].nodeName);
         focusable[nextIndex].focus();
         event.preventDefault();
     }
-  };
+  }
 
 
   // Let's open the modal
   function modalShow () {
     lastFocus = document.activeElement; // keep track of what was last focused
     lastFocus.blur(); // now unfocus that last element
-    vd.setAttribute('aria-hidden', 'false'); // give assistive visibility
+    modal.setAttribute('aria-hidden', 'false'); // give assistive visibility
     modalOpen = true; // used for esc key functionality
     close.focus();
-    vd.setAttribute('tabindex', '0');
-  };
+    modal.setAttribute('tabindex', '0');
+    document.body.style.overflow = "hidden";
+  }
 
 
   // set a modal to hide
   function modalNoShow () {
-    vd.setAttribute('aria-hidden', 'true');
-    vd.setAttribute('tabindex', '-1');
+    modal.setAttribute('aria-hidden', 'true');
+    modal.setAttribute('tabindex', '-1');
     modalOpen = false;
-    unsetVid();
-  };
+    document.body.removeAttribute('style');
+    mContent.innerHTML = '';
+  }
 
 
   // set the source of the video in a modal window
   // as well as placing focus on the video player (iframe)
   // if no source is passed, the else statement passes no src, and blurs focus
   function setVid ( vidSrc ) {
+    unRestrict = false;
     player.src=vidSrc;
   }
-
-
-  // unset a video source
-  // (so as not to keep playing when a modal window is closed)
-  function unsetVid () {
-    lastFocus.focus();
-    player.src='#!';
-  };
 
 
   // binds to both the button click and the escape key to close the modal window
@@ -104,8 +103,12 @@
   function modalClose ( event ) {
     if (modalOpen && ( !event.keyCode || event.keyCode === 27 ) ) {
       modalNoShow();
+      lastFocus.focus();
+      // refocus on the last element that was in focus before
+      // mocal window opened
     }
-  };
+  }
+
 
 
   // Add an event listener to all buttons that will load the modal.
@@ -114,8 +117,26 @@
   for (i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', function () {
       modalShow();
-      vdSource = this.getAttribute('data-src');
-      setVid(vdSource);
+      mTitle.innerHTML = this.getAttribute('data-modal-title');
+    });
+  };
+
+
+  // "regular" content modal
+  for (i = 0; i < rModal.length; i++) {
+    rModal[i].addEventListener('click', function () {
+      mContent.innerHTML = getId(this.getAttribute('data-for')).innerHTML;
+    });
+  };
+
+
+  // "video" content modal
+  for (i = 0; i < vModal.length; i++) {
+    vModal[i].addEventListener('click', function () {
+      mContent.innerHTML = getId('mv').innerHTML;
+      player = getId('modal-player');
+      vSource = this.getAttribute('data-src');
+      setVid(vSource);
     });
   };
 
@@ -126,7 +147,7 @@
   // close modal by keypress, but only if modal is open
   document.addEventListener('keydown', modalClose);
 
-  //
+  // restrict tab focus on elements only inside modal window
   window.addEventListener('keydown', focusRestrict);
 
 })();
