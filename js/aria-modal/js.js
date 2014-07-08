@@ -6,18 +6,19 @@
   var btns = qsa('.btn-start'),
       rModal = qsa('.m-reg'),
       vModal = qsa('.m-video'),
+      jModal = qsa('.m-ajax'),
       modal = getId('modal-dialog'),
       close = getId('modal-close'),
-      mTitle = getId('modal-title'),
       mContent = getId('modal-content'),
       mHolder = getId('modal-holder'),
       modalOpen = false,
       unRestrict = true,
+      heading,
+      newHeading,
       player,
       vSource,
       lastFocus,
       i;
-
 
   // Let's cut down on what we need to type to get:
   // an ID
@@ -107,22 +108,96 @@
       modalNoShow();
       lastFocus.focus();
       // refocus on the last element that was in focus before
-      // mocal window opened
+      // local window opened
+      if (mHolder.hasAttribute('style')) {
+        mHolder.removeAttribute('style');
+      }
     }
   }
 
 
+  // ajax mang
+  function requestContent( url ) {
+    var xmlhttp = new XMLHttpRequest(),
+        url;
+
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 ) {
+        if (xmlhttp.status == 200) {
+          mContent.innerHTML = xmlhttp.responseText;
+        }
+        else if(xmlhttp.status == 400) {
+          mContent.innerHTML = "<p>Looks like there's a 400 error going on mang.</p>";
+        }
+        else {
+          mContent.innerHTML = "<p>Couldn't find / load the content. Sorries.</p>";
+        }
+      }
+    }
+
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+  }
+
+
+  // if a Modal content is not loaded from a template, it likely
+  // doesn't have a heading to map to the arial labeledby,
+  // this function will add in a heading
+  function labelHeading( e ) {
+    // create a new heading
+    heading = document.createElement('h1');
+    // give the heading an ID of modal-title
+    heading.setAttribute('id', 'modal-title');
+    // insert the modalTitle
+    mHolder.insertBefore(heading, mContent);
+    // set the new Heading variable to true
+    // we'll need this so we can remove any dynamically
+    // created label headings from the modal, if a modal
+    // that doesn't need a dynamically creating heading
+    // is fired off.
+    newHeading = true;
+    return newHeading;
+  }
+
+
+  // Add an event listener to all buttons that are set to load
+  // content via ajax.
+  for (i = 0; i < jModal.length; i++) {
+    jModal[i].addEventListener('click', function () {
+      // check the data-from attribute to find the location
+      // that we should be pulling in the ajax content from.
+      var url = this.getAttribute('data-from');
+      requestContent( url );
+    });
+  };
+
 
   // Add an event listener to all buttons that will load the modal.
-  // Grab the video source url from the data-src attribute, so we don't have to
-  // create or delete a JS function if we decide to add or remove video buttons
   for (i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', function () {
       // fire the modal show function
       modalShow();
-      // grab the data-modal-title attribute value and set it as the
-      // innerHTML of the mTItle (the heading in the modal window)
-      mTitle.innerHTML = this.getAttribute('data-modal-title');
+
+      // // if a button has a data-max-width attribute, take the value
+      // and append it to the modalHolder as an inline style
+      if (this.hasAttribute('data-max-width')) {
+        mHolder.style.maxWidth = this.getAttribute('data-max-width');
+      }
+      // same with above, only for height
+      if (this.hasAttribute('data-max-height')) {
+        mHolder.style.maxHeight = this.getAttribute('data-max-height');
+      }
+
+      // If we are setting the modal title via data attribute,
+      // then run this here code
+      if (this.getAttribute('data-modal-title')) {
+        // fire the labelHeading function
+        labelHeading();
+
+        // grab the data-modal-title attribute value and set it as the
+        // innerHTML of the mTItle (the heading in the modal window)
+        getId('modal-title').innerHTML = this.getAttribute('data-modal-title');
+      }
     });
   };
 
@@ -135,12 +210,27 @@
   // to view the template's content within the modal box.
   for (i = 0; i < rModal.length; i++) {
     rModal[i].addEventListener('click', function () {
+      // if the var newHeading is set to true, it means
+      // that a modal with a dynamically created heading was
+      // fired before a 'regular content' modal was
+      if (newHeading) {
+        // remove the leftover dynamic heading
+        mHolder.removeChild(heading);
+        // reset the newHeading variable to false
+        newHeading = false;
+      }
       mContent.innerHTML = getId(this.getAttribute('data-for')).innerHTML;
+      // return newHeading set to false so that the if statement
+      // won't run again until a modal is loaded with a dynamically
+      // created heading
+      return newHeading;
     });
   };
 
 
   // "video" content modal
+  // Grab the video source url from the data-src attribute, so we don't have to
+  // create or delete a JS function if we decide to add or remove video buttons
   for (i = 0; i < vModal.length; i++) {
     vModal[i].addEventListener('click', function () {
       // first get the innerHTMl of the <template> with the id="mv"
