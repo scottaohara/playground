@@ -69,6 +69,8 @@ body {
 .heart-circle{
   border: 7px solid #fc2e5a;
   border-radius: 2000px;
+  cursor: pointer;
+  display: block;
   height: 140px;
   margin: 0 auto;
   overflow: hidden;
@@ -221,11 +223,16 @@ body {
 
 
 // Broken Apart
-.broken {
+:checked + .heart-circle {
+
+  .heart-container{
+    margin-left: -6px;
+  }
 
   .left-side {
     @include vendor(transform, rotate(-10deg));
     margin-right: 6px;
+
   }
 
   .right-side {
