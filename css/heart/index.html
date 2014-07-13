@@ -10,8 +10,8 @@
     <div class="intro-message">
       Click the heart to break it. :(
     </div>
-
-    <div class="heart-circle">
+    <input type="checkbox" id="heart" style="position: absolute; display: none;" />
+    <label for="heart" class="heart-circle">
       <div class="heart-container">
 
         <div class="left-side sides">
@@ -44,16 +44,9 @@
         </div> <!-- end .right-side -->
 
       </div> <!-- end .heart-container -->
-    </div>
+    </label>
 
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script>
-      $(document).ready(function(){
-        $('.heart-circle').click(function(){
-          $('.heart-container').toggleClass('broken');
-        });
-      });
-    </script>
+
 
   </body>
 </html>

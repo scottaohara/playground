@@ -28,6 +28,8 @@ body {
 .heart-circle {
   border: 7px solid #fc2e5a;
   border-radius: 2000px;
+  cursor: pointer;
+  display: block;
   height: 140px;
   margin: 0 auto;
   overflow: hidden;
@@ -168,14 +170,16 @@ body {
   right: -5px;
   top: -6px; }
 
-.broken .left-side {
+:checked + .heart-circle .heart-container {
+  margin-left: -6px; }
+:checked + .heart-circle .left-side {
   -moz-transform: rotate(-10deg);
   -ms-transform: rotate(-10deg);
   -o-transform: rotate(-10deg);
   -webkit-transform: rotate(-10deg);
   transform: rotate(-10deg);
   margin-right: 6px; }
-.broken .right-side {
+:checked + .heart-circle .right-side {
   -moz-transform: rotate(10deg);
   -ms-transform: rotate(10deg);
   -o-transform: rotate(10deg);
