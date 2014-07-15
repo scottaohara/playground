@@ -19,7 +19,7 @@
   <body>
 
 
-      <menu>
+      <div class="menu">
         <button class="btn btn-start m-reg" type="button"
                 data-for="r-1">
                 Text Content
@@ -54,7 +54,7 @@
                 data-src="https://www.youtube.com/embed/tKXdQpwX9-c?vq=large&amp;rel=0">
                 YouTube Video 2
         </button>
-      </menu>
+      </div>
 
   <div id="page">
 
@@ -88,11 +88,18 @@
 
     -->
 
-    <div class="modal-overlay" id="modal-dialog" role="dialog"
-         aria-labelledby="modal-title"
-         aria-hidden="true">
+    <div class="modal-overlay" id="modal-dialog"
+         aria-hidden="true" role="dialog"
+         aria-labelledby="modal-title" aria-describedby="modal-desc">
 
-      <div class="modal-content" id="modal-holder">
+      <div class="modal-content" id="modal-holder" role="document">
+
+        <p id="modal-desc">
+          Use the tab and shift + tab to traverse through focusable elements in
+          the modal window. Use the Escape key to close the modal window at anytime.
+          The content of this modal is dynamic.
+        </p>
+
         <button class="modal-close" id="modal-close" type="button">
           <span aria-hidden="true">X</span>
         </button>
@@ -104,11 +111,6 @@
           </p>
         </div>
 
-      <!--
-        <p id="modal-dialog-desc">
-          If you needed a description for the modal, it would go here
-        </p>
-      -->
       </div> <!-- end .modal-content -->
 
     </div> <!-- end .modal-overlay -->

@@ -46,6 +46,12 @@
   transform: scale(1);
 }
 
+#modal-desc {
+  color: transparent;
+  left: -999999px;
+  position: absolute;
+}
+
 /*
   Video Specific
 */
@@ -143,7 +149,7 @@ body, html {
         padding: 20px;
       }
 
-      menu {
+      .menu {
         background: #eee;
         border-bottom: 1px solid #bbb;
         margin: 0;
