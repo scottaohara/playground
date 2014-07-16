@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>nerp</title>
+    <title>Enter a URL</title>
 
     <style>
       body, input {
@@ -63,9 +63,11 @@
     <form class="form">
 
       <div class="container">
+
         <label for="url">Enter Your Website:</label>
-        <input type="url" id="url" pattern="https?://.+" placeholder="http://www.your-website.com" />
-        <div class="invalid-message">
+        <input type="url" id="url" pattern="https?://.+" placeholder="http://www.your-website.com" aria-describedby="message" />
+
+        <div class="invalid-message" role="tooltip" id="message">
           <p>
             Be sure to enter http:// or https://
           </p>
