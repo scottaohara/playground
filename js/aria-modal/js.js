@@ -16,7 +16,7 @@
       heading,
       newHeading,
       player,
-      vSource,
+      frameSource,
       lastFocus,
       i;
 
@@ -29,44 +29,6 @@
   // selectors (all)
   function qsa ( string ) {
     return document.querySelectorAll( string );
-  }
-
-
-  // find all elements within a parent that we want to
-  // be focusable & store them in an array
-
-  // find out which one is currently focused
-  // On tab / shift tab, focus on the next one / previous one
-  function focusRestrict ( event ) {
-    if ( event.keyCode === 9 && modalOpen && unRestrict === true ) {
-      // queryselectorall returns our node list of elements that can be focusable
-      // but the node list it produces is not actually an array
-      var list = modal.querySelectorAll("button, input, a, video, audio, iframe, embed, object, [tabindex]"),
-          // grab the slice method from the Array prototype,
-          // .call is invoking the slice function to fire on 'list',
-          // even though list doesn't have that function by default
-          focusable = Array.prototype.slice.call( list ),
-          listLength = list.length,
-          focused = document.activeElement,
-          // tells us the position of the currently focused element in the
-          // list we have
-          focusIndex = focusable.indexOf( focused ),
-          nextIndex;
-
-        // meet all the conditions!
-        if ( focusIndex < listLength - 1 && !event.shiftKey ) {
-          nextIndex = focusIndex + 1;
-        } else if ( focusIndex > 0 && event.shiftKey ) {
-          nextIndex = focusIndex -1;
-        } else if ( focusIndex === listLength -1 && !event.shiftKey ) {
-          nextIndex = 0;
-        } else {
-          nextIndex = listLength -1;
-        }
-
-        focusable[nextIndex].focus();
-        event.preventDefault();
-    }
   }
 
 
@@ -92,12 +54,10 @@
   }
 
 
-  // set the source of the video in a modal window
-  // as well as placing focus on the video player (iframe)
-  // if no source is passed, the else statement passes no src, and blurs focus
-  function setVid ( vidSrc ) {
+  // set the source of the iFrame in a modal window
+  function setIframe ( iframeSrc ) {
     unRestrict = false;
-    player.src=vidSrc;
+    player.src=iframeSrc;
   }
 
 
@@ -157,6 +117,44 @@
     // is fired off.
     newHeading = true;
     return newHeading;
+  }
+
+
+  // find all elements within a parent that we want to
+  // be focusable & store them in an array
+
+  // find out which one is currently focused
+  // On tab / shift tab, focus on the next one / previous one
+  function focusRestrict ( event ) {
+    if ( event.keyCode === 9 && modalOpen && unRestrict === true ) {
+      // queryselectorall returns our node list of elements that can be focusable
+      // but the node list it produces is not actually an array
+      var list = modal.querySelectorAll("button, input, a, video, audio, iframe, embed, object, [tabindex]"),
+          // grab the slice method from the Array prototype,
+          // .call is invoking the slice function to fire on 'list',
+          // even though list doesn't have that function by default
+          focusable = Array.prototype.slice.call( list ),
+          listLength = list.length,
+          focused = document.activeElement,
+          // tells us the position of the currently focused element in the
+          // list we have
+          focusIndex = focusable.indexOf( focused ),
+          nextIndex;
+
+        // meet all the conditions!
+        if ( focusIndex < listLength - 1 && !event.shiftKey ) {
+          nextIndex = focusIndex + 1;
+        } else if ( focusIndex > 0 && event.shiftKey ) {
+          nextIndex = focusIndex -1;
+        } else if ( focusIndex === listLength -1 && !event.shiftKey ) {
+          nextIndex = 0;
+        } else {
+          nextIndex = listLength -1;
+        }
+
+        focusable[nextIndex].focus();
+        event.preventDefault();
+    }
   }
 
 
@@ -240,10 +238,10 @@
       player = getId('modal-player');
       // grab the video source that's in the data-src attribute of
       // the button that was clicked (this)
-      vSource = this.getAttribute('data-src');
-      // Call the setVid source function and pass in the vSource
+      frameSource = this.getAttribute('data-src');
+      // Call the setIframe source function and pass in the frameSource
       // variable (which is the url of the movie)
-      setVid(vSource);
+      setIframe(frameSource);
       // focus on the modal video content holder by default
       mHolder.focus();
     });

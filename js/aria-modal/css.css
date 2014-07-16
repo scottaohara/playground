@@ -96,22 +96,16 @@
   background: none;
   color: #111;
   font-family: arial;
-  font-size: 2em;
+  font-size: 3em;
   font-weight: 800;
   border: none;
-  line-height: 1;
+  line-height: .75em;
   cursor: pointer;
   right: .25em;
-  padding: .25em;
+  padding: 0;
   position: absolute;
   top: .25em;
   z-index: 2;
-}
-
-.modal-close:before {
-  content:'Close Modal';
-  position: fixed;
-  right: -999999px;
 }
 
 

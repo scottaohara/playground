@@ -36,12 +36,6 @@ body, html {
   text-align: center;
 }
 
-template, [hidden] {
-  display: none;
-  height: 0;
-  visibility: hidden;
-}
-
 input[type="submit"],
 input[type="button"] {
   -webkit-appearance:none;
@@ -128,10 +122,10 @@ label {
   <div id="page">
 
       <article>
-        <h1>
+        <h2>
           Demo:<br />
           Accessible Modal Window with JavaScript &amp; CSS
-        </h1>
+        </h2>
         <p>
 
         </p>
@@ -169,10 +163,12 @@ label {
         </p>
 
         <button class="modal-close" id="modal-close" type="button">
-          <span aria-hidden="true">X</span>
+          <span aria-hidden="true">&times;</span>
+          <span class="invis">Close Modal</span>
         </button>
 
         <div class="modal-inner-content" id="modal-content">
+          <h1 id="modal-title">Whoops</h1>
           <p>
             Looks like content failed to load.
             Sorry about that.
@@ -183,16 +179,16 @@ label {
 
     </div> <!-- end .modal-overlay -->
 
-    <template id="mv">
+    <script type="text/template" id="mv">
       <div class="modal-aspect" id="modal-video">
         <iframe src="#!" tabindex="0" id="modal-player"
                 webkitallowfullscreen="webkitallowfullscreen"
                 allowfullscreen="allowfullscreen"
                 class="modal-player"></iframe>
       </div>
-    </template>
+    </script>
 
-    <template id="r-1" class="modal-template">
+    <script type="text/template" id="r-1">
       <h1 id="modal-title">Content Title</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -201,9 +197,9 @@ label {
         ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
         irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
-    </template>
+    </script>
 
-    <template id="r-2" class="modal-template">
+    <script type="text/template" id="r-2">
       <h1 id="modal-title">Form Content Title</h1>
       <form>
         <label for="name">Name:</label>
@@ -212,25 +208,25 @@ label {
         <input type="email" id="email" class="input" placeholder="Gimmie ur Email" />
         <input type="submit" class='btn' value="Sign Up" />
       </form>
-    </template>
+    </script>
 
-    <template id="r-3" class="modal-template">
+    <script type="text/template" id="r-3">
       <h1 id="modal-title">More Content Title</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna
         aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
-    </template>
+    </script>
 
-    <template id="r-4" class="modal-template">
+    <script type="text/template" id="r-4">
       <h1 id="modal-title">Video Content Title</h1>
       <video volume="0" muted="muted" loop="loop" controls="true" preload="auto" style="width: 100%">
         <source type="video/mp4" src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4" />
         <source type="video/webm" src="http://video.webmfiles.org/big-buck-bunny_trailer.webm" />
         Video not supported
       </video>
-    </template>
+    </script>
 
     <script src="js.js"></script>
 
