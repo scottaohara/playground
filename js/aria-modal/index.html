@@ -8,12 +8,10 @@
     <meta name="MobileOptimized"  content="320" />
     <meta name="viewport"         content="width=device-width, minimum-scale=1, initial-scale=1" />
     <style>
-      *, *:before, *:after {
-        box-sizing: border-box;
-        font-family: arial;
-      }
+      *{-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; font-family: arial;}
       /* page styling css */
 body, html {
+  background: #efefef;
   margin: 0;
   padding: 0;
   -moz-text-size-adjust:100%;
@@ -29,7 +27,7 @@ body, html {
 }
 
 .menu {
-  background: #eee;
+  background: #fff;
   border-bottom: 1px solid #bbb;
   margin: 0;
   padding: 12px 8px 0;
@@ -54,12 +52,22 @@ button::-moz-focus-inner,
 .btn {
   background: #fff;
   border: 1px solid #ccc;
+  box-shadow: 0 0 0 0 #000;
   cursor: pointer;
   font-size: 16px;
   line-height: 1;
   margin-bottom: 12px;
   padding: 8px 12px;
+  position: relative;
   text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn:hover {
+  box-shadow: 0 0 0 4px rgba(0,0,0,.5);
+  border-color: transparent;
+  transform: scale(1.1);
+  z-index: 3;
 }
 
 label {
@@ -83,35 +91,42 @@ label {
 
       <div class="menu">
         <button class="btn js-btn js-m-template" type="button"
+                aria-controls="modal-dialog"
                 data-for="r-1">
                 Text Content
         </button>
         <button class="btn js-btn js-m-template" type="button"
+                aria-controls="modal-dialog"
                 data-for="r-2"
                 data-max-width="500px">
                 Form Content
         </button>
         <button class="btn js-btn js-m-template" type="button"
+                aria-controls="modal-dialog"
                 data-for="r-3"
                 data-max-width="350px"
                 data-max-height="400px">
                 Text Content 2
         </button>
         <button class="btn js-btn js-m-template" type="button"
+                aria-controls="modal-dialog"
                 data-for="r-4">
                 Embeded Video
         </button>
         <button class="btn js-btn js-m-ajax" type="button"
+                aria-controls="modal-dialog"
                 data-modal-title="Content Via ajax"
                 data-from="test.html">
                 ajax Content
         </button>
         <button class="btn js-btn js-m-iframe" type="button"
+                aria-controls="modal-dialog"
                 data-modal-title="iFramed Video 1"
                 data-src="https://www.youtube.com/embed/RsSBcx_1l-Q?rel=0&amp;vq=large">
                 YouTube Video 1
         </button>
         <button class="btn js-btn js-m-iframe" type="button"
+                aria-controls="modal-dialog"
                 data-modal-title="iFramed Video 2"
                 data-src="https://www.youtube.com/embed/tKXdQpwX9-c?vq=large&amp;rel=0">
                 YouTube Video 2
