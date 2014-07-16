@@ -3,10 +3,10 @@
   'use strict';
 
   // list out the vars
-  var btns = qsa('.btn-start'),
-      rModal = qsa('.m-reg'),
-      vModal = qsa('.m-video'),
-      jModal = qsa('.m-ajax'),
+  var btns = qsa('.js-btn'),
+      tModal = qsa('.js-m-template'),
+      iModal = qsa('.js-m-iframe'),
+      jModal = qsa('.js-m-ajax'),
       modal = getId('modal-dialog'),
       close = getId('modal-close'),
       mContent = getId('modal-content'),
@@ -34,7 +34,7 @@
 
   // find all elements within a parent that we want to
   // be focusable & store them in an array
-  //
+
   // find out which one is currently focused
   // On tab / shift tab, focus on the next one / previous one
   function focusRestrict ( event ) {
@@ -208,8 +208,8 @@
   // with the corresponding <template> id value.
   // assign the innerHTML of the template to the innerHTML of mContent
   // to view the template's content within the modal box.
-  for (i = 0; i < rModal.length; i++) {
-    rModal[i].addEventListener('click', function () {
+  for (i = 0; i < tModal.length; i++) {
+    tModal[i].addEventListener('click', function () {
       // if the var newHeading is set to true, it means
       // that a modal with a dynamically created heading was
       // fired before a 'regular content' modal was
@@ -231,8 +231,8 @@
   // "video" content modal
   // Grab the video source url from the data-src attribute, so we don't have to
   // create or delete a JS function if we decide to add or remove video buttons
-  for (i = 0; i < vModal.length; i++) {
-    vModal[i].addEventListener('click', function () {
+  for (i = 0; i < iModal.length; i++) {
+    iModal[i].addEventListener('click', function () {
       // first get the innerHTMl of the <template> with the id="mv"
       mContent.innerHTML = getId('mv').innerHTML;
       // now that 'mv' is in the DOM, get the ID

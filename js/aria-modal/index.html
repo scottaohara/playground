@@ -12,52 +12,120 @@
         box-sizing: border-box;
         font-family: arial;
       }
-      /* put 'page styling' css back here */
+      /* page styling css */
+body, html {
+  margin: 0;
+  padding: 0;
+  -moz-text-size-adjust:100%;
+  -ms-text-size-adjust:100%;
+  -webkit-text-size-adjust:100%;
+  text-rendering:optimizeLegibility;
+}
+
+#page {
+  margin: auto;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.menu {
+  background: #eee;
+  border-bottom: 1px solid #bbb;
+  margin: 0;
+  padding: 12px 8px 0;
+  text-align: center;
+}
+
+template, [hidden] {
+  display: none;
+  height: 0;
+  visibility: hidden;
+}
+
+input[type="submit"],
+input[type="button"] {
+  -webkit-appearance:none;
+}
+
+button::-moz-focus-inner,
+ input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+:focus {
+  box-shadow: 0 0 10px rgba(129,219,219,.75);
+}
+
+.btn {
+  background: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+label {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: .75em;
+}
+
+.input {
+  display: block;
+  font-size: 1.5em;
+  margin-bottom: .75em;
+  min-width: 230px;
+  padding: 8px;
+  width: 100%;
+}
     </style>
   </head>
 
   <body>
 
-
       <div class="menu">
-        <button class="btn btn-start m-reg" type="button"
+        <button class="btn js-btn js-m-template" type="button"
                 data-for="r-1">
                 Text Content
         </button>
-        <button class="btn btn-start m-reg" type="button"
+        <button class="btn js-btn js-m-template" type="button"
                 data-for="r-2"
                 data-max-width="500px">
                 Form Content
         </button>
-        <button class="btn btn-start m-reg" type="button"
+        <button class="btn js-btn js-m-template" type="button"
                 data-for="r-3"
                 data-max-width="350px"
                 data-max-height="400px">
                 Text Content 2
         </button>
-        <button class="btn btn-start m-reg" type="button"
+        <button class="btn js-btn js-m-template" type="button"
                 data-for="r-4">
                 Embeded Video
         </button>
-        <button class="btn btn-start m-ajax" type="button"
+        <button class="btn js-btn js-m-ajax" type="button"
                 data-modal-title="Content Via ajax"
                 data-from="test.html">
                 ajax Content
         </button>
-        <button class="btn btn-start m-video" type="button"
+        <button class="btn js-btn js-m-iframe" type="button"
                 data-modal-title="iFramed Video 1"
                 data-src="https://www.youtube.com/embed/RsSBcx_1l-Q?rel=0&amp;vq=large">
                 YouTube Video 1
         </button>
-        <button class="btn btn-start m-video" type="button"
+        <button class="btn js-btn js-m-iframe" type="button"
                 data-modal-title="iFramed Video 2"
                 data-src="https://www.youtube.com/embed/tKXdQpwX9-c?vq=large&amp;rel=0">
                 YouTube Video 2
         </button>
       </div>
 
-  <div id="page">
 
+  <div id="page">
 
       <article>
         <h1>
@@ -94,7 +162,7 @@
 
       <div class="modal-content" id="modal-holder" role="document">
 
-        <p id="modal-desc">
+        <p id="modal-desc" class="invis">
           Use the tab and shift + tab to traverse through focusable elements in
           the modal window. Use the Escape key to close the modal window at anytime.
           The content of this modal is dynamic.
