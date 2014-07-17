@@ -88,26 +88,26 @@
 
   <body>
 
-    <form class="form-container">
+    <form class="form-container" aria-describedby="messages">
 
         <label class="input-label" for="user_name">Name:</label>
-        <input type="text" id="user_name" pattern="[a-zA-Z]+" placeholder="John Smith" required />
+        <input type="text" id="user_name" placeholder="John Smith" required />
 
         <label class="input-label" for="user_email">Email:</label>
         <input type="email" id="user_email" placeholder="YourName@email.com" required />
 
         <button type="submit" class="btn btn-submit">submit</button>
 
-        <p class="messages">
+        <p class="messages" role="tooltip" id="messages">
           <span class="msg-required">
-            Please enter the following:<br />
-            <span class="msg-invalid-name">Full Name,</span>
-            <span class="msg-invalid-email">email address</span>
+            You still need to enter the following:<br />
+            <b class="msg-invalid-name">Full Name,</b>
+            <b class="msg-invalid-email">email address</b>
           </span>
 
-          <span class="msg-valid">
+          <b class="msg-valid">
             You can now submit the form!
-          </span>
+          </b>
         </p>
 
     </form>
