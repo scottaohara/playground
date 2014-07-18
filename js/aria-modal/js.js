@@ -44,16 +44,6 @@
   }
 
 
-  // set a modal to hide
-  function modalNoShow () {
-    modal.setAttribute('aria-hidden', 'true');
-    mHolder.setAttribute('tabindex', '-1');
-    modalOpen = false;
-    document.body.removeAttribute('style');
-    mContent.innerHTML = '';
-  }
-
-
   // set the source of the iFrame in a modal window
   function setIframe ( iframeSrc ) {
     unRestrict = false;
@@ -65,7 +55,10 @@
   // but only if modalOpen is set to true
   function modalClose ( event ) {
     if (modalOpen && ( !event.keyCode || event.keyCode === 27 ) ) {
-      modalNoShow();
+      modal.setAttribute('aria-hidden', 'true');
+      mHolder.setAttribute('tabindex', '-1');
+      modalOpen = false;
+      document.body.removeAttribute('style');
       lastFocus.focus();
       // refocus on the last element that was in focus before
       // local window opened
