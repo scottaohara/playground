@@ -2,6 +2,7 @@
   -moz-box-sizing: border-box; }
 
 .form-row {
+  margin-bottom: 20px;
   padding: 4px 0;
   position: relative; }
 .form-block {
@@ -26,7 +27,7 @@
 .label-helper {
   position: absolute;
   opacity: 0;
-  transition: .2s all;
+  transition: .2s bottom, .2s opacity;
   bottom: 0;
   left: 0;
   z-index: 1; }
