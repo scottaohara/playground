@@ -44,13 +44,13 @@ footer, header, main, section {
   width: 100%;
 }
 
-[type="radio"],
-[for="exit"] {
+.radio,
+.exit-label {
   display: none;
   visibility: hidden;
 }
 
-[for="exit"] {
+.exit-label {
   border: 1px solid #333;
   color: #444;
   display: inline-block;
@@ -58,7 +58,7 @@ footer, header, main, section {
   text-decoration: none;
 }
 
-[for*="page_"] {
+.page-label {
   height: 100%;
   left: 0;
   position: absolute;
@@ -116,12 +116,12 @@ footer, header, main, section {
   z-index: 5;
   overflow: auto;
 
-  [for="exit"] {
+  .exit-label {
     display: inline-block;
     visibility: visible;
   }
 
-  [for*="page_"] {
+  .page-label {
     display: none;
   }
 

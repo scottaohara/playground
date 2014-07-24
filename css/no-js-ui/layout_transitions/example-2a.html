@@ -1,43 +1,29 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Page Transitions</title>
-    <link rel="stylesheet" href="css/transitions.css" />
-     <style>
-      *, *:after, *:before {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
-      body { background: #fafafa; font-family: arial narrow, arial; font-size: 120%; margin: 0; }
-      body, html, .page { height: 100%; overflow: hidden; }
-      :last-child { margin-bottom: 0; }
-      h1, h2, h3, h4, h5, h6, p, li { margin-top: 0; }
-      article, aside, canvas, footer, header, main, section { display: block; }
-    </style>
+      <meta charset="utf-8">
+      <title>Page Transitions</title>
+      <style>
+        *, *:after, *:before {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box; }
+        body {background: #fafafa;font-family: arial narrow, arial;font-size: 120%;margin: 0; }
+        body, html, .page {height: 100%;overflow: hidden; }
+        :last-child {margin-bottom: 0; }
+        h1, h2, h3, h4, p, li {margin-top: 0; }
+        header, main, section {display: block; }
+      </style>
+      <link rel="stylesheet" href="css/transitions2a.css" />
   </head>
+  <body id="exit">
 
-  <body>
+    <div class="page demo2">
 
-    <nav role="navigation" class="header-nav">
-      <label for="page_1" class="check-label" tabindex="0">
-        Page 1
-      </label>
-
-      <label for="page_2" class="check-label" tabindex="0">
-        Page 2
-      </label>
-
-      <label for="page_3" class="check-label" tabindex="0">
-        Page 3
-      </label>
-
-      <label for="page_4" class="check-label" tabindex="0">
-        Page 4
-      </label>
-    </nav>
-
-    <div class="page">
-
-      <input type="radio" class="radio" name="pages" id="page_1" tabindex="-1" checked />
-      <section class="section-container section-one">
+      <section class="section-container section-one" id="page_1">
+        <a href="#exit" class="btn btn-exit">
+          X
+        </a>
+        <a href="#page_1" class="btn btn-page">
+          <span>Page 1</span>
+        </a>
         <header class="section-header">
           <div class="section-content">
             <h1>
@@ -60,8 +46,13 @@
         </div>
       </section>
 
-      <input type="radio" class="radio" name="pages" id="page_2" tabindex="-1" />
-      <section class="section-container section-two">
+      <section class="section-container section-two" id="page_2">
+        <a href="#exit" class="btn btn-exit">
+          X
+        </a>
+        <a href="#page_2" class="btn btn-page">
+          <span>Page 2</span>
+        </a>
         <header class="section-header">
           <div class="section-content">
             <h1>
@@ -85,8 +76,13 @@
       </section>
 
 
-      <input type="radio" class="radio" name="pages" id="page_3" tabindex="-1" />
-      <section class="section-container section-three">
+      <section class="section-container section-three" id="page_3">
+        <a href="#exit" class="btn btn-exit">
+          X
+        </a>
+        <a href="#page_3" class="btn btn-page">
+          <span>Page 3</span>
+        </a>
         <header class="section-header">
           <div class="section-content">
             <h1>
@@ -110,8 +106,14 @@
       </section>
 
 
-      <input type="radio" class="radio" name="pages" id="page_4" tabindex="-1" />
-      <section class="section-container section-four">
+      <section class="section-container section-four" id="page_4">
+        <a href="#exit" class="btn btn-exit">
+          X
+        </a>
+
+        <a href="#page_4" class="btn btn-page">
+          <span>Page 4</span>
+        </a>
         <header class="section-header">
           <div class="section-content">
             <h1>

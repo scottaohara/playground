@@ -1,37 +1,13 @@
-*, *::after, *::before {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
-
-body {
-  background: #fafafa;
-  font-family: arial narrow, arial;
-  font-size: 120%;
-  margin: 0; }
-
-body, html, .page {
-  height: 100%;
-  overflow: hidden; }
-
-:last-child {
-  margin-bottom: 0; }
-
-h1, h2, h3, h4, h5, h6, p, li {
-  margin-top: 0; }
-
-article, aside, canvas, footer, header, main, section {
-  display: block; }
-
 .page {
   position: fixed;
   top: 50px;
   width: 100%; }
 
-[type="radio"] {
+.radio {
   display: none;
   visibility: hidden; }
 
-[role="navigation"] {
+.header-nav {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: rgba(255, 255, 255, 0.95);
   left: 0;

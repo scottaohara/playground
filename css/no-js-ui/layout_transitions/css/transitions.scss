@@ -1,40 +1,20 @@
-// pull in some useful components to make writing this easier
-@import '__import/__import';
-
-
-// box size all the things
-*, *::after, *::before {
-  @include box-sizing(border-box);
+@mixin vendor($property, $value, $moz: true, $ms: true, $o: true, $webkit: true) {
+  @if $moz    == true  {    -moz-#{$property}: $value; }
+  @if $ms     == true  {     -ms-#{$property}: $value; }
+  @if $o      == true  {      -o-#{$property}: $value; }
+  @if $webkit == true  { -webkit-#{$property}: $value; }
+                                 #{$property}: $value;
 }
 
-body {
-  background: #fafafa;
-  font-family: arial narrow, arial;
-  font-size: 120%;
-  margin: 0;
+// Generic Transitions
+@mixin transition($values) {
+  @include vendor(transition, $values, $o: false, $ms: false);
 }
 
-body, html, .page {
-  height: 100%;
-  overflow: hidden;
+// Generic Transforms
+@mixin transform($values){
+  @include vendor(transform, $values);
 }
-
-
-// no margin bottoms on the last child within elements
-:last-child {
-  margin-bottom: 0;
-}
-
-// no margin-tops on standard text elements
-h1, h2, h3, h4, h5, h6, p, li {
-  margin-top: 0;
-}
-
-// Give HTML5 elements block display, which is not defined in IE 8/9
-article, aside, canvas, footer, header, main, section {
-  display: block;
-}
-
 
 
 
@@ -45,12 +25,12 @@ article, aside, canvas, footer, header, main, section {
   width: 100%;
 }
 
-[type="radio"] {
+.radio {
   display: none;
   visibility: hidden;
 }
 
-[role="navigation"] {
+.header-nav {
   background: rgba(255,255,255,.95);
   box-shadow: rgba(255,255,255,.95);
   left: 0;
@@ -112,13 +92,10 @@ article, aside, canvas, footer, header, main, section {
   }
 }
 
-
-
 .section-one {
   @include transform(translate(0%,40%));
   background: #f5bfb8;
 }
-
 
 .section-two {
   @include transform(translate(-60%,0%));
@@ -134,5 +111,3 @@ article, aside, canvas, footer, header, main, section {
   @include transform(translate(0%,-40%));
   background: #eef4c8;
 }
-
-
