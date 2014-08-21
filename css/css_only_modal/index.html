@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <title>slide up page</title>
+
+      <style>
+
+        body {
+          background: #eee;
+          font-family: arial;
+          padding-top: 20px;
+        }
+
+        [role='navigation'] {
+          left: 0;
+          padding: 8px;
+          position: fixed;
+          top: 0;
+        }
+
+        [role='navigation'] a {
+          display: inline-block;
+          border: 1px solid #aaa;
+          padding: 8px;
+          text-decoration: none;
+          color: #333;
+        }
+
+        [role='navigation'] a:hover,
+        [role='navigation'] a:active {
+          background: #fff;
+        }
+
+
+        :focus, a:focus {
+          background: #ddd;
+        }
+
+
+        .modal-container {
+          background: #fff;
+          bottom: 0;
+          height: 1%;
+          left: 0;
+          margin: 0 auto;
+          margin: auto;
+          max-width: 900px;
+          opacity: .1;
+          overflow: hidden;
+          position: absolute;
+          right: 0;
+          top: 0;
+          transition: all .3s;
+          width: 1%;
+          z-index: 7;
+        }
+
+
+        .modal-overlay {
+          background: rgba(0,0,0,.8);
+          bottom: 0;
+          height: 1%;
+          height: 100%;
+          left: 0;
+          margin: auto;
+          opacity: 0;
+          overflow: hidden;
+          position: fixed;
+          right: 0;
+          top: 0;
+          transition: all .3s;
+          width: 1%;
+          width: 100%;
+          z-index: -1;
+        }
+
+
+        .modal-overlay:target {
+          opacity: 1;
+          z-index: 2;
+        }
+
+
+        .modal-overlay:target .modal-container {
+          height: 75%;
+          opacity: 1;
+          width: 75%;
+        }
+
+
+        .modal-close,
+        .modal-close:active {
+          bottom: 0;
+          color: transparent;
+          left: 0;
+          position: fixed;
+          right: 0;
+          text-align: center;
+          top: 0;
+          z-index: 3;
+          cursor: default;
+          background: transparent;
+        }
+
+
+        .modal-close::after {
+          color: #fff;
+          content: 'X';
+          font-size: 20px;
+          height: 32px;
+          line-height: 32px;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 30px;
+          cursor: pointer;
+        }
+
+
+        .modal-content {
+          padding: 20px;
+        }
+
+      </style>
+  </head>
+  <body>
+
+
+
+
+  <div class="modal-overlay" id="what" tabindex="-1" role="dialog">
+    <section class="modal-container" role="dialog">
+      <header class="modal-header">
+        <div class="modal-content">
+          <h1>
+            Title of Modalasdfadsfsda
+          </h1>
+        </div>
+      </header>
+      <div class="modal-info">
+        <div class="modal-content">
+          <p>
+            Contents of modal.
+          </p>
+        </div>
+      </div>
+      <footer class="modal-footer">
+        <div class="modal-content">
+          Goodbye of modal.
+        </div>
+      </footer>
+    </section>
+    <a href="#!" class="modal-close" tabindex="-1" role="button">
+      Close
+    </a>
+  </div>
+
+
+
+
+  <div class="modal-overlay" id="what-now" tabindex="-1" role="dialog">
+    <section class="modal-container" role="dialog">
+      <header class="modal-header">
+        <div class="modal-content">
+          <h1>
+            Title of Modal
+          </h1>
+        </div>
+      </header>
+      <div class="modal-info">
+        <div class="modal-content">
+          <p>
+            Contents of modal.
+          </p>
+        </div>
+      </div>
+      <footer class="modal-footer">
+        <div class="modal-content">
+          Goodbye of modal.
+        </div>
+      </footer>
+    </section>
+
+    <a href="#!" class="modal-close" tabindex="-1" role="button">
+      Close
+    </a>
+  </div>
+
+
+
+
+
+<nav role="navigation">
+    <a href="#what" class="btn" role="button">
+      Launch a modal
+    </a>
+
+    <a href="#what-now" class="btn" role="button">
+      Launch another modal
+    </a>
+</nav>
+
+  </body>
+</html>
