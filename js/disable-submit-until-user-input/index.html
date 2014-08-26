@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>yup</title>
+    <style>
+      body {
+        padding: 40px;
+      }
+      #next {
+        pointer-events: none;
+        opacity: .3;
+      }
+      label[for], input[type='radio'] {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+
+    <p>
+      The submit button won't accept click events until a radio button is selected.
+    </p>
+
+    <form>
+      <div>
+        <input type="radio" name="example" class="choices" id="ex1" value="1" />
+        <label for="ex1">Label 1</label>
+      </div>
+      <div>
+        <input type="radio" name="example" class="choices" id="ex2" value="2" />
+        <label for="ex2">Label 2</label>
+      </div>
+      <div>
+        <input type="radio" name="example" class="choices" id="ex3" value="3" />
+        <label for="ex3">Label 3</label>
+      </div>
+
+      <input type="submit" id="next" value="Submit" disabled />
+    </form>
+
+
+    <script>
+      (function() {
+
+        'use strict';
+
+        var radios = document.querySelectorAll('.choices'),
+            nextStep = document.getElementById('next');
+
+
+
+
+          for (var i = 0; i < radios.length; i++) {
+            if (radios[i].type === 'radio' && radios[i].checked) {
+              nextStep.removeAttribute('disabled');
+              nextStep.setAttribute('style', 'pointer-events: auto; opacity: 1;');
+            }
+
+
+            radios[i].addEventListener('click', function (){
+              nextStep.removeAttribute('disabled');
+              nextStep.setAttribute('style', 'pointer-events: auto; opacity: 1;');
+            });
+          }
+
+
+
+      })();
+    </script>
+
+  </body>
+</html>
