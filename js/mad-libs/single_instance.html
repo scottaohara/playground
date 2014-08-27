@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>whoa</title>
+    <style>
+      body {
+        background: #fafafa;
+        padding: 60px;
+        margin: 0;
+        font-family: arial;
+        font-size: 18px;
+        text-align: center;
+      }
+      label {
+        display: block;
+        margin-bottom: 40px;
+        cursor: pointer;
+      }
+      .input-text {
+        background: none;
+        padding: 12px;
+        border: 1px solid #333;
+        border-top: none;
+        display: block;
+        font-family: arial;
+        width: 80%;
+        text-align: center;
+        font-size: 22px;
+        margin: auto;
+        color: #ccc;
+      }
+      .input-text:focus {
+        background: #fbfbfb;
+        border-color: #4067c0;
+        box-shadow: 0 3px 1px rgba(0,0,0,.2);
+      }
+
+      #output {
+        font-size: 30px;
+        color: #333;
+      }
+
+
+    </style>
+  </head>
+  <body>
+
+      <ul>
+        <label for="words">Just type whatever. It's cool...</label>
+        <input type="text" id="words" class="input-text" />
+      </ul>
+
+
+    <p id="output">
+
+    </p>
+
+
+    <script>
+      var words = document.getElementById('words'),
+          output = document.getElementById('output');
+
+      if (words.value === '') {
+        output.innerHTML = 'oh hi';
+      }
+
+      function update(elem) {
+          output.textContent = words.value;
+      }
+
+      words.addEventListener('keyup', update);
+
+
+    </script>
+  </body>
+</html>

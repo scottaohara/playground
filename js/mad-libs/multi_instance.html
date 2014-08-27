@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>whoa</title>
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+      body {
+        background: #fafafa;
+        padding: 60px;
+        margin: 0;
+        font-family: arial;
+        font-size: 18px;
+      }
+      label {
+        display: block;
+        margin-bottom: 12px;
+        cursor: pointer;
+      }
+      .input-text {
+        background: none;
+        border: 1px solid #333;
+        border-top: none;
+        color: #666;
+        display: block;
+        font-family: arial;
+        font-size: 18px;
+        padding: 4px 8px;
+        width: 80%;
+      }
+      .input-text:focus {
+        background: #fbfbfb;
+        border-color: #4067c0;
+        box-shadow: 0 3px 1px rgba(0,0,0,.2);
+      }
+
+      #output {
+        font-size: 30px;
+        color: #333;
+      }
+
+      .w-30 {
+        width: 30%;
+        margin-right: 5%;
+      }
+
+      .w-60 {
+        width: 60%;
+      }
+
+      [class*='w-'] {
+        display: inline-block;
+        vertical-align: top;
+      }
+      .word-list {
+        padding: 0;
+        list-style: none;
+      }
+
+      .word-list li {
+        margin-bottom: 12px;
+      }
+
+      .output {
+        background: #ccc;
+        display: inline-block;
+        padding: 2px;
+      }
+
+      [class*='paragraph--'] {
+        transition: opacity .2s;
+        opacity: 1;
+      }
+
+      .paragraph--no-val {
+        visibility: hidden;
+      }
+
+      .paragraph--show {
+        visibility: visible;
+      }
+
+      .paragraph--no-val ~ .paragraph--show {
+        opacity: .05;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="w-30">
+      <p>Please write a...</p>
+      <ul class="word-list">
+        <li>
+          <label for="word-1">Color:</label>
+          <input type="text" id="word-1" class="input-text" placeholder="blue" />
+        </li>
+        <li>
+          <label for="word-2">Addictive Substance:</label>
+          <input type="text" id="word-2" class="input-text" placeholder="cocaine" />
+        </li>
+        <li>
+          <label for="word-3">Boy's Name:</label>
+          <input type="text" id="word-3" class="input-text" placeholder="Ricky" />
+        </li>
+        <li>
+          <label for="word-4">An Action:</label>
+          <input type="text" id="word-4" class="input-text" placeholder="swimming" />
+        </li>
+        <li>
+          <label for="word-5">An Attribute:</label>
+          <input type="text" id="word-5" class="input-text" placeholder="achievement" />
+        </li>
+      </ul>
+    </div>
+
+    <div class="w-60">
+      <h1>Once upon a time...</h1>
+      <p class="paragraph--no-val">
+        there was a <span id="output-1" class="output"></span> bird named Rhino.
+      </p>
+
+      <p class="paragraph--no-val">
+        Rhino was very confused by his name, and thinks his parents were on
+        <span id="output-2" class="output"></span>
+        when naming him.
+      </p>
+
+      <p class="paragraph--no-val">
+        It'd be much better if his name was
+        <span id="output-3" class="output"></span>, instead.
+      </p>
+
+      <p class="paragraph--no-val">
+        One day, in an act of defiance, Rhino told his parents that he was going to
+        change his name, and if they didn't like it, they could go <span id="output-4" class="output"></span>.
+      </p>
+
+      <p class="paragraph--no-val">
+        They were surprisingly supportive though, and said that they felt naming him Rhino
+        was always one of their biggest <span id="output-5" class="output"></span>s.
+      </p>
+    </div>
+
+
+    <script>
+
+      var i,
+          words = document.querySelectorAll('.input-text'),
+          outputs = document.querySelectorAll('.output'),
+          paragraphs = document.querySelectorAll('paragraph');
+
+          function update( elm ) {
+            for (i = 0; i < words.length; i++) {
+              outputs[i].textContent = words[i].value;
+
+              if (words[i].value !== '') {
+                outputs[i].parentNode.classList.add('paragraph--show');
+                outputs[i].parentNode.classList.remove('paragraph--no-val');
+                words[i].parentNode.classList.add('finished');
+              }
+              else if (words[i].value === '') {
+                outputs[i].parentNode.classList.remove('paragraph--show');
+                outputs[i].parentNode.classList.add('paragraph--no-val');
+                words[i].parentNode.classList.remove('finished');
+              }
+            }
+          }
+
+          for (i = 0; i < words.length; i++) {
+            words[i].addEventListener('keyup', update);
+          }
+
+          window.onload = update();
+
+
+    </script>
+  </body>
+</html>
