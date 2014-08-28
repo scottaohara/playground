@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <h1>this version is incomplete.</h1>
     <div class="w-30">
       <p>Please write a...</p>
       <ul class="word-list">
@@ -66,46 +65,45 @@
     <button type="button" id="js-btn-reapply" disabled='disabled'>Reapply Last Saved Entries</button>
 
     <script>
+      (function(){
+        var i,
+            words = document.querySelectorAll('.input-text'),
+            outputs = document.querySelectorAll('.output'),
+            paragraphs = document.querySelectorAll('paragraph'),
+            clear = document.getElementById('js-btn-clear'),
+            redo = document.getElementById('js-btn-reapply'),
 
-      var i,
-          words = document.querySelectorAll('.input-text'),
-          outputs = document.querySelectorAll('.output'),
-          paragraphs = document.querySelectorAll('paragraph'),
-          clear = document.getElementById('js-btn-clear'),
-          redo = document.getElementById('js-btn-reapply'),
-          exists = false,
-
-          jsonLibs = {},
-          jsonLibsSave;
+            wordList = {},
+            wordListSave;
 
 
-          function update( elm ) {
-            for (i = 0; i < words.length; i++) {
-              outputs[i].textContent = words[i].value;
+        function update( elm ) {
+          for (i = 0; i < words.length; i++) {
+            outputs[i].textContent = words[i].value;
 
-              if (words[i].value !== '') {
-                outputs[i].parentNode.classList.add('paragraph--show');
-                outputs[i].parentNode.classList.remove('paragraph--no-val');
-                words[i].parentNode.classList.add('finished');
+            if (words[i].value !== '') {
+              outputs[i].parentNode.classList.add('paragraph--show');
+              outputs[i].parentNode.classList.remove('paragraph--no-val');
+              words[i].parentNode.classList.add('finished');
 
-              }
-              else if (words[i].value === '') {
-                outputs[i].parentNode.classList.remove('paragraph--show');
-                outputs[i].parentNode.classList.add('paragraph--no-val');
-                words[i].parentNode.classList.remove('finished');
-              }
+            }
+            else if (words[i].value === '') {
+              outputs[i].parentNode.classList.remove('paragraph--show');
+              outputs[i].parentNode.classList.add('paragraph--no-val');
+              words[i].parentNode.classList.remove('finished');
+            }
 
-              //  create a JSON string to store all values
-              //  TODO - there must be a way to dynamically generate the JSON IDs?
-              jsonLibs = {
-                word1: words[0].value,
-                word2: words[1].value,
-                word3: words[2].value,
-                word4: words[3].value,
-                word5: words[4].value
-              }
+            //  create an array to store all values
+            //  TODO - there must be a way to dynamically generate the JSON IDs?
+            wordList = {
+              word0: words[0].value,
+              word1: words[1].value,
+              word2: words[2].value,
+              word3: words[3].value,
+              word4: words[4].value
             }
           }
+        }
 
 
           function insertAfter(newNode, referenceNode) {
@@ -126,7 +124,7 @@
           // saving and reapplying
 
           function saveAndClear ( e ) {
-            var jsonLibsSave = jsonLibs;
+            wordListSave = wordList;
 
             for (i = 0; i < outputs.length; i++) {
               words[i].value = '';
@@ -137,7 +135,6 @@
 
             redo.removeAttribute('disabled');
 
-            console.log(jsonLibsSave)
           }
 
 
@@ -145,11 +142,10 @@
 
 
           function refill () {
-            for (i = 0; i < words[i].length; i++) {
-              words[i].value = jsonLibs.word[i];
+            for (i = 0; i < words.length; i++) {
+              words[i].value = wordListSave['word'+i];
             }
-            console.log('wtf');
-            console.log(jsonLibsSave)
+            update();
           }
 
 
@@ -159,20 +155,7 @@
 
           clear.addEventListener('click', saveAndClear);
 
-
+        })();
     </script>
   </body>
 </html>
-
-
-
-
-<!--
-          reapply = document.createElement('button'),
-          reapplyLabel = document.createTextNode('Reapply Last Saved Entries');
-
-          // get the reapply button set up, but don't add it yet.
-          reapply.appendChild(reapplyLabel);
-          reapply.setAttribute('type', 'button');
-          reapply.setAttribute('id', 'redo');
-  -->

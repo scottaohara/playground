@@ -74,7 +74,7 @@
       }
 
       .paragraph--no-val {
-        visibility: hidden;
+        opacity: .1;
       }
 
       .paragraph--show {

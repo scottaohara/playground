@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Multi-Word Sharable MadLibs</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <h1>this version is incomplete.</h1>
+    <div class="w-30">
+      <p>Please write a...</p>
+      <ul class="word-list">
+        <li>
+          <label for="word-1">Color:</label>
+          <input type="text" id="word-1" class="input-text" placeholder="blue" />
+        </li>
+        <li>
+          <label for="word-2">Addictive Substance:</label>
+          <input type="text" id="word-2" class="input-text" placeholder="cocaine" />
+        </li>
+        <li>
+          <label for="word-3">Boy's Name:</label>
+          <input type="text" id="word-3" class="input-text" placeholder="Ricky" />
+        </li>
+        <li>
+          <label for="word-4">An Action:</label>
+          <input type="text" id="word-4" class="input-text" placeholder="swimming" />
+        </li>
+        <li>
+          <label for="word-5">An Attribute:</label>
+          <input type="text" id="word-5" class="input-text" placeholder="achievement" />
+        </li>
+      </ul>
+    </div>
+
+    <div class="w-60">
+      <h1>Once upon a time...</h1>
+      <p class="paragraph--no-val">
+        there was a <span id="output-1" class="output"></span> bird named Rhino.
+      </p>
+
+      <p class="paragraph--no-val">
+        Rhino was very confused by his name, and thinks his parents were on
+        <span id="output-2" class="output"></span>
+        when naming him.
+      </p>
+
+      <p class="paragraph--no-val">
+        It'd be much better if his name was
+        <span id="output-3" class="output"></span>, instead.
+      </p>
+
+      <p class="paragraph--no-val">
+        One day, in an act of defiance, Rhino told his parents that he was going to
+        change his name, and if they didn't like it, they could go <span id="output-4" class="output"></span>.
+      </p>
+
+      <p class="paragraph--no-val">
+        They were surprisingly supportive though, and said that they felt naming him Rhino
+        was always one of their biggest <span id="output-5" class="output"></span>s.
+      </p>
+    </div>
+
+    <button type="button" id="js-btn-clear">Save &amp; Clear</button>
+
+    <button type="button" id="js-btn-reapply" disabled='disabled'>Reapply Last Saved Entries</button>
+
+    <script>
+      (function(){
+        var i,
+            words = document.querySelectorAll('.input-text'),
+            outputs = document.querySelectorAll('.output'),
+            paragraphs = document.querySelectorAll('paragraph'),
+            clear = document.getElementById('js-btn-clear'),
+            redo = document.getElementById('js-btn-reapply'),
+
+            wordList = {},
+            wordListSave;
+
+
+        function update( elm ) {
+          for (i = 0; i < words.length; i++) {
+            outputs[i].textContent = words[i].value;
+
+            if (words[i].value !== '') {
+              outputs[i].parentNode.classList.add('paragraph--show');
+              outputs[i].parentNode.classList.remove('paragraph--no-val');
+              words[i].parentNode.classList.add('finished');
+
+            }
+            else if (words[i].value === '') {
+              outputs[i].parentNode.classList.remove('paragraph--show');
+              outputs[i].parentNode.classList.add('paragraph--no-val');
+              words[i].parentNode.classList.remove('finished');
+            }
+
+            //  create an array to store all values
+            //  TODO - there must be a way to dynamically generate the JSON IDs?
+            wordList = {
+              word0: words[0].value,
+              word1: words[1].value,
+              word2: words[2].value,
+              word3: words[3].value,
+              word4: words[4].value
+            }
+          }
+
+
+            JSON.stringify(wordList);
+            console.log(btoa(JSON.stringify(wordList)));
+            console.log(JSON.stringify(wordList));
+
+        }
+
+
+          function insertAfter(newNode, referenceNode) {
+            referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+          }
+
+
+
+          for (i = 0; i < words.length; i++) {
+            words[i].addEventListener('keyup', update);
+          }
+
+          window.onload = update();
+
+
+
+
+          // saving and reapplying
+
+          function saveAndClear ( e ) {
+            wordListSave = wordList;
+
+            for (i = 0; i < outputs.length; i++) {
+              words[i].value = '';
+              outputs[i].textContent = '';
+              outputs[i].parentNode.classList.remove('paragraph--show');
+              outputs[i].parentNode.classList.add('paragraph--no-val');
+            }
+
+            redo.removeAttribute('disabled');
+
+          }
+
+
+
+
+
+          function refill () {
+            for (i = 0; i < words.length; i++) {
+              words[i].value = wordListSave['word'+i];
+            }
+            update();
+          }
+
+
+
+          redo.addEventListener('click', refill);
+
+
+          clear.addEventListener('click', saveAndClear);
+
+        })();
+    </script>
+  </body>
+</html>
