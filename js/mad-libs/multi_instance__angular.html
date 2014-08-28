@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>whoa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+      .paragraph {
+        opacity: .1;
+        transition: opacity .2s;
+        line-height: 1.6;
+      }
+
+      .show {
+        opacity: 1;
+      }
+
+    </style>
+  </head>
+  <body ng-app="myApp">
+    <div class="w-30">
+      <p>Please write a...</p>
+      <ul class="word-list">
+        <li>
+          <label for="word-1">Color:</label>
+          <input type="text" id="word-1" ng-model="word1" class="input-text" placeholder="blue" />
+        </li>
+        <li>
+          <label for="word-2">Addictive Substance:</label>
+          <input type="text" id="word-2" ng-model="word2" class="input-text" placeholder="cocaine" />
+        </li>
+        <li>
+          <label for="word-3">Boy's Name:</label>
+          <input type="text" id="word-3" ng-model="word3" class="input-text" placeholder="Ricky" />
+        </li>
+        <li>
+          <label for="word-4">An Action:</label>
+          <input type="text" id="word-4" ng-model="word4" class="input-text" placeholder="swimming" />
+        </li>
+        <li>
+          <label for="word-5">An Attribute:</label>
+          <input type="text" id="word-5" ng-model="word5" class="input-text" placeholder="achievement" />
+        </li>
+      </ul>
+    </div>
+
+    <div class="w-60">
+      <h1>Once upon a time...</h1>
+      <p class="paragraph">
+        there was a <span class="output">{{word1}}</span> bird named Rhino.
+      </p>
+
+      <p class="paragraph">
+        Rhino was very confused by his name, and thinks his parents were on
+         <span class="output">{{word2}}</span>
+        when naming him.
+      </p>
+
+      <p class="paragraph">
+        It'd be much better if his name was
+         <span class="output">{{word3}}</span>, instead.
+      </p>
+
+      <p class="paragraph">
+        One day, in an act of defiance, Rhino told his parents that he was going to
+        change his name, and if they didn't like it, they could go <span class="output">{{word4}}</span>.
+      </p>
+
+      <p class="paragraph">
+        They were surprisingly supportive though, and said that they felt naming him Rhino
+        was always one of their biggest <span class="output">{{word5}}</span>s.
+      </p>
+    </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script>
+
+      var app = angular.module('myApp', []),
+          inputs = document.querySelectorAll('.input-text'),
+          paragraphs = document.querySelectorAll('.paragraph');
+
+          function update () {
+            for (var i = 0; i < inputs.length; i++) {
+              if (inputs[i].value !== '') {
+                paragraphs[i].classList.add('show');
+              } else if (inputs[i].value === '') {
+                paragraphs[i].classList.remove('show');
+              }
+
+              inputs[i].addEventListener('keyup', update);
+              inputs[i].addEventListener('focus', update);
+            }
+
+          }
+
+          update();
+
+          document.addEventListener('onload', update);
+
+
+    </script>
+  </body>
+</html>
