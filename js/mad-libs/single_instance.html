@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>whoa</title>
+    <title>Single-Word MadLibs</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
       body, input {
@@ -15,23 +15,19 @@
   </head>
   <body>
 
-      <div>
-        <label for="words">Just type whatever. It's cool...</label>
-        <input type="text" id="words" class="input-text" />
-      </div>
+    <div>
+      <label for="words">Just type whatever. It's cool...</label>
+      <input type="text" id="words" class="input-text" />
+    </div>
 
-
-    <p id="output">
-
-    </p>
-
+    <p id="output"></p>
 
     <script>
       var words = document.getElementById('words'),
           output = document.getElementById('output');
 
       if (words.value === '') {
-        output.innerHTML = 'oh hi';
+        output.innerHTML = 'Start typing in the input above to change this text.';
       }
 
       function update(elem) {
