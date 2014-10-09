@@ -83,19 +83,7 @@
     </main>
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-    <script>
-      $(function() {
-        $('.jqueryOptions').hide();
-
-        $('#choose').change(function () {
-          $('.jqueryOptions').slideUp();
-          $('.jqueryOptions').removeClass('current-opt');
-          $("." + $(this).val()).slideDown();
-          $("." + $(this).val()).addClass('current-opt');
-        });
-      });
-    </script>
+    <script src="js/jquery.js"></script>
 
   </body>
 </html>
