@@ -1,0 +1,104 @@
+.select-area .select-options {
+  display: block;
+  opacity: 0;
+  transition: .1s opacity;
+  visibility: hidden;
+}
+
+#open_close:focus ~ .header-base .input-select {
+  outline: 1px dotted;
+}
+
+#opt1:focus ~ .header-base label[for='opt1'],
+#opt2:focus ~ .header-base label[for='opt2'],
+#opt3:focus ~ .header-base label[for='opt3'] {
+  outline: 1px dotted;
+}
+
+.input-select:before {
+  content: 'Make a Selection';
+}
+
+#opt1:checked ~ .header-base .input-select:before {
+  content: 'Option 1';
+}
+
+#opt2:checked ~ .header-base .input-select:before {
+  content: 'Option 2';
+}
+
+#opt3:checked ~ .header-base .input-select:before {
+  content: 'Option 3';
+}
+
+#open_close ~ input[name='opts'] {
+  display: none;
+}
+
+#open_close:checked ~ input[name='opts'] {
+  display: inline;
+}
+
+#open_close:checked ~ .header-base .select-area .select-options {
+  opacity: 1;
+  visibility: visible;
+}
+
+#open_close:checked ~ .header-base .select-area:after {
+  border: none;
+  content: 'X';
+  top: -24px;
+}
+
+label {
+  cursor: pointer;
+  display: block;
+}
+
+label:hover {
+  background: #ddd;
+}
+
+.select-options {
+  background: #fefefe;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 2px rgba(0,0,0,.2);
+  box-sizing: padding-box;
+  font-size: .8em;
+  height: auto;
+  left: 0;
+  list-style: none;
+  margin: auto;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 94%;
+  width: 98%;
+  z-index: 3;
+}
+
+.select-options li {
+  padding: 4px;
+}
+
+.select-options label {
+  cursor: pointer;
+  display: block;
+}
+
+#opt1:checked ~ main .opt1,
+#opt2:checked ~ main .opt2,
+#opt3:checked ~ main .opt3 {
+  display: block;
+  height: 100%;
+  visibility: visible;
+}
+
+.invis {
+  height: 1px;
+  left: -999999px;
+  opacity: 0;
+  position: absolute;
+  width: 1px;
+}
+

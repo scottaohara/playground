@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Choose Your Adventure</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header-base">
+      <h1 class="header__title">JS &amp; CSS for the Win</h1>
+
+      <label class="input-label" for="choose">
+        Choose an Option
+      </label>
+
+      <div class="select-area">
+        <select name="choose" id="choose" class="input-select">
+          <option value="nul" selected disabled>Make a Selection</option>
+          <option value="opt1">Option 1</option>
+          <option value="opt2">Option 2</option>
+          <option value="opt3">Option 3</option>
+        </select>
+      </div>
+    </header>
+
+    <main role="main" class="main-content">
+
+      <section class="options opt1">
+        <div class="content">
+          <h1>Option 1</h1>
+          <p>
+            You chose Option 1. That's super great.
+          </p>
+          <p>
+            I hope this works out well for you.
+          </p>
+          <p>
+            Strip steak short ribs swine ham hock, pork belly t-bone pork turducken filet mignon pancetta brisket jerky beef ribs tenderloin porchetta. Short ribs venison brisket doner, swine pancetta kielbasa turkey pig boudin spare ribs ham frankfurter. Rump kevin flank filet mignon short ribs tail pastrami meatloaf.
+          </p>
+          <p>
+            Venison corned beef ham ribeye. Flank pig filet mignon tri-tip tenderloin ham tail salami spare ribs meatball tongue. Kielbasa strip steak pork belly jerky chuck tail capicola filet mignon meatloaf salami frankfurter boudin tongue ball tip corned beef.
+          </p>
+        </div>
+      </section>
+
+      <section class="options opt2">
+        <div class="content">
+          <h1>Option 2</h1>
+          <p>
+            You chose Option 2.
+          </p>
+          <p>
+            Second best is alright I suppose.
+          </p>
+          <p>
+            Strip steak short ribs swine ham hock, pork belly t-bone pork turducken filet mignon pancetta brisket jerky beef ribs tenderloin porchetta. Short ribs venison brisket doner, swine pancetta kielbasa turkey pig boudin spare ribs ham frankfurter. Rump kevin flank filet mignon short ribs tail pastrami meatloaf.
+          </p>
+          <p>
+            Venison corned beef ham ribeye. Flank pig filet mignon tri-tip tenderloin ham tail salami spare ribs meatball tongue. Kielbasa strip steak pork belly jerky chuck tail capicola filet mignon meatloaf salami frankfurter boudin tongue ball tip corned beef.
+          </p>
+        </div>
+      </section>
+
+      <section class="options opt3">
+        <div class="content">
+          <h1>Option 3</h1>
+          <p>
+            You chose Option 3.
+          </p>
+          <p>
+            This is probably the least desirable option.
+            It's number 3 for a reason y'all.
+          </p>
+          <p>
+            Strip steak short ribs swine ham hock, pork belly t-bone pork turducken filet mignon pancetta brisket jerky beef ribs tenderloin porchetta. Short ribs venison brisket doner, swine pancetta kielbasa turkey pig boudin spare ribs ham frankfurter. Rump kevin flank filet mignon short ribs tail pastrami meatloaf.
+          </p>
+          <p>
+            Venison corned beef ham ribeye. Flank pig filet mignon tri-tip tenderloin ham tail salami spare ribs meatball tongue. Kielbasa strip steak pork belly jerky chuck tail capicola filet mignon meatloaf salami frankfurter boudin tongue ball tip corned beef.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+
+    <script>
+      (function() { //IIFE
+
+        'use strict';
+
+        // selectInput is the select element w/ id of 'choose'
+        var selectInput = document.getElementById('choose'),
+        // here we are compiling a list of all the nodes w/ a class of 'options'
+            panels = document.querySelectorAll('.options'),
+            currentSelect,
+            i;
+
+
+        // To allow for compatibility with IE < 10,
+        // we'll use these custom add/remove class functions
+        // instead of classList.add()/.remove()
+
+        function addClass( elm, newClass ) {
+          elm.className += ' ' + newClass;
+        }
+
+
+        function removeClass( elm, deleteClass ) {
+          elm.className = elm.className.replace(new RegExp("\\b" + deleteClass + "\\b", 'g'), '').trim();
+          // the RegExp here makes sure that only the class we want to delete, and not any other
+          // potentially matching stings get deleted.
+          // e.g. -- if deleteClass = options and we also had a class of options--1 and options
+          // on the elm, just the class of options would get deleted
+        }
+
+
+        // Function to go through all nodes with 'options' as a class
+        // and remove the class of 'show' from them.
+        function clearShow() {
+          for ( i = 0; i < panels.length; i++ ) {
+            removeClass( panels[i], 'show');
+          }
+        }
+
+
+        // Function to add the class of show to the node that has
+        // the class that matches the current value of the select drop down (#choose)
+        function addShow( showThis ) {
+          var el = document.getElementsByClassName( showThis );
+          for ( i = 0; i < el.length; i++ ) {
+             addClass( el[i], 'show')
+           }
+        }
+
+
+        // Run the clear/add functions and set the value for what
+        function vUpdate () {
+          currentSelect = selectInput.value;
+
+          clearShow();
+          addShow(currentSelect);
+        }
+
+
+        // Update the value of currentSelect when selectInput changes option focus
+        selectInput.addEventListener('change', vUpdate);
+
+
+        // If a page is refreshed the select input may not reset to the default
+        // option. If that's the case, find the current value of #choose
+        // and run addShow() to make that content block visible
+        if (selectInput.value !== 'nul') {
+          currentSelect = selectInput.value;
+          addShow(currentSelect);
+        }
+
+      })(); // close IIFE
+    </script>
+
+  </body>
+</html>
