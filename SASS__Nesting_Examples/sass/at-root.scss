@@ -1,0 +1,33 @@
+.nav {
+  background: #000;
+
+  @at-root {
+    .nav-list {
+      color: #fff;
+      overflow: hidden;
+    }
+  }
+
+  .nav-list-alt {
+    color: #ddd;
+
+    @at-root { // [1]
+
+      .nav-list-alt a {
+        color: #fff;
+
+        @at-root { // [2]
+
+          .nav-list-alt__ex1 {
+            color: #ccc;
+          }
+
+        } // end @at-root [2]
+
+      }
+
+    } // end @at-root [1]
+
+  } // end .nav-list-alt
+
+}

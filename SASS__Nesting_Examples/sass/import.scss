@@ -1,0 +1,30 @@
+/*
+  Typical use of an @import
+  Pull one Sass partial file's contents into another Sass file.
+*/
+
+@import 'import-example';
+
+
+/*
+  Nesting an @import will add the
+  parent selector as the first item in the selector chain
+  for all the selectors contained within the @import file.
+*/
+
+.specific-container {
+  @import 'import-example';
+}
+
+
+/*
+  Making your Sass library more specific
+*/
+
+.specific-parent-element {
+  @import 'import-example',
+
+          'import-example2-1',
+
+          'import-example2-2';
+}

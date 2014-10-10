@@ -1,0 +1,14 @@
+a {
+  // Removes grey background color from active links in IE10
+  background-color: transparent;
+  color: #f00;
+
+  &:hover, &:active {
+    color: darken(#f00, 20%);
+    outline: none;
+  }
+
+  &:focus {
+    outline: thin dotted;
+  }
+}

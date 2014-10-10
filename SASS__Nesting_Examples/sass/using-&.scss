@@ -1,0 +1,46 @@
+/*
+  Standard use of &
+*/
+
+.nav {
+  background: #000;
+
+  &.nav--alt {
+    background: #333;
+  }
+
+  .clean-list & {
+    list-style: none;
+    padding: 0;
+  }
+}
+
+
+/*
+  Using & to complete selector partials
+*/
+
+.nav {
+  background: #000;
+
+  &__list {
+    overflow: hidden;
+
+    &__item {
+      float: left;
+    }
+
+    &__link {
+      color: #fff;
+      display: block;
+      padding: 8px;
+      text-decoration: none;
+
+      &:hover {
+        background: #777;
+      }
+
+    }
+  }
+
+} // end .nav

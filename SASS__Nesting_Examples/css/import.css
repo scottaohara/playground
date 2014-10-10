@@ -1,0 +1,69 @@
+/*
+  Typical use of an @import
+  Pull one Sass partial file's contents into another Sass file.
+*/
+.nav-container {
+  overflow: hidden; }
+  .nav-container__items {
+    float: left; }
+  .nav-container a {
+    display: block;
+    padding: 8px;
+    text-decoration: none; }
+    .nav-container a:hover {
+      background: #000;
+      color: #fff; }
+
+/*
+  Nesting an @import will add the
+  parent selector as the first item in the selector chain
+  for all the selectors contained within the @import file.
+*/
+.specific-container .nav-container {
+  overflow: hidden; }
+  .specific-container .nav-container__items {
+    float: left; }
+  .specific-container .nav-container a {
+    display: block;
+    padding: 8px;
+    text-decoration: none; }
+    .specific-container .nav-container a:hover {
+      background: #000;
+      color: #fff; }
+
+/*
+  Making your Sass library more specific
+*/
+.specific-parent-element .nav-container {
+  overflow: hidden; }
+  .specific-parent-element .nav-container__items {
+    float: left; }
+  .specific-parent-element .nav-container a {
+    display: block;
+    padding: 8px;
+    text-decoration: none; }
+    .specific-parent-element .nav-container a:hover {
+      background: #000;
+      color: #fff; }
+.specific-parent-element .display-inline {
+  display: inline;
+  margin: 0 !important;
+  width: auto !important; }
+.specific-parent-element .display-inline-block,
+.specific-parent-element .display-inline-all > * {
+  display: inline-block;
+  margin-right: 4px;
+  vertical-align: middle;
+  width: auto !important; }
+.specific-parent-element__hayo {
+  color: #f00; }
+.specific-parent-element a {
+  background-color: transparent;
+  color: #f00; }
+  .specific-parent-element a:hover, .specific-parent-element a:active {
+    color: #990000;
+    outline: none; }
+  .specific-parent-element a:focus {
+    outline: thin dotted; }
+
+/*# sourceMappingURL=import.css.map */
