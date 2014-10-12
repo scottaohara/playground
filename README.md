@@ -1,4 +1,8 @@
 playground
 ==========
 
-A place where I make demos out of HTML, CSS (and preprocessors) and JavaScript.
+A place to play.
+
+Various demos that may or may not have documentation.
+
+
