@@ -1,0 +1,135 @@
+body {
+  font-family: arial; }
+
+.nav-v a {
+  border-bottom: none; }
+
+.nav-slidebar-list .nav-link:hover:before, .nav-slidebar-list .nav-active .nav-link:before, .nav-slidebar-list .nav-active .nav-link:hover:before {
+  border-radius: 100%;
+  bottom: 0;
+  content: '';
+  height: 16px;
+  left: -8px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  width: 16px; }
+
+.slidebar-container {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transform: translateX(-200px);
+  transition: transform .2s;
+  width: 200px; }
+  .slidebar-container[data-state='open'] {
+    transform: translateX(0px); }
+  .slidebar-container:after {
+    background: #ccc;
+    content: '';
+    left: -5%;
+    height: 120%;
+    position: absolute;
+    top: -10%;
+    width: 204px; }
+
+.nav-slidebar {
+  border-right: 6px solid #ccc;
+  height: 100%;
+  overflow: auto;
+  width: 200px; }
+  .nav-slidebar-top {
+    padding: 8px;
+    position: relative; }
+
+.nav-slidebar-list {
+  margin: 0;
+  padding: 8px 8px 8px 20px;
+  position: relative;
+  z-index: 2; }
+  .nav-slidebar-list li {
+    position: relative;
+    transition: margin .2s; }
+  .nav-slidebar-list a {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    color: #222;
+    margin-left: -20px;
+    padding: 8px 8px 8px 20px;
+    text-transform: uppercase;
+    z-index: 3; }
+    .nav-slidebar-list a:hover {
+      color: #fff; }
+    .nav-slidebar-list a:focus {
+      border-color: #5dbac2;
+      outline: none; }
+  .nav-slidebar-list .nav-link {
+    font-size: 1.25em; }
+    .nav-slidebar-list .nav-link:hover:before {
+      background: rgba(0, 0, 0, 0.3); }
+  .nav-slidebar-list .nav-active {
+    margin-bottom: 16px;
+    z-index: 2; }
+    .nav-slidebar-list .nav-active .nav-link {
+      border-color: rgba(0, 0, 0, 0.3); }
+  .nav-slidebar-list .nav-active .nav-link {
+    color: #fff;
+    font-weight: 600;
+    z-index: 1; }
+    .nav-slidebar-list .nav-active .nav-link:before, .nav-slidebar-list .nav-active .nav-link:hover:before {
+      background: #fff;
+      box-shadow: 20px 0 100px 60px #5dbac2;
+      z-index: -1; }
+
+.nav-submenu {
+  margin: 0; }
+  .nav-submenu a {
+    padding: 2px 20px; }
+
+.btn-nav-tab {
+  background: none;
+  border: 0;
+  height: 120px;
+  padding: 0;
+  position: absolute;
+  right: -40px;
+  top: 0;
+  width: 40px; }
+  .btn-nav-tab:before {
+    background: #ccc;
+    border-radius: 0 0 8px 0;
+    content: '';
+    height: 130px;
+    position: absolute;
+    right: -2px;
+    top: -20px;
+    transform: skewY(-20deg);
+    width: 44px; }
+  .btn-nav-tab:hover:before {
+    background: #5dbac2; }
+
+.btn-nav-icon, .btn-nav-icon:before, .btn-nav-icon:after {
+  background: #fafafa;
+  border-radius: 4px;
+  height: 5px;
+  margin: auto; }
+
+.btn-nav-icon {
+  border: 0;
+  display: block;
+  position: relative;
+  left: -2px;
+  top: 8px;
+  width: 64%; }
+  .btn-nav-icon:before, .btn-nav-icon:after {
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0; }
+  .btn-nav-icon:before {
+    top: -8px; }
+  .btn-nav-icon:after {
+    bottom: -8px; }
+
+/*# sourceMappingURL=sidebar.css.map */

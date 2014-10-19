@@ -1,5 +1,3 @@
-@import '../../../Foundation/_develop/sass/__globals/__import';               // Includes global libraries
-
 // ----------------------------------------------------------------------------
 //  Sidebar Nav
 // ----------------------------------------------------------------------------
@@ -15,38 +13,45 @@ body {
 }
 
 %nav-indicator {
-  @include position(top, 0, left, -8px, absolute);
   border-radius: 100%;
   bottom: 0;
   content: '';
   height: 16px;
+  left: -8px;
   margin: auto;
+  position: absolute;
+  top: 0;
   width: 16px;
 }
 
 
 .slidebar-container {
-  @include position(top, 0, left, -200px, fixed);
-  @include transition(left .2s);
   height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transform: translateX(-200px);
+  transition: transform .2s;
   width: $w-slidebar;
 
+
   &[data-state='open'] {
-    left: 0px;
+    transform: translateX(0px);
   }
 
-  &::after {
-    @include box-shadow(inset 0 0 16px rgba(0,0,0,.3));
-    @include position(top, -10%, left, -5%, absolute);
-    background: #507695;
+&:after {
+    background: #ccc;
     content: '';
+    left: -5%;
     height: 120%;
+    position: absolute;
+    top: -10%;
     width: $w-slidebar + 4px;
   }
 }
 
 .nav-slidebar {
-  border-right: 6px solid $c-brand-1;
+  border-right: 6px solid #ccc;
   height: 100%;
   overflow: auto;
   width: $w-slidebar;
@@ -65,54 +70,63 @@ body {
   z-index: 2;
 
   li {
-    border-bottom: 1px solid c($c-white, 0);
-    border-top: 1px solid c($c-white, 0);
     position: relative;
-  }
-
-  // applied to the <li>
-  .nav-active{
-    border-color: c($c-white, .3);
-    margin-bottom: 16px;
-    z-index: 2;
+    transition: margin .2s;
   }
 
   a {
-    color: #a2d9dd;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    border-top: 1px solid rgba(0, 0, 0, 0);
+    color: #222;
     margin-left: -20px;
     padding: 8px 8px 8px 20px;
     text-transform: uppercase;
     z-index: 3;
 
     &:hover {
-      color: $c-white;
+      color: #fff;
+    }
+
+    &:focus {
+      border-color: #5dbac2;
+      outline: none;
     }
   }
 
   // Additional styling specific to top level <a> elements
   // within the slidebar nav
   .nav-link {
-    font-size: $txt-h5;
+    font-size: 1.25em;
 
-    &:hover::before {
+    &:hover:before {
       @extend %nav-indicator;
-      background: c($c-white, .3);
+      background: rgba(0, 0, 0, .3);
+    }
+  }
+
+  // applied to the <li>
+  .nav-active{
+    margin-bottom: 16px;
+    z-index: 2;
+
+    .nav-link {
+      border-color: rgba(0, 0, 0, .3);
     }
   }
 
 
   // Style .nav-link when containing <li> has
   // .nav-active class on it.
-  .nav-active{
+  .nav-active {
 
     .nav-link {
-      color: $c-white;
+      color: #fff;
       font-weight: 600;
       z-index: 1;
 
-      &::before, &:hover::before {
+    &:before, &:hover:before {
         @extend %nav-indicator;
-        background: $c-white;
+        background: #fff;
         box-shadow: 20px 0 100px 60px #5dbac2;
         z-index: -1;
       }
@@ -138,32 +152,36 @@ body {
 // The tab is the button as well as the container
 // to the menu 'burger' icon
 .btn-nav-tab {
-  @include position(top, 0, right, -40px, absolute);
   background: none;
   border: 0;
   height: 120px;
   padding: 0; // need this so content doesn't shift on press
+  position: absolute;
+  right: -40px;
+  top: 0;
   width: 40px;
 
-  &::before {
-    @include transform(skewY(-20deg));
-    @include position(top, -20px, right, -2px, absolute);
-    background: $c-brand-1;
+  &:before {
+    background: #ccc;
     border-radius: 0 0 8px 0;
     content: '';
     height: 130px;
+    position: absolute;
+    right: -2px;
+    top: -20px;
+    transform: skewY(-20deg);
     width: 44px;
   }
 
-   &:hover .btn-nav-icon {
-    box-shadow: 0 0 6px c($c-white, .8);
+   &:hover:before {
+    background: #5dbac2;
   }
 }
 
 // Menu 'burger' icon created via CSS
 %reusable-burger {
-  background: $c-off-white;
-  border-radius: $unit-px;
+  background: #fafafa;
+  border-radius: 4px;
   height: 5px;
   margin: auto;
 }
@@ -177,8 +195,8 @@ body {
   top: 8px;
   width: 64%;
 
-  &::before,
-  &::after {
+&:before,
+&:after {
     @extend %reusable-burger;
     content: '';
     left: 0;
@@ -186,11 +204,11 @@ body {
     right: 0;
   }
 
-  &::before {
+&:before {
     top: -8px;
   }
 
-  &::after {
+&:after {
     bottom: -8px;
   }
 }
