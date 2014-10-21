@@ -22,12 +22,6 @@
       }
 
 
-      // TODO
-      // on click of a ".nav-link", add a class of "nav-active" to the parent <li>
-      // on click of a new ".nav-link", remove the class of "nav-active" from
-      // any other <li>
-
-
       // To allow for compatibility with IE < 10,
       // we'll use these custom add/remove class functions
       // instead of classList.add()/.remove()
