@@ -27,9 +27,21 @@
       stickyHeight = stickyBlock.height + 'px;',
       isPadded = false;
 
+  var isStickySupported = (function( e ) {
+     try {
+          e.style.position = 'sticky';
+          return e.style.position === 'sticky';
+     }
+     catch( c ) {
+         return false;
+     }
+  })(document.createElement('div'));
+
 
   // Scrolly Function
   function scrolly () {
+
+    console.log('ohhi');
     if ( window.pageYOffset >= stickyBlock.top && !isPadded ) {
       addClass( sticky, 'sticky-fix' );
       body.setAttribute('style', 'padding-top:' + stickyHeight)
@@ -42,13 +54,11 @@
     }
   }
 
-  // Listen to scroll function
-  window.addEventListener( 'scroll', scrolly );
-
-
-  // TODO
-  function stickySupport () {
-    // function to see if sticky is supported
+  // only run scrolly if sticky isn't supported
+  if ( isStickySupported === false ) {
+    // Listen to scroll function
+    window.addEventListener( 'scroll', scrolly );
   }
+
 
 })(document);
