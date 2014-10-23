@@ -29,7 +29,8 @@
 
   function showAgain () {
 
-    var toTop = document.documentElement.scrollTop;
+    // to make work in firefox || webkit/ie
+    var toTop = document.documentElement.scrollTop || document.body.scrollTop;
 
     if ( applied == false ) {
       if ( toTop >= (navHeight * 2) ) {
