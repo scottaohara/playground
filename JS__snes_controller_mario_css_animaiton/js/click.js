@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
 
   $('.js-btn').click(function() {
     $('#bg').removeClass();
@@ -11,19 +11,22 @@ $(document).ready(function() {
     return false;
   });
 
-  $('.nob').click(function()
+  $('.nob').click(function() {
     $('#bg').addClass('reset');
   });
 
   $('#btn-A').click(function() {
     $('#mario').addClass('spin-Jump');
   });
+
    $('#btn-B').click(function() {
     $('#mario').addClass('jump');
   });
+
    $('#btn-X').click(function() {
     $('#mario').addClass('twirl');
   });
+
    $('#btn-Y').click(function() {
     $('#mario').addClass('kick');
     $('#shell-Holder').addClass('dropDown');
@@ -34,13 +37,16 @@ $(document).ready(function() {
    $('#btn-U').click(function() {
     $('#mario').addClass('look-Up');
   });
+
    $('#btn-D').click(function() {
     $('#mario').addClass('crouch');
   });
+
    $('#btn-L').click(function() {
     $('#mario').addClass('run-Left');
     $('#mario-Holder').addClass('move-Left');
   });
+
    $('#btn-R').click(function() {
     $('#mario').addClass('run-Right');
     $('#mario-Holder').addClass('move-Right');
@@ -50,6 +56,7 @@ $(document).ready(function() {
     $('#mario').addClass('fly');
     $('#mario-Holder').addClass('fly-Move');
   });
+
    $('#btn-TR').click(function() {
     $('#mario').addClass('dance');
   });
