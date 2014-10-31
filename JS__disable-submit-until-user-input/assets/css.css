@@ -1,0 +1,35 @@
+html, body {
+  background: #fafafa;
+  font-family: arial;
+  font-size: 24px;
+  margin: 0;
+}
+
+body {
+  padding: 40px;
+}
+
+#next {
+  opacity: .3;
+  pointer-events: none;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+label[for],
+input[type='radio'] {
+  cursor: pointer;
+}
+
+input[type='submit'] {
+  border: 2px solid;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 12px 0;
+  padding: 12px 20px;
+  text-transform: uppercase;
+}
