@@ -1,0 +1,45 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: arial;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 50px;
+}
+
+.diamond {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  transform: rotate(45deg);
+  width: 200px;
+}
+
+.diamond img {
+  background: url(http://placekitten.com/320/390) no-repeat;
+  bottom: -80px;
+  color: transparent;
+  left: -80px;
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  transform: rotate(-45deg);
+}
+
+
+.diamond--small {
+  height: 100px;
+  width: 100px;
+}
+
+.diamond--small img {
+  left: -100px;
+  top: -115px;
+  transform: rotate(-45deg) scale(0.6);
+}

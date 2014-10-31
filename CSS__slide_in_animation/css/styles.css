@@ -1,0 +1,35 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+
+body, html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  margin:0 auto;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+.play {
+  animation-duration: 1s;
+  animation-name: andGo;
+}
+
+@keyframes andGo {
+
+  from {
+    margin-left: 100%;
+    width: 100%;
+  }
+
+  to {
+    margin-left: 0;
+    opacity: 1;
+    width: 100%;
+  }
+
+}

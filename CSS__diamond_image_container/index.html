@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS Diamond Image Container</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div class="page">
+
+      <div class="container">
+
+        <div class="diamond">
+          <img alt='kitty' src="#!" />
+        </div>
+
+        <br />
+        <br />
+
+        <div class="diamond diamond--small">
+          <img alt='kitty' src="#!" />
+        </div>
+
+      </div>
+
+      <!--
+
+        Using this technique to create 'diamond' shapes requires a bit of a hack with the positioning of the image within the diamond div.
+
+        I note this because for each image that is of a different height / width, may require different left,right,top and bottom values.
+
+        Basically, this is all a really long-winded way of saying "this will probably break once you try it with your own images."
+
+      -->
+
+
+      <!---
+        HAML because lol this is a thing.
+
+        .page
+          .container
+            .diamond
+              %img{:alt=>'kitty', :src=>"#!"}
+      -->
+
+    </div> <!-- end .page -->
+  </body>
+</html>
