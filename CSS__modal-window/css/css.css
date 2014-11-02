@@ -1,0 +1,115 @@
+body {
+  background: #eee;
+  font-family: arial;
+  padding-top: 20px;
+}
+
+[role='navigation'] {
+  left: 0;
+  padding: 8px;
+  position: fixed;
+  top: 0;
+}
+
+[role='navigation'] a {
+  display: inline-block;
+  border: 1px solid #aaa;
+  padding: 8px;
+  text-decoration: none;
+  color: #333;
+}
+
+[role='navigation'] a:hover,
+[role='navigation'] a:active {
+  background: #fff;
+}
+
+
+:focus, a:focus {
+  background: #ddd;
+}
+
+
+.modal-container {
+  background: #fff;
+  bottom: 0;
+  height: 1%;
+  left: 0;
+  margin: 0 auto;
+  margin: auto;
+  max-width: 900px;
+  opacity: .1;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all .3s;
+  width: 1%;
+  z-index: 7;
+}
+
+
+.modal-overlay {
+  background: rgba(0,0,0,.8);
+  bottom: 0;
+  height: 1%;
+  height: 100%;
+  left: 0;
+  margin: auto;
+  opacity: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all .3s;
+  width: 1%;
+  width: 100%;
+  z-index: -1;
+}
+
+
+.modal-overlay:target {
+  opacity: 1;
+  z-index: 2;
+}
+
+
+.modal-overlay:target .modal-container {
+  height: 75%;
+  opacity: 1;
+  width: 75%;
+}
+
+
+.modal-close,
+.modal-close:active {
+  bottom: 0;
+  color: transparent;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 3;
+  cursor: default;
+  background: transparent;
+}
+
+
+.modal-close::after {
+  color: #fff;
+  content: 'X';
+  font-size: 20px;
+  height: 32px;
+  line-height: 32px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  cursor: pointer;
+}
+
+
+.modal-content {
+  padding: 20px;
+}
