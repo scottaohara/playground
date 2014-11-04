@@ -1,0 +1,108 @@
+/*
+
+  General Setup
+
+*/
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: arial;
+  font-size: 18px;
+  margin: 0;
+}
+
+body {
+  background: url(../bg.jpg) no-repeat fixed;
+  background-size: cover;
+  padding: 0 0 0 200px;
+  color: #fff;
+}
+
+h1, h2, h3 {
+  font-size: 2em;
+  margin: 0 0 1.2em;
+}
+
+/*
+
+  Navigation
+
+*/
+
+[role="navigation"] {
+  background: rgba(45,45,45,.8);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 200px;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: #fff;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-list a:hover {
+  background: #000;
+}
+
+/*
+
+  Demo Specific
+
+*/
+
+.base {
+  height: 0%;
+  left: 200px;
+  opacity: 0;
+  overflow: auto;
+  padding: 0px 40px;
+  pointer-events: none;
+  position: fixed;
+  transition: opacity .3s, height .5s .5s, padding .4s;
+  width: calc(100% - 200px);
+}
+
+.base:target {
+  height: 100%;
+  opacity: 1;
+  padding: 40px;
+  pointer-events: inherit;
+  visibility: visible;
+}
+
+.base:target:before {
+  display: none;
+}
+
+#one {
+  background: rgba(100,20,50,.7);
+}
+
+#two {
+  background: rgba(10,100,10,.7);
+}
+
+#three {
+  background: rgba(50,70,170,.7);
+}
+
+@media screen and (max-width: 800px) {
+  #three {
+    background: #000;
+  }
+}
