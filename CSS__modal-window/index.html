@@ -8,12 +8,13 @@
 
   <body>
 
-    <div class="modal-overlay" id="what" tabindex="-1" role="dialog">
-      <section class="modal-container" role="dialog">
+  <!-- Modal 1 -->
+    <div class="modal-overlay" id="what" role="dialog">
+      <div class="modal-container">
         <header class="modal-header">
           <div class="modal-content">
             <h1>
-              Title of Modalasdfadsfsda
+              Title of Modal 1
             </h1>
           </div>
         </header>
@@ -22,6 +23,8 @@
             <p>
               Contents of modal.
             </p>
+
+            <input type="text" readonly placeholder="focusabel element example" />
           </div>
         </div>
         <footer class="modal-footer">
@@ -29,21 +32,19 @@
             Goodbye of modal.
           </div>
         </footer>
-      </section>
-      <a href="#!" class="modal-close" tabindex="-1" role="button">
-        Close
-      </a>
+      </div>
+      <a href="#!" class="modal-close" aria-label="Close Modal"></a>
     </div>
 
 
 
-
-    <div class="modal-overlay" id="what-now" tabindex="-1" role="dialog">
-      <section class="modal-container" role="dialog">
+    <!-- Modal 2 -->
+    <div class="modal-overlay" id="what-now" role="dialog">
+      <div class="modal-container">
         <header class="modal-header">
           <div class="modal-content">
             <h1>
-              Title of Modal
+              Title of Modal 2
             </h1>
           </div>
         </header>
@@ -52,6 +53,8 @@
             <p>
               Contents of modal.
             </p>
+
+            <input type="text" readonly placeholder="focusabel element example" />
           </div>
         </div>
         <footer class="modal-footer">
@@ -59,23 +62,33 @@
             Goodbye of modal.
           </div>
         </footer>
-      </section>
+      </div>
 
-      <a href="#!" class="modal-close" tabindex="-1" role="button">
-        Close
-      </a>
+      <a href="#!" class="modal-close" aria-label="Close Modal"></a>
     </div>
 
 
-    <nav role="navigation">
-      <a href="#what" class="btn" role="button">
-        Launch a modal
-      </a>
+    <!-- Normal Content Area -->
+    <div class="page">
+      <nav role="navigation">
+        <a href="#what" class="btn" role="button">
+          Launch a modal
+        </a>
 
-      <a href="#what-now" class="btn" role="button">
-        Launch another modal
-      </a>
-    </nav>
+        <a href="#what-now" class="btn" role="button">
+          Launch another modal
+        </a>
+      </nav>
+
+      <section>
+        <h1>Regular content area</h1>
+        <p>
+          If this wasn't a demo, there would likely be more interesting things here.
+        </p>
+
+        <input type="text" placeholder="Just a demo" readonly />
+      </section>
+    </div>
 
   </body>
 </html>

@@ -1,22 +1,42 @@
+/*
+  General Setup
+*/
+
 body {
   background: #eee;
   font-family: arial;
   padding-top: 20px;
 }
 
+.page {
+  padding: 40px;
+}
+
+input[type="text"] {
+  border: 1px solid;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 12px;
+}
+
+/*
+  Navigation (buttons) Styling
+*/
 [role='navigation'] {
   left: 0;
   padding: 8px;
   position: fixed;
+  text-align: center;
   top: 0;
+  width: 100%;
 }
 
 [role='navigation'] a {
-  display: inline-block;
   border: 1px solid #aaa;
+  color: #333;
+  display: inline-block;
   padding: 8px;
   text-decoration: none;
-  color: #333;
 }
 
 [role='navigation'] a:hover,
@@ -25,11 +45,18 @@ body {
 }
 
 
-:focus, a:focus {
+[role='navigation'] a:focus {
   background: #ddd;
 }
 
+:focus {
+  outline: 1px dotted;
+}
 
+
+/*
+  Modal Setup
+*/
 .modal-container {
   background: #fff;
   bottom: 0;
@@ -43,7 +70,10 @@ body {
   position: absolute;
   right: 0;
   top: 0;
+  -moz-transition: all .3s;
+  -webkit-transition: all .3s;
   transition: all .3s;
+  visibility: hidden;
   width: 1%;
   z-index: 7;
 }
@@ -52,53 +82,68 @@ body {
 .modal-overlay {
   background: rgba(0,0,0,.8);
   bottom: 0;
-  height: 1%;
   height: 100%;
   left: 0;
   margin: auto;
   opacity: 0;
   overflow: hidden;
+  pointer-events: none;
   position: fixed;
   right: 0;
   top: 0;
+  -moz-transition: all .3s;
+  -webkit-transition: all .3s;
   transition: all .3s;
-  width: 1%;
   width: 100%;
-  z-index: -1;
 }
 
 
 .modal-overlay:target {
   opacity: 1;
+  pointer-events: inherit;
   z-index: 2;
 }
 
+.modal-overlay:target .modal-close {
+  visibility: visible;
+}
 
 .modal-overlay:target .modal-container {
   height: 75%;
   opacity: 1;
+  visibility: visible;
   width: 75%;
+}
+
+.modal-overlay:target ~ .page {
+  visibility: hidden;
 }
 
 
 .modal-close,
 .modal-close:active {
+  background: transparent;
   bottom: 0;
   color: transparent;
+  cursor: default;
   left: 0;
   position: fixed;
   right: 0;
   text-align: center;
   top: 0;
+  visibility: hidden;
   z-index: 3;
-  cursor: default;
-  background: transparent;
+}
+
+.modal-close:focus:after {
+  color: #f00;
 }
 
 
-.modal-close::after {
+.modal-close:after {
   color: #fff;
   content: 'X';
+  cursor: pointer;
   font-size: 20px;
   height: 32px;
   line-height: 32px;
@@ -106,7 +151,6 @@ body {
   right: 0;
   top: 0;
   width: 30px;
-  cursor: pointer;
 }
 
 
