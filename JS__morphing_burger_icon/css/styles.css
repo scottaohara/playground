@@ -1,4 +1,4 @@
-*, *::before, *::after {
+*, *:before, *:after {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
@@ -27,7 +27,7 @@
   text-indent: -9999999px;
   top: 0;
   transition: .2s all; }
-  .btn-burger::before, .btn-burger::after {
+  .btn-burger:before, .btn-burger:after {
     background: #000;
     border-radius: 4px;
     content: '';
@@ -37,22 +37,22 @@
     position: absolute;
     transition: all .2s 0s;
     width: calc(100% + 2px); }
-  .btn-burger::before {
+  .btn-burger:before {
     top: -8px; }
-  .btn-burger::after {
+  .btn-burger:after {
     bottom: -8px; }
   .btn-burger[data-state="on"] {
     background: transparent;
     border-color: black;
     height: 100%;
     margin: auto; }
-    .btn-burger[data-state="on"]::before, .btn-burger[data-state="on"]::after {
+    .btn-burger[data-state="on"]:before, .btn-burger[data-state="on"]:after {
       transition: all .2s .4s; }
-    .btn-burger[data-state="on"]::after {
+    .btn-burger[data-state="on"]:after {
       bottom: 0;
       top: 0;
       transform: rotate(45deg); }
-    .btn-burger[data-state="on"]::before {
+    .btn-burger[data-state="on"]:before {
       bottom: 0;
       top: 0;
       transform: rotate(-45deg); }

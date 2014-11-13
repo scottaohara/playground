@@ -1,5 +1,5 @@
 // Reset all elements to border-box
-*, *::before, *::after {
+*, *:before, *:after {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -37,7 +37,7 @@
   top: 0;
   transition: .2s all;
 
-  &::before, &::after {
+  &:before, &:after {
     background: #000;
     border-radius: 4px;
     content: '';
@@ -49,11 +49,11 @@
     width: calc(100% + 2px);
   }
 
-  &::before {
+  &:before {
     top: -8px;
   }
 
-  &::after {
+  &:after {
     bottom: -8px;
   }
 
@@ -64,17 +64,17 @@
     height: 100%;
     margin: auto;
 
-    &::before, &::after {
+    &:before, &:after {
       transition: all .2s .4s;
     }
 
-    &::after {
+    &:after {
       bottom: 0;
       top: 0;
       transform: rotate(45deg);
     }
 
-    &::before {
+    &:before {
       bottom: 0;
       top: 0;
       transform: rotate(-45deg);

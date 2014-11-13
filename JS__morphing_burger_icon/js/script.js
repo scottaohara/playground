@@ -1,19 +1,25 @@
 (function() {
 
-  // Method to change states which works in IE7+ / IE8+
   // set what element is that we are going to be swapping
   // the data state on
   var btn = document.querySelector('.btn-wrapper');
 
+  // set initial aria-pressed state for button
+  btn.setAttribute('aria-pressed', 'false');
+
+
   // Toggle between data state one and two
-  var toggleState = function(elm, one, two) {
+  // toggleState function works in IE7 +
+  var toggleState = function ( elm, att, stateOne, stateTwo ) {
     var elm = document.querySelector(elm);
-    elm.setAttribute('data-state', elm.getAttribute('data-state') === one ? two : one);
+    elm.setAttribute(att, elm.getAttribute(att) === stateOne ? stateTwo : stateOne);
   };
 
-  // turn active state on or off
+
+  // toggle states on click
   btn.onclick = function(e) {
-    toggleState('.btn-burger', 'off', 'on');
+    toggleState('.btn-burger', 'data-state', 'off', 'on');
+    toggleState('.btn-wrapper', 'aria-pressed', 'false', 'true');
     e.preventDefault();
   }
 
