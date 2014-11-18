@@ -1,4 +1,4 @@
-(function() {
+;(function() {
 
   // set what element is that we are going to be swapping
   // the data state on
