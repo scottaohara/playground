@@ -1,5 +1,6 @@
 // Variables
 var canvas = document.getElementById('game'),
+    w = window;
     ctx = canvas.getContext('2d'),
 
     // setup some background stuff
@@ -140,12 +141,10 @@ function main () {
       requestAnimationFrame(main);
 }
 
-var w = window;
+
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
-
 var then = Date.now();
+
 reset();
 main();
-
-
