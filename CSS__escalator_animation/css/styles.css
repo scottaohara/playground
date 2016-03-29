@@ -1,39 +1,50 @@
 body {
   background: #fafafa;
+  font-size: 10px;
   margin: 0;
   padding: 0;
+}
+
+figcaption {
+  font-family: arial;
+  font-size: 1.6em;
+  line-height: 1.3;
+  margin: auto;
+  max-width: 30em;
+  text-align: center;
 }
 
 .shot {
   background: #d2c026;
   border: 1px solid rgba(0,0,0,.3);
-  height: 300px;
-  margin: 10% auto 0;
+  height: 30em;
+  margin: 20vh auto 0;
+  max-width: 100%;
   overflow: hidden;
   position: relative;
-  width: 400px;
+  width: 40em;
 }
 
 .people {
-  height: 58px;
-  left: 60px;
+  height: 5.8em;
+  left: 6em;
   position: absolute;
-  top: 160px;
-  width: 16px;
+  top: 16em;
+  width: 1.6em;
   z-index: 1;
 }
 
 .p-head {
   background: #2a2a2a;
-  border-radius: 100px;
-  height: 16px;
-  margin-bottom: 2px;
+  border-radius: 100%;
+  height: 1.6em;
+  margin-bottom: .2em;
 }
 
 .p-body {
   background: #2a2a2a;
-  border-radius: 16px 16px 0 0;
-  height: 40px;
+  border-radius: 1.6em 1.6em 0 0;
+  height: 4em;
 }
 
 .person-1 {
@@ -41,7 +52,7 @@ body {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-name: p1;
-  left: -5px;
+  left: -.5em;
   z-index: 1;
 }
 
@@ -51,7 +62,7 @@ body {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-name: p2;
-  left:-20px;
+  left: -2em;
   transform-style: flat;
 }
 
@@ -61,15 +72,15 @@ body {
   }
 
   25% {
-    transform: translate(130px,0);
+    transform: translate(13em,0);
   }
 
   70% {
-    transform: translate(246px,-100px)
+    transform: translate(24.6em,-10em)
   }
 
   100% {
-    transform: translate(420px,-100px)
+    transform: translate(42em,-10em)
   }
 }
 
@@ -80,15 +91,15 @@ body {
   }
 
    30% {
-    transform: translate(150px,0);
+    transform: translate(15em,0);
    }
 
   70% {
-    transform: translate(266px,-100px);
+    transform: translate(26.6em,-10em);
    }
 
    100% {
-      transform: translate(420px,-100px);
+      transform: translate(42em,-10em);
    }
 }
 
@@ -97,21 +108,21 @@ body {
 */
 
 .esc-contain {
-  height: 120px;
-  left: 7px;
-  margin: 100px;
+  height: 12em;
+  left: .7em;
+  margin: 10em;
   position: absolute;
-  width: 180px;
+  width: 18em;
   z-index: 9;
 }
 
 .esc-ends {
   background: #c8b61f;
-  border-radius: 20px;
+  border-radius: 2em;
   border: 3px solid #333;
-  height: 24px;
+  height: 2.4em;
   position: absolute;
-  width: 51px;
+  width: 5.1em;
   z-index: 6;
 }
 
@@ -124,12 +135,12 @@ body {
   background: #c8b61f;
   border-bottom: 3px solid #333;
   border-top: 3px solid #333;
-  height: 30px;
-  left: 20px;
+  height: 3em;
+  left: 2em;
   position: absolute;
-  top: 42px;
+  top: 4.2em;
   transform: rotate(-40deg);
-  width: 140px;
+  width: 14em;
   z-index: 7;
 }
 
