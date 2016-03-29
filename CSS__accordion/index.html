@@ -1,16 +1,29 @@
 <!doctype html>
-<html>
+<html lang="en-us">
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="css/accordion.css" />
   </head>
   <body>
+    <h1>
+      CSS Only Accordions
+    </h1>
+
+    <p>
+      The following component utilizes hidden radio buttons, combined with their labels and sibling selectors to show/hide the contents of unordered lists.
+    </p>
+
+    <p>
+      This demo is merely an experiment to show how CSS can be used in creative ways, but should not be considered code that could be used in a production setting.
+    </p>
 
     <ul class="nav">
       <li>
         <input type="radio" name="accordion" class="accordion-input" id="accordion-1" />
-        <label for="accordion-1" class="accordion-label">Open Menu</label>
+        <label for="accordion-1" class="accordion-label">
+          Open Menu
+        </label>
         <ul class="accordion accordion-menu">
           <li>
             <a href="#!" title="dummy link">Link 1</a>
@@ -26,9 +39,13 @@
 
       <li>
         <input type="radio" name="accordion" class="accordion-input" id="accordion-2" />
-        <label for="accordion-2" class="accordion-label">Open Help</label>
+        <label for="accordion-2" class="accordion-label">
+          Open Help
+        </label>
         <div class="accordion accordion-info">
-          <h3>Title of help</h3>
+          <h2 style="font-size: 20px;">
+            Title of help
+          </h2>
           <p>
             Put a help thingy here.
           </p>
