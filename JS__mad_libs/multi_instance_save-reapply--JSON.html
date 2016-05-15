@@ -66,7 +66,7 @@
     <button type="button" id="js-btn-reapply" disabled='disabled'>Reapply Last Saved Entries</button>
 
     <script>
-      (function(){
+      ;(function(){
         var i,
             words = document.querySelectorAll('.input-text'),
             outputs = document.querySelectorAll('.output'),
@@ -79,16 +79,15 @@
 
 
         function update( elm ) {
-          for (i = 0; i < words.length; i++) {
+          for ( i = 0; i < words.length; i++ ) {
             outputs[i].textContent = words[i].value;
 
-            if (words[i].value !== '') {
+            if ( words[i].value !== '' ) {
               outputs[i].parentNode.classList.add('paragraph--show');
               outputs[i].parentNode.classList.remove('paragraph--no-val');
               words[i].parentNode.classList.add('finished');
-
             }
-            else if (words[i].value === '') {
+            else if ( words[i].value === '' ) {
               outputs[i].parentNode.classList.remove('paragraph--show');
               outputs[i].parentNode.classList.add('paragraph--no-val');
               words[i].parentNode.classList.remove('finished');
@@ -105,10 +104,9 @@
             }
           }
 
-
-            JSON.stringify(wordList);
-            console.log(btoa(JSON.stringify(wordList)));
-            console.log(JSON.stringify(wordList));
+          JSON.stringify(wordList);
+          console.log(btoa(JSON.stringify(wordList)));
+          console.log(JSON.stringify(wordList));
 
         }
 
@@ -116,8 +114,6 @@
           function insertAfter(newNode, referenceNode) {
             referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
           }
-
-
 
           for (i = 0; i < words.length; i++) {
             words[i].addEventListener('keyup', update);
@@ -133,7 +129,7 @@
           function saveAndClear ( e ) {
             wordListSave = wordList;
 
-            for (i = 0; i < outputs.length; i++) {
+            for ( i = 0; i < outputs.length; i++ ) {
               words[i].value = '';
               outputs[i].textContent = '';
               outputs[i].parentNode.classList.remove('paragraph--show');
@@ -149,17 +145,16 @@
 
 
           function refill () {
-            for (i = 0; i < words.length; i++) {
+
+            for ( i = 0; i < words.length; i++ ) {
               words[i].value = wordListSave['word'+i];
             }
+
             update();
           }
 
 
-
           redo.addEventListener('click', refill);
-
-
           clear.addEventListener('click', saveAndClear);
 
         })();

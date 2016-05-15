@@ -79,8 +79,8 @@
           paragraphs = document.querySelectorAll('.paragraph');
 
           function update () {
-            for (var i = 0; i < inputs.length; i++) {
-              if (inputs[i].value !== '') {
+            for ( var i = 0; i < inputs.length; i++ ) {
+              if ( inputs[i].value !== '' ) {
                 paragraphs[i].classList.add('show');
               } else if (inputs[i].value === '') {
                 paragraphs[i].classList.remove('show');
@@ -95,7 +95,6 @@
           update();
 
           document.addEventListener('onload', update);
-
 
     </script>
   </body>
