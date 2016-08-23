@@ -52,6 +52,12 @@ nav ol {
   padding: 20px;
 }
 
+.nav__list a:hover,
+.nav__list a:focus {
+  background: #222;
+  color: #fff;
+}
+
 .has-drop {
   position: relative;
 }
