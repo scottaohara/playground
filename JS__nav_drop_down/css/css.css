@@ -1,3 +1,33 @@
+/*
+  General cleanup
+*/
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul,
+nav ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+/*
+  Demo
+*/
 .show-nav {
   position: fixed;
   top: 0;
@@ -27,7 +57,7 @@
 }
 
 
-.nav__list .nav__list__drop {
+.nav__list__drop {
   left: 20px;
   margin: 0;
   position: absolute;
