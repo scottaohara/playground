@@ -24,6 +24,13 @@ nav ol {
 }
 
 
+.sr-only {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  font-size: 1px;
+  opacity: 0;
+}
+
 
 /*
   Demo
@@ -50,6 +57,8 @@ nav ol {
 .nav__list a {
   display: block;
   padding: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .nav__list a:hover,
@@ -64,7 +73,7 @@ nav ol {
 
 
 .nav__list__drop {
-  left: 20px;
+  left: 0;
   margin: 0;
   position: absolute;
   text-align: left;
@@ -75,12 +84,14 @@ nav ol {
   transition: transform .2s ease-in-out,
               opacity .1s ease-out;
   overflow: hidden;
+  z-index: 1;
 }
 
 .nav__list__drop {
   background: #fafafa;
   border: 1px solid #444;
   border-top: 0;
+  min-width: 100%;
 }
 
 .nav__list__drop a {
@@ -88,6 +99,7 @@ nav ol {
   white-space: nowrap;
 }
 
+.nav__list a:focus + .nav__list__drop,
 .has-drop:hover .nav__list__drop,
 .nav__list__drop.has-focus {
   opacity: 1;
@@ -104,8 +116,6 @@ nav ol {
   display: block;
 }
 
-
-
 @media screen and ( min-width: 600px ) {
   .show-nav {
     display: none;
@@ -114,4 +124,11 @@ nav ol {
   .nav__list {
     display: block;
   }
+}
+
+
+// this is a placeholder until i get around to adding in the true small screen functionality for the menu button
+
+nav ul:target {
+  display: block;
 }
