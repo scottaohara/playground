@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <title>Position Sticky</title>
-    <link rel="stylesheet" href="css/css.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="cleartype" content="on" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/css.css" />
   </head>
   <body>
     <header role="banner" class="header-base">
@@ -37,8 +37,10 @@
       </ul>
     </nav>
 
-    <main role="main">
-      <h2 class="content">Title of main content area</h2>
+    <main role="main" aria-label="Content">
+      <h2 class="content">
+        Title of main content area
+      </h2>
       <article role="article">
         <div class="content">
           <h3>Article Title</h3>
@@ -103,7 +105,7 @@
       </aside>
     </main>
 
-    <footer role="contentinfo" class="footer-base">
+    <footer class="footer-base">
       <div class="content">
         <p>Footer content goes here.</p>
       </div>
