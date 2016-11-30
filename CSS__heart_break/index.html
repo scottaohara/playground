@@ -1,52 +1,55 @@
 <!doctype html>
-<html>
+<html lang="en-us">
   <head>
     <meta charset="utf-8" />
     <title>Heart (Break)</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      label span { display: block; }
+    </style>
   </head>
 
   <body>
-    <div class="intro-message">
+    <p class="intro-message">
       Click the heart to break it. :(
-    </div>
-    <input type="checkbox" id="heart" style="position: absolute; display: none;" />
+    </p>
+    
+    <input type="checkbox" id="heart" style="position: absolute; display: none;">
+    
     <label for="heart" class="heart-circle">
-      <div class="heart-container">
+      <span class="heart-container">
 
-        <div class="left-side sides">
+        <span class="left-side sides">
 
-          <div class="half">
-            <div class="heart"></div>
-          </div> <!-- end .half -->
+          <span class="half">
+            <span class="heart"></span>
+          </span> <!-- end .half -->
 
-          <div class="points">
-            <div class="point pt1"></div>
-            <div class="point pt4"></div>
-            <div class="point pt2"></div>
-            <div class="point pt3"></div>
-          </div> <!-- end .points -->
+          <span class="points">
+            <span class="point pt1"></span>
+            <span class="point pt4"></span>
+            <span class="point pt2"></span>
+            <span class="point pt3"></span>
+          </span> <!-- end .points -->
 
-        </div> <!-- end .left-side -->
+        </span> <!-- end .left-side -->
 
-        <div class="right-side sides">
+        <span class="right-side sides">
 
-          <div class="half">
-            <div class="heart"></div>
-          </div> <!-- end .half -->
+          <span class="half">
+            <span class="heart"></span>
+          </span> <!-- end .half -->
 
-          <div class="points">
-            <div class="point pt1"></div>
-            <div class="point pt2"></div>
-            <div class="point pt3"></div>
-          </div> <!-- end .points -->
+          <span class="points">
+            <span class="point pt1"></span>
+            <span class="point pt2"></span>
+            <span class="point pt3"></span>
+          </span> <!-- end .points -->
 
-        </div> <!-- end .right-side -->
+        </span> <!-- end .right-side -->
 
-      </div> <!-- end .heart-container -->
+      </span> <!-- end .heart-container -->
     </label>
-
-
 
   </body>
 </html>
