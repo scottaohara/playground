@@ -13,19 +13,24 @@
       The submit button won't accept click events until a radio button is selected.
     </p>
 
-    <form>
-      <div>
-        <input type="radio" name="example" class="choices" id="ex1" value="1" />
-        <label for="ex1">Label 1</label>
-      </div>
-      <div>
-        <input type="radio" name="example" class="choices" id="ex2" value="2" />
-        <label for="ex2">Label 2</label>
-      </div>
-      <div>
-        <input type="radio" name="example" class="choices" id="ex3" value="3" />
-        <label for="ex3">Label 3</label>
-      </div>
+    <form action="#!" method="post">
+      <fieldset>
+        <legend>
+           Legend for the Radio Group
+        </legend>
+        <div>
+          <input type="radio" name="example" class="choices" id="ex1" value="1" />
+          <label for="ex1">Label 1</label>
+        </div>
+        <div>
+          <input type="radio" name="example" class="choices" id="ex2" value="2" />
+          <label for="ex2">Label 2</label>
+        </div>
+        <div>
+          <input type="radio" name="example" class="choices" id="ex3" value="3" />
+          <label for="ex3">Label 3</label>
+        </div>
+      </fieldset>
 
       <input type="submit" id="next" value="Submit" disabled />
     </form>
