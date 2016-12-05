@@ -1,7 +1,7 @@
 <!doctype>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Update the content plz</title>
   </head>
   <body>
@@ -19,28 +19,28 @@
     <script>
 
     // Wrap in closure to contain scope
-    (function() {
+    ;(function() {
 
       // A more flexible get function
       // Get by ID, Class or HTML elements
       var $ = function(elm, selector) {
-            if (elm === 'byClass') {
-              return document.getElementsByClassName(selector);
-            }
+        if (elm === 'byClass') {
+          return document.getElementsByClassName(selector);
+        }
 
-            else if (elm === 'byId') {
-              return document.getElementById(selector);
-            }
+        else if (elm === 'byId') {
+          return document.getElementById(selector);
+        }
 
-            else if (elm === 'byTag') {
-              return document.getElementsByTagName(selector);
-            }
-          },
+        else if (elm === 'byTag') {
+          return document.getElementsByTagName(selector);
+        }
+      };
 
+      
       // Declare variables to store content
-      myContainer = $('byId', 'foo'),
-      myContent = $('byId', 'foo').innerHTML;
-
+      var myContainer = $('byId', 'foo'),
+      var myContent = $('byId', 'foo').innerHTML;
 
 
       $('byId', 'edit').addEventListener('click', function() {
@@ -53,8 +53,8 @@
         else {
           myContainer.innerHTML=myContentUpdated;
 
-          var btn1 = document.createElement('button'),
-              txt1 = document.createTextNode('Revert content?');
+          var btn1 = document.createElement('button');
+          var txt1 = document.createTextNode('Revert content?');
 
           btn1.setAttribute('type', 'button');
           btn1.appendChild(txt1);
