@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Simple AI Chat Bot Demo with Web Speech API">
+    <title>simple ai demo with web speech api</title>
+    <script>
+      // remove no-js and add 'js' to the HTML
+      document.documentElement.className = document.documentElement.className.replace('no-js','js');
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+
+  <body>
+
+    <div class="app">
+      <header>
+        <h1>
+          Simple AI Bot: Talk to me
+        </h1>
+      </header>
+      <main aria-label="content">
+        <p>
+          <button type="button" id="init_speech">
+            Speak, human
+          </button>
+        </p>
+
+        <div>
+          <p>You said:
+            <em class="output output--you">...</em>
+          </p>
+          <p>Bot replied:
+            <em class="output output--bot">...</em>
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+    <script src="js/script.js"></script>
+
+  </body>
+</html>
