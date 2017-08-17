@@ -1,0 +1,34 @@
+
+<h2>
+  {{githubAuthor}} GitHub projects:
+</h2>
+
+{{#if repos.length}}
+  <table class="table table-bordered table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>URL</th>
+    </tr>
+    {{#each repos}}
+      <tr>
+        <th class="col-md-3">{{name}}</th>
+        <td class="col-md-6">{{description}}</td>
+        <td class="col-md-3">
+          <a href={{html_url}}>
+            {{html_url}}
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+{{else}}
+  <p><strong>No repos found.</strong></p>
+  <p>Try to get repos for an existing user. For example
+    <a
+      href="http://localhost:3000/users/scottaohara/repos?token=SOME-KEY-HERE"
+    >
+      http://localhost:3000/users/scottaohara/repos?token=SOME-KEY-HERE
+    </a>
+  </p>
+{{/if}}
