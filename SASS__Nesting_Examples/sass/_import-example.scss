@@ -13,7 +13,8 @@
     padding: 8px;
     text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background: #000;
       color: #fff;
     }

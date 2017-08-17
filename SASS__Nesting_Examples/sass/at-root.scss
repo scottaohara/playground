@@ -1,7 +1,11 @@
+/**
+ * @at-root Nesting Examples
+ */
 .nav {
   background: #000;
 
   @at-root {
+
     .nav-list {
       color: #fff;
       overflow: hidden;
@@ -21,13 +25,8 @@
           .nav-list-alt__ex1 {
             color: #ccc;
           }
-
         } // end @at-root [2]
-
       }
-
     } // end @at-root [1]
-
   } // end .nav-list-alt
-
 }

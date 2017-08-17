@@ -3,7 +3,8 @@ a {
   background-color: transparent;
   color: #f00;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: darken(#f00, 20%);
     outline: none;
   }
