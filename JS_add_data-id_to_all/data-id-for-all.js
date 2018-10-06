@@ -10,7 +10,6 @@
 	var setDataID = function () {
 		var self;
 		var all = doc.querySelectorAll('*');
-		var i;
 
 		/**
 		 * Loop through all elements.
@@ -18,11 +17,11 @@
 		 * then just move on.
 		 * If no data-id exists, generate a random one.
 		 */
-		for ( i = 0; i < all.length; i++ ) {
+		for ( var i = 0; i < all.length; i++ ) {
 			self = all[i];
 
 			if ( self.hasAttribute('data-id') ) {
-				alert('move on');
+				console.log('move on');
 			}
 			else {
 				self.setAttribute('data-id', 'id_' + Math.floor(Math.random() * 999) + 1);
