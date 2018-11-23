@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Check for OS Script</title>
+
+    <style>
+      .iam {
+        display: none;
+      }
+
+      [data-os='mac'] .mac,
+      [data-os='windows'] .windows,
+      [data-os='mac'] .mac,
+      [data-os='windows'] .windows,
+      [data-device='desktop'] .desktop,
+      [data-device='touch'] .touch,
+      [data-device='touch'][data-os='mac'] .ios {
+        display: inline-block;
+      }
+
+      [data-device='touch'][data-os='mac'] .mac {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body id="body">
+    <p>
+      You're using
+      <span class="iam mac">a Mac</span>
+      <span class="iam ios">an iOS</span>
+      <span class="iam windows">a Windows</span>
+      <span class="iam touch">touch device</span>
+      <span class="iam desktop">desktop or laptop</span>
+    </p>
+
+    <script src="js.js"></script>
+  </body>
+
+</html>
