@@ -4,8 +4,8 @@
   // the data state on
   var btn = document.querySelector('.btn-wrapper');
 
-  // set initial aria-pressed state for button
-  btn.setAttribute('aria-pressed', 'false');
+  // set initial aria-expanded state for button
+  btn.setAttribute('aria-expanded', 'false');
 
 
   // Toggle between data state one and two
@@ -19,7 +19,7 @@
   // toggle states on click
   btn.onclick = function(e) {
     toggleState('.btn-burger', 'data-state', 'off', 'on');
-    toggleState('.btn-wrapper', 'aria-pressed', 'false', 'true');
+    toggleState('.btn-wrapper', 'aria-expanded', 'false', 'true');
     e.preventDefault();
   }
 
