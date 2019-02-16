@@ -6,9 +6,9 @@
 html, body {
   background: #f1f1f1;
   font-size: 18px;
-  padding: 0;
-  margin: 0;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .page {
@@ -23,7 +23,6 @@ html, body {
 
 .header-base {
   color: #fff;
-
   line-height: 200px;
   text-align: center;
 }
@@ -41,11 +40,11 @@ html, body {
 
 
 .header-base__content {
+  animation: shrink .75s .75s forwards;
+  font-size: 12px;
   height: 200px;
   margin: auto;
   max-width: 200px;
-  font-size: 12px;
-  animation: shrink .75s .75s forwards;
 }
 
 
@@ -76,15 +75,16 @@ html, body {
 
 
 .header-base__title {
+  font-size: 120%;
   font-weight: 100;
   margin: 0;
 }
 
 .content-base {
-  max-width: 700px;
   margin: auto;
-  padding: 12px;
+  max-width: 700px;
   min-height: 75vh;
+  padding: 12px;
 }
 
 .footer-base {
@@ -143,9 +143,9 @@ html, body {
 
 @keyframes shrink {
   to {
+    font-size: 20px;
     height: auto;
     max-width: 100%;
-    font-size: 20px;
   }
 }
 
