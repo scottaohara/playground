@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Get text</title>
+	</head>
+	<body>
+		<h1>Getting text-only from HTML</h1>
+
+		<h2>Example 1: from the DOM</h2>
+		<p>The following HTML block will be grabbed by the JavaScript and then returned to the designated output element as just text.</p>
+
+		<div style="border: 1px solid #333; padding: .5em" id="ex_test">
+			<ul>
+				<li>A list item.</li>
+				<li>A second list item.</li>
+			</ul>
+			<p>A paragraph.</p>
+			<aside>
+				<div>
+					<span>
+						<i>Italic text within a span, within a div, within an aside.</i>
+					</span>
+				</div>
+			</aside>
+		</div>
+
+		<h3>Output example 1:</h3>
+		<div id="ex_1"></div>
+
+
+		<h2>Example 2: from a string</h2>
+		<p>Using a modified version of the markup from the first example, the markup already exists as a string in a <code>var</code>.  The HTML elements will be stripped out and the text content alone will be populated into the output example 2 element.</p>
+
+		<h3>Output example 2:</h3>
+		<div id="ex_2"></div>
+
+		<script>
+			var ex1 = document.getElementById('ex_1');
+			var ex2 = document.getElementById('ex_2');
+			var ex1Test = document.getElementById('ex_test');
+			var htmlString = '<div><p>Hi there, I\'m a paragraph.</p> <ul><li>A list item. </li><li>A second list item. </li></ul> <aside><div><span><i>If you need to support older IE, you may need to use innerText rather than textContent.</i></span></div></aside></div>';
+
+
+			var grabTest = function () {
+				var collectText = ex1Test.textContent;
+				console.log('Example 1: ' + collectText);
+
+				ex1.textContent = collectText;
+			};
+
+
+			var stringTest = function () {
+				var temp = document.createElement('div');
+				var getText;
+
+				temp.innerHTML = htmlString;
+				getText = temp.textContent;
+
+				console.log('Example 2: ' + getText);
+				ex2.textContent = getText;
+			};
+
+
+			grabTest();
+			stringTest();
+
+		</script>
+
+	</body>
+</html>
