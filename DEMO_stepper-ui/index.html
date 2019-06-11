@@ -1,0 +1,199 @@
+<header>
+  <div class="flex">
+    <p><a href="#">logo</a></p>
+
+    <div>
+      <button aria-expanded="false">Menu</button>
+      <div>
+        <ul>
+          <li>...</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p class="step-indicator">
+    <span aria-live="polite" aria-atomic="true">
+      <span class="sr-only" role="presentation">Step: </span>
+      <span id="txt">1 of 4 </span>
+    </span>
+    <span aria-hidden="true" class="step-indicator__visualization">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </p>
+</header>
+
+<main>
+
+  <h1 id="topic" tabindex="-1">Primary topic of screen</h1>
+  <p>current step content goes here</p>
+
+  <div class="flex">
+    <p>
+      Current Value
+    </p>
+    <div>
+      <button id="back" aria-disabled="true">
+        Back
+      </button>
+      <button id="continue">
+        Continue
+      </button>
+    </div>
+  </div>
+</main>
+
+
+<style>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    background: #111;
+    margin: 0;
+    padding: 0;
+    color: #eee;
+    font-family: arial;
+  }
+
+  button {
+    font-size: inherit;
+  }
+  button[aria-disabled] {
+      opacity: .5;
+      cursor: not-allowed;
+  }
+
+  [aria-expanded="false"] + div {
+    display: none;
+  }
+
+  a {
+    color: #ddd;
+  }
+  a[href] {
+    color: lightblue;
+  }
+
+  button:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+
+  header,
+  main {
+    padding: 1em;
+  }
+
+  .flex,
+  .step-indicator__visualization {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .flex,
+  .step-indicator__visualization  > * {
+    margin: 0;
+  }
+
+  .step-indicator__visualization {
+    margin-top: .75em;
+  }
+  .step-indicator__visualization span {
+    height: 1em;
+    border: 1px solid #5d5d5d;
+    background: #5d5d5d;
+    width: 24%;
+    position: relative;
+  }
+  .step-indicator__visualization span:before {
+    border: 1px solid lightblue;
+    background: lightblue;
+    height: calc(100% + 2px);
+    width: 0%;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    content: '';
+    opacity: 0;
+  }
+
+  .step-indicator__visualization span:not(:first-child):before {
+    transition:
+      opacity .5s ease-in-out,
+      width .8s ease-in-out;
+  }
+
+  .step-indicator__visualization span:first-child:before,
+  .step-indicator__visualization span.stepped:before {
+    opacity: 1;
+    width: calc(100% + 2px);
+  }
+</style>
+
+<script>
+(function (doc, w, undefined) {
+  var con = doc.getElementById('continue');
+  var back = doc.getElementById('back');
+  var txt = doc.getElementById('txt');
+  var steps = doc.querySelectorAll('.step-indicator__visualization span');
+  var topic = doc.getElementById('topic')
+  var current = 0;
+
+  var addStep = function () {
+    current = current + 1;
+    steps[current].classList.add('stepped');
+
+    if ( current === 1 ) {
+      back.removeAttribute('aria-disabled');
+      back.addEventListener('click', removeStep, false);
+    }
+
+    if ( current <= steps.length-1 ) {
+      txt.textContent = (current + 1) + ' of ' + (steps.length);
+      topic.focus();
+    }
+
+    if ( current === steps.length-1 ) {
+      this.removeEventListener('click', addStep);
+      this.addEventListener('click', complete, false);
+    }
+
+    return current;
+  }
+
+
+  var complete = function () {
+    alert('moves to the next screen')
+  }
+
+
+  var removeStep = function () {
+    if ( current !== 0 ) {
+      steps[current].classList.remove('stepped');
+      current = current - 1;
+      txt.textContent = (current + 1) + ' of ' + (steps.length) ;
+
+      if ( current == 0 ) {
+        this.setAttribute('aria-disabled', 'true');
+        this.removeEventListener('click', removeStep);
+      }
+
+      if ( current === steps.length-2 ) {
+        con.removeEventListener('click', complete);
+        con.addEventListener('click', addStep, false);
+      }
+
+      return current;
+    }
+  }
+
+  con.addEventListener('click', addStep, false);
+})(document, window);
+</script>
