@@ -6,40 +6,34 @@
     <link rel="stylesheet" href="css.css" />
   </head>
   <body style="padding: 40px; box-sizing: border-box">
+    <p>
+      Activate one of the links.  It will change the styling of the animated
+      cat on screen.
+    </p>
 
-  <p>
-    What happens if you click "meow"?
-  </p>
+    <div class="container" id="cat">
+      <a href="#cat" class="words small">meow</a>
+      <a href="#grow_up" class="words big">unmeow</a>
 
-  <div class="container" id="cat">
-
-    <a href="#cat" class="words small">meow</a>
-    <a href="#grow_up" class="words big">unmeow</a>
-
-    <div class="head">
-      <div class="head--inner-ears"></div>
-
-      <div class="head--inner">
-        <div class="head--nose-eyes"></div>
-        <div class="head--whiskers"></div>
-
-        <div class="head--mouth__outer">
-          <div class="head--mouth__inner"></div>
+      <div role="img" aria-label="cat animated css illustration">
+        <div class="head">
+          <div class="head--inner-ears"></div>
+          <div class="head--inner">
+            <div class="head--nose-eyes"></div>
+            <div class="head--whiskers"></div>
+            <div class="head--mouth__outer">
+              <div class="head--mouth__inner"></div>
+            </div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="body--arm__left"></div>
+          <div class="body--arm__right"></div>
+          <div class="body--leg__left"></div>
+          <div class="body--leg__right"></div>
+          <div class="body--tail"></div>
         </div>
       </div>
-
     </div>
-
-    <div class="body">
-      <div class="body--arm__left"></div>
-      <div class="body--arm__right"></div>
-      <div class="body--leg__left"></div>
-      <div class="body--leg__right"></div>
-      <div class="body--tail"></div>
-    </div>
-
-  </div>
-
-
   </body>
 </html>
