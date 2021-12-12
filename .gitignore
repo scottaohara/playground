@@ -1,7 +1,0 @@
-.DS_Store
-
-.sass-cache
-/NODE_JS_Speech-api/node_modules
-/NODE_JS_Speech-api/project.sublime-workspace
-/NODE_JS_Speech-api/project.sublime-project
-/NODE_JS_Speech-api/.env
