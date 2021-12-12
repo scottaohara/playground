@@ -1,33 +1,34 @@
 <!doctype HTML>
-<html lang="en-us">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Download Link</title>
+    <meta charset="utf-8">
+    <title>Download Link styling</title>
     <style>
       body {
         font-family: arial;
       }
 
       [download] {
-        border: 1px solid #ccc;
-        color: #888;
+        background: #fff;
+        border: 1px solid #676767;
+        color: #676767;
         display: inline-block;
-        font-size: 18px;
-        padding: 8px 16px;
+        font-size: 1.125em;
+        padding: .5em 1em;
         text-decoration: none;
       }
 
       [download]:hover,
       [download]:focus {
-        background: #eee;
-        color: #333;
+        background: #222;
+        color: #eee;
       }
     </style>
   </head>
-
   <body>
-
-    <a href="index.html" download="source.html">Click to Download</a>
-
+    <p>
+      Using CSS to style a link with a <code>download</code> attribute.
+    </p>
+    <a href="index.html" download="source.html">Download this index file</a>
   </body>
 </html>
